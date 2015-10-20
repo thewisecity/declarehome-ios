@@ -91,20 +91,22 @@ class MessageUIView: UIView {
         plusButton.hidden = false
         isExpanded = false
     }
-    
-//    private void cancelMessageCreation() {
-//    mChosenAlertCategory = null;
-//    unselectAllCheckedGroups();
-//    //        mSelectedGroupsForAlert.clear();
-//    hidePickGroupsForAlert();
-//    hidePickAlertTypeForAlert();
-//    configureMessageCompositionAreaForAlertCategory(null);
-//    clearMessageText();
-//    App.hideKeyboard(this.getActivity());
-//    mPlusButton.setVisibility(View.VISIBLE);
-//    mEditTextLayout.setVisibility(View.GONE);
-//    showPostMessageButtons(false);
-//    }
+
+    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool
+    {
+        print("Subview count: \(subviews.count)")
+        var absorbTouch = false
+        for v:UIView in subviews
+        {
+            if v.hitTest(convertPoint(point, toView: v), withEvent: event) != nil
+            {
+                print("Taking touch")
+                absorbTouch = true
+                break
+            }
+        }
+        return absorbTouch
+    }
     
     func showPickerAlertTypeForAlert() -> Void {
         print("Show alert type picker here")
