@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func registerSubclasses() -> Void {
         Group.registerSubclass()
-        Group()
+//        Group()
         User.registerSubclass()
-        User()
+//        User()
         AlertCategory.registerSubclass()
-        AlertCategory()
+//        AlertCategory()
         Message.registerSubclass()
-        Message()
+//        Message()
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

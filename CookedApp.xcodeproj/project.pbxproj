@@ -38,6 +38,9 @@
 		394219401BD029CC00F06ADF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219411BD02C3300F06ADF /* MessageWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */; };
 		39B1BE811BD0388800E30EFF /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729161BD70A29003F451B /* AlertCategoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,9 @@
 		3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageWallViewController.swift; path = ViewControllers/MessageWallViewController.swift; sourceTree = "<group>"; };
 		3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = ViewControllers/RegistrationViewController.swift; sourceTree = "<group>"; };
 		39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ViewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
+		39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewController.swift; path = TableViewControllers/AlertCategoriesTableViewController.swift; sourceTree = "<group>"; };
+		39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewDelegate.swift; path = Delegates/AlertCategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
+		39C729161BD70A29003F451B /* AlertCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoryCell.swift; path = TableViewCells/AlertCategoryCell.swift; sourceTree = "<group>"; };
 		39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIViewDelegate.swift; path = Delegates/MessageUIViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +142,7 @@
 				393672C31BD058DD006647C9 /* NavigationDelegate.swift */,
 				393672C91BD0E974006647C9 /* MessageUIView.swift */,
 				39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */,
+				39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */,
 			);
 			path = CookedApp;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3942192F1BCF151C00F06ADF /* MessageTableViewController.swift */,
+				39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */,
 				394219091BCDD6B800F06ADF /* GroupsTableViewController.swift */,
 			);
 			name = TableViews;
@@ -154,6 +162,7 @@
 			children = (
 				3942190B1BCDD75E00F06ADF /* GroupCell.swift */,
 				394219351BCF174400F06ADF /* MessageCell.swift */,
+				39C729161BD70A29003F451B /* AlertCategoryCell.swift */,
 			);
 			name = "TableView Cells";
 			sourceTree = "<group>";
@@ -290,11 +299,14 @@
 				3942190A1BCDD6B900F06ADF /* GroupsTableViewController.swift in Sources */,
 				3942193D1BD029CC00F06ADF /* GroupDetailsViewController.swift in Sources */,
 				394219321BCF159C00F06ADF /* Message.swift in Sources */,
+				39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */,
 				393672CA1BD0E974006647C9 /* MessageUIView.swift in Sources */,
 				394219211BCE4AFA00F06ADF /* Validation.swift in Sources */,
 				3942190C1BCDD75E00F06ADF /* GroupCell.swift in Sources */,
 				394219301BCF151C00F06ADF /* MessageTableViewController.swift in Sources */,
 				393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */,
+				39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */,
+				39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */,
 				394219241BCEF53900F06ADF /* User.swift in Sources */,
 				39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */,
 			);

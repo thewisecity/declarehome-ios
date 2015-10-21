@@ -19,7 +19,22 @@ class MessageCell: PFTableViewCell {
                 authorName.text = user.displayName
             }
             
-            messageText.text = message?.body
+            // Remove all attributes and text
+            messageText.attributedText = NSAttributedString(string: "S")
+            messageText.text = ""
+            
+            if let category: AlertCategory = message?.category
+            {
+                let str = category.getAttributedTitleString()
+                str.appendAttributedString(NSAttributedString(string: " " + (message?.body)!))
+                messageText.attributedText = str
+            }
+            else
+            {
+                messageText.text = message?.body
+            }
+            
+            
         }
     }
     

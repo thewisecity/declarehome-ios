@@ -8,9 +8,18 @@
 
 import UIKit
 
-class MessageWallViewController: UIViewController, NavigationDelegate, MessageUIViewDelegate {
+class MessageWallViewController: UIViewController, NavigationDelegate, MessageUIViewDelegate, AlertCategoriesTableViewDelegate {
     
     var group: Group!
+    
+    var chosenCategory: AlertCategory? {
+        didSet {
+            if let chosenCategory = chosenCategory
+            {
+                messageUI.showAlertComposition()
+            }
+        }
+    }
     
     @IBOutlet weak var messageUI : MessageUIView!
     
@@ -49,23 +58,30 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         
         messageTextField = UITextField(frame: CGRect(x: 0, y: UIApplication.sharedApplication().delegate!.window!!.frame.height, width: UIApplication.sharedApplication().delegate!.window!!.frame.width, height: 30))
         messageTextField?.placeholder = "Message Text"
+        messageTextField?.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(messageTextField!)
         messageTextField?.delegate = self
         self.view.bringSubviewToFront(messageTextField!)
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(messagesTableViewController, selector: "loadObjects", name: Message.NOTIFICATION_POST_MESSAGE_SUCCEEDED, object: nil)
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(messagesTableViewController, selector: "loadObjects", name: Message.NOTIFICATION_POST_MESSAGE_SUCCEEDED, object: nil)
+    }
+    
     override func viewWillDisappear(animated: Bool)
     {
+        super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().removeObserver(messagesTableViewController)
     }
@@ -126,29 +142,50 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
                 destinationController.user = authorOfSelectedMessage
             }
         }
+        
+        if let destinationController = segue.destinationViewController as? AlertCategoriesTableViewController
+        {
+            destinationController.delegate = self
+        }
     }
     
+    /*
+     * This is where we actually send our message depending on the context!
+     * Either that, or we just erase our present category and return
+     */
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         
-        //Place holder
-        let chosenAlertCategoryIsNull = true
+        // First we want to find out if the textfield is blank
+        let messageText = getTrimmedMessageTextWithoutCategoryTitle()
+        let messageIsLegal = (messageText != nil && messageText!.isEmpty == false)
         
-        if(chosenAlertCategoryIsNull)
+        if(messageIsLegal)
         {
-            let messageIsLegal = (textField.text != nil && textField.text?.isEmpty == false)
-            if(messageIsLegal)
+            // We're going to post a message. Just need to find out if it's a regular message or an alert
+            if(chosenCategory == nil)
             {
-                postNewMessage(textField.text)
+                postNewMessage(messageText)
             }
-            textField.endEditing(true)
-        }
-        else
-        {
-            print("Here is where we will post a new alert")
+            else
+            {
+                postNewAlert(chosenCategory!, messageBody: messageText)
+            }
         }
         
+        
+        textField.endEditing(true)
         return false
+    }
+    
+    func getTrimmedMessageTextWithoutCategoryTitle() -> String?{
+        var str: String? = messageTextField?.text
+        if chosenCategory != nil
+        {
+            str = str?.stringByReplacingOccurrencesOfString(chosenCategory!.title, withString: "")
+        }
+        str = str?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return str
     }
     
     func textFieldDidChange() -> Void
@@ -174,7 +211,7 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     
     func postNewAlert(category:AlertCategory, messageBody: String?)
     {
-        
+        Message.postNewAlert(PFUser.currentUser() as! User, groups: [group], body: messageBody!, category: chosenCategory!)
     }
     
     func plusButtonTouched()
@@ -185,10 +222,56 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     func alertButtonTouched()
     {
         print("Alert button touched")
+        performSegueWithIdentifier("ViewAlertCategoriesList", sender: self)
+        
     }
     
     func messageButtonTouched()
     {
         print("Message button touched")
     }
+    
+    // MARK –– AlertCategoriesTableView Delegate methods
+    
+    func chooseAlertCategory(category: AlertCategory?) -> Void
+    {
+        self.navigationController?.popViewControllerAnimated(true)
+        print("Chose an alert category in delegate")
+        print(category?.title)
+        chosenCategory = category
+    }
+    
+    
+    /**
+     * This is how we prevent the user from deleting category title text from the uitextview
+     */
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        var tryingToEditCategoryTitle = false
+        
+        if chosenCategory != nil
+        {
+            let categoryLength = chosenCategory?.title.characters.count
+            if range.location <= categoryLength
+            {
+                tryingToEditCategoryTitle = true
+            }
+        }
+        
+        return !tryingToEditCategoryTitle
+    }
+    
+//    - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//    {
+//    NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+//    NSLog(@"resulting string would be: %@", resultString);
+//    NSString *prefixString = @"blabla";
+//    NSRange prefixStringRange = [resultString rangeOfString:prefixString];
+//    if (prefixStringRange.location == 0) {
+//    // prefix found at the beginning of result string
+//    return YES;
+//    }
+//    return NO;
+//    }
+    
 }

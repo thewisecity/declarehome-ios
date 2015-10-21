@@ -8,6 +8,7 @@
 
 protocol MessageUIViewDelegate : UITextFieldDelegate{
     var messageTextField: UITextField? {get set}
+    var chosenCategory: AlertCategory? {get set}
     func plusButtonTouched() -> Void
     func alertButtonTouched() -> Void
     func messageButtonTouched() -> Void
