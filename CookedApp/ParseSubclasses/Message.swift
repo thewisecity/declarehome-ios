@@ -10,6 +10,7 @@ class Message : PFObject, PFSubclassing {
     
     static var _BODY: String = "body"
     static var _GROUPS: String = "groups"
+    static var _IS_ALERT: String = "isAlert"
     static var _AUTHOR: String = "author"
     static var _AUTHOR_ADMIN_ARRAY = "author.adminofArray"
     static var _AUTHOR_MEMBER_ARRAY = "author.memberOfArray"

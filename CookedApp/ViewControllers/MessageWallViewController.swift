@@ -61,6 +61,9 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         messageTextField?.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(messageTextField!)
         messageTextField?.delegate = self
+        messageTextField?.returnKeyType = UIReturnKeyType.Done
+        // UNCOMMENT this to re-enable partial (read: broken) implementaiton of changing return key while editing
+//        messageTextField?.addTarget(self, action: "textFieldDidChange", forControlEvents: UIControlEvents.EditingChanged)
         self.view.bringSubviewToFront(messageTextField!)
         
         
@@ -188,17 +191,35 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         return str
     }
     
-    func textFieldDidChange() -> Void
-    {
-        if(messageTextField?.text == nil || (messageTextField?.text?.isEmpty == true))
-        {
-            messageTextField?.returnKeyType = UIReturnKeyType.Done
-        }
-        else
-        {
-            messageTextField?.returnKeyType = UIReturnKeyType.Send
-        }
-    }
+    
+    //TODO: Get this working. Not quite there yet
+    
+//    func textFieldDidChange() -> Void
+//    {
+//        var textSansCategory:String? = messageTextField?.text;
+//        
+//        if(chosenCategory != nil){
+//            textSansCategory = textSansCategory?.stringByReplacingOccurrencesOfString((chosenCategory?.title)!, withString: "");
+//        }
+//        
+//        
+//        if(textSansCategory == nil || (textSansCategory!.isEmpty == true))
+//        {
+//            messageTextField?.returnKeyType = UIReturnKeyType.Done
+//            messageTextField?.resignFirstResponder()
+//            messageTextField?.becomeFirstResponder()
+//            self.reloadInputViews()
+//            messageTextField?.reloadInputViews()
+//        }
+//        else
+//        {
+//            messageTextField?.returnKeyType = UIReturnKeyType.Send
+//            messageTextField?.resignFirstResponder()
+//            messageTextField?.becomeFirstResponder()
+//            self.reloadInputViews()
+//            messageTextField?.reloadInputViews()
+//        }
+//    }
     
     
     // MARK –– MessageUI Delegate methods
