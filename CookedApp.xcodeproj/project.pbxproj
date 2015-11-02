@@ -37,7 +37,9 @@
 		3942193E1BD029CC00F06ADF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193A1BD029CC00F06ADF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219401BD029CC00F06ADF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219411BD02C3300F06ADF /* MessageWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */; };
+		39AF89441BE80D8D00EBDDAE /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39B1BE811BD0388800E30EFF /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		39BE1CCC1BD84D990060DB2A /* AlertsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE1CCB1BD84D990060DB2A /* AlertsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729161BD70A29003F451B /* AlertCategoryCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -79,7 +81,9 @@
 		3942193A1BD029CC00F06ADF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageWallViewController.swift; path = ViewControllers/MessageWallViewController.swift; sourceTree = "<group>"; };
 		3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = ViewControllers/RegistrationViewController.swift; sourceTree = "<group>"; };
+		39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyGroupsTableViewController.swift; path = TableViewControllers/MyGroupsTableViewController.swift; sourceTree = "<group>"; };
 		39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ViewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
+		39BE1CCB1BD84D990060DB2A /* AlertsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertsTableViewController.swift; path = TableViewControllers/AlertsTableViewController.swift; sourceTree = "<group>"; };
 		39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewController.swift; path = TableViewControllers/AlertCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewDelegate.swift; path = Delegates/AlertCategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
 		39C729161BD70A29003F451B /* AlertCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoryCell.swift; path = TableViewCells/AlertCategoryCell.swift; sourceTree = "<group>"; };
@@ -151,8 +155,10 @@
 			isa = PBXGroup;
 			children = (
 				3942192F1BCF151C00F06ADF /* MessageTableViewController.swift */,
+				39BE1CCB1BD84D990060DB2A /* AlertsTableViewController.swift */,
 				39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */,
 				394219091BCDD6B800F06ADF /* GroupsTableViewController.swift */,
+				39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */,
 			);
 			name = TableViews;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			files = (
 				394219411BD02C3300F06ADF /* MessageWallViewController.swift in Sources */,
 				3942193E1BD029CC00F06ADF /* LoginViewController.swift in Sources */,
+				39BE1CCC1BD84D990060DB2A /* AlertsTableViewController.swift in Sources */,
 				394218B91BCC3ECD00F06ADF /* AppDelegate.swift in Sources */,
 				394219361BCF174400F06ADF /* MessageCell.swift in Sources */,
 				394219341BCF167000F06ADF /* AlertCategory.swift in Sources */,
@@ -302,6 +309,7 @@
 				39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */,
 				393672CA1BD0E974006647C9 /* MessageUIView.swift in Sources */,
 				394219211BCE4AFA00F06ADF /* Validation.swift in Sources */,
+				39AF89441BE80D8D00EBDDAE /* MyGroupsTableViewController.swift in Sources */,
 				3942190C1BCDD75E00F06ADF /* GroupCell.swift in Sources */,
 				394219301BCF151C00F06ADF /* MessageTableViewController.swift in Sources */,
 				393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */,
