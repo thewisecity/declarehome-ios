@@ -27,49 +27,16 @@ class MyGroupsTableViewController: GroupsTableViewController {
     }
     
     override func queryForTable() -> PFQuery {
-//        let query = PFQuery(className: self.parseClassName!)
-//        query.orderByAscending("city")
-        
-        
-        
-//        ParseRelation adminRel = currentUser.getRelation("adminOf");
-//        ParseRelation memberRel = currentUser.getRelation("memberOf");
+
         var adminRel:PFRelation?  = PFUser.currentUser()?.relationForKey("adminOf");
         var memberRel:PFRelation? = PFUser.currentUser()?.relationForKey("adminOf");
-//        
-//        ParseQuery adminOfQuery = adminRel.getQuery();
-//        ParseQuery memberOfQuery = memberRel.getQuery();
         
         var adminOfQuery:PFQuery = (adminRel?.query())!
         var memberOfQuery:PFQuery = (memberRel?.query())!
-//        
-//        if(adminOfQuery.getClassName().equalsIgnoreCase("Group") == false) {
-//            try {
-//                currentUser.fetch();
-//                adminRel = currentUser.getRelation("adminOf");
-//                memberRel = currentUser.getRelation("memberOf");
-//                
-//                adminOfQuery = adminRel.getQuery();
-//                memberOfQuery = memberRel.getQuery();
-//                
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-//            
-//        }
-        
+
         let query = PFQuery.orQueryWithSubqueries([adminOfQuery, memberOfQuery])
         query.orderByAscending("city")
-//        
-//        List<ParseQuery<Group>> queries = new ArrayList<ParseQuery<Group>>();
-//        queries.add(adminOfQuery);
-//        queries.add(memberOfQuery);
-//        
-//        query = (ParseQuery<Group>) ParseQuery.or(queries);
-        
-        
-        
-        
+
         return query
     }
     

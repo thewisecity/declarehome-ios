@@ -52,8 +52,15 @@ class GroupsCheckboxTableViewController: PFQueryTableViewController, GroupCheckb
     
     override func queryForTable() -> PFQuery
     {
-        let query = PFQuery(className: self.parseClassName!)
+        var adminRel:PFRelation?  = PFUser.currentUser()?.relationForKey("adminOf");
+        var memberRel:PFRelation? = PFUser.currentUser()?.relationForKey("adminOf");
+        
+        var adminOfQuery:PFQuery = (adminRel?.query())!
+        var memberOfQuery:PFQuery = (memberRel?.query())!
+        
+        let query = PFQuery.orQueryWithSubqueries([adminOfQuery, memberOfQuery])
         query.orderByAscending("city")
+        
         return query
     }
     
@@ -76,14 +83,6 @@ class GroupsCheckboxTableViewController: PFQueryTableViewController, GroupCheckb
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let cell:GroupCheckboxCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! GroupCheckboxCell
-//        cell.checkSwitch.removeFromSuperview()
-//        cell.checkSwitch.setOn(true, animated: true)
-//        cell.checkSwitch.setNeedsDisplay()
-//        
-//        let selectedGroup = objectAtIndexPath(indexPath) as? Group
-        
-//        performSegueWithIdentifier("ViewMessageWallSegue", sender: selectedGroup)
     }
     
     // MARK: - Navigation
