@@ -45,26 +45,10 @@ class AlertCategoriesTableViewController: PFQueryTableViewController {
         if cell == nil {
             cell = AlertCategoryCell(style: .Default, reuseIdentifier: cellIdentifier)
         }
-        // Configure the cell to show todo item with a priority at the bottom
-//        if let category = object as? AlertCategory {
-//            cell?.category = category
-//        }
+
         return cell
     }
     
-    
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-//        let cellIdentifier = "GroupCell"
-//        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? GroupCell
-//        if cell == nil {
-//            cell = GroupCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
-//        }
-//        // Configure the cell to show todo item with a priority at the bottom
-//        if let group = object as? Group {
-//            cell?.group = group
-//        }
-//        return cell
-//    }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if let category = objectAtIndexPath(indexPath) as? AlertCategory {
@@ -77,18 +61,6 @@ class AlertCategoriesTableViewController: PFQueryTableViewController {
     }
         
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print(indexPath.row)
-//        print(self.objects?.count)
-//        if indexPath.row >= self.objects?.count {
-//            loadNextPage()
-//            return
-//        }
-//        
-//        let selectedMessage = objectAtIndexPath(indexPath) as? Message
-//        let author = selectedMessage?.author
-//        navDelegate.performSegueWithId("ViewUserDetailsSegue", sender: author)
-        //        performSegueWithIdentifier("ViewUserDetailsSegue", sender: self)
-        
         let selectedCategory = objectAtIndexPath(indexPath) as? AlertCategory
         delegate?.chooseAlertCategory(selectedCategory)
     }

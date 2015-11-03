@@ -98,6 +98,7 @@ class MessageUIView: UIView {
         //configureMessageCompositionAreaForAlertCategory()
         //clearMessageText()
         delegate?.chosenCategory = nil
+        delegate?.selectedGroups = nil
         configureMessageCompositionAreaForAlertCategory()
         delegate?.messageTextField?.attributedText = nil
         delegate?.messageTextField?.attributedText? = NSMutableAttributedString(string: "S")

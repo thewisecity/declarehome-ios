@@ -11,15 +11,16 @@ import UIKit
 class MessageWallViewController: UIViewController, NavigationDelegate, MessageUIViewDelegate, AlertCategoriesTableViewDelegate {
     
     var group: Group!
-    
-    var chosenCategory: AlertCategory? {
+    var selectedGroups: [Group]? {
         didSet {
-            if let chosenCategory = chosenCategory
+            if let selectedGroups = selectedGroups
             {
                 messageUI.showAlertComposition()
             }
         }
     }
+    
+    var chosenCategory: AlertCategory?
     
     @IBOutlet weak var messageUI : MessageUIView!
     
@@ -150,6 +151,11 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         {
             destinationController.delegate = self
         }
+        
+        if let destinationController = segue.destinationViewController as? GroupsCheckboxTableViewController
+        {
+            destinationController.delegate = self
+        }
     }
     
     /*
@@ -232,7 +238,7 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     
     func postNewAlert(category:AlertCategory, messageBody: String?)
     {
-        Message.postNewAlert(PFUser.currentUser() as! User, groups: [group], body: messageBody!, category: chosenCategory!)
+        Message.postNewAlert(PFUser.currentUser() as! User, groups: selectedGroups!, body: messageBody!, category: chosenCategory!)
     }
     
     func plusButtonTouched()
@@ -243,12 +249,15 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     func alertButtonTouched()
     {
         print("Alert button touched")
+        chosenCategory = nil
+        selectedGroups = nil
         performSegueWithIdentifier("ViewAlertCategoriesList", sender: self)
         
     }
     
     func messageButtonTouched()
     {
+        chosenCategory = nil
         print("Message button touched")
     }
     
@@ -260,6 +269,8 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         print("Chose an alert category in delegate")
         print(category?.title)
         chosenCategory = category
+        
+        performSegueWithIdentifier("ChooseGroupsForAlert", sender: self)
     }
     
     
@@ -280,6 +291,12 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         }
         
         return !tryingToEditCategoryTitle
+    }
+    
+    func finishedChoosingGroups(groups: [Group]) {
+        print("Finished choosing groups")
+        self.navigationController?.popViewControllerAnimated(true)
+        selectedGroups = groups
     }
     
 //    - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

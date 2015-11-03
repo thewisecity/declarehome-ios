@@ -314,6 +314,7 @@
                         <outlet property="messageUI" destination="R7N-L3-WAR" id="sIk-yB-k03"/>
                         <segue destination="iIA-Da-9Sr" kind="show" identifier="ViewUserDetailsSegue" id="LgZ-34-5SO"/>
                         <segue destination="EH0-Gw-tac" kind="show" identifier="ViewAlertCategoriesList" id="9T5-hv-hEl"/>
+                        <segue destination="cqH-Q0-bWg" kind="show" identifier="ChooseGroupsForAlert" id="gJ3-le-E3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJb-07-lqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -863,6 +864,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZ1-vw-TCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086" y="1764"/>
+        </scene>
+        <!--Groups Checkbox Table View Controller-->
+        <scene sceneID="RNC-wH-rK5">
+            <objects>
+                <tableViewController id="cqH-Q0-bWg" customClass="GroupsCheckboxTableViewController" customModule="CookedApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zka-mJ-5i7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCheckboxCell" rowHeight="54" id="fvq-sP-PRF" customClass="GroupCheckboxCell" customModule="CookedApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="54"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="GroupCell" tableViewCell="fvq-sP-PRF" id="jFQ-LJ-z5I">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Purpose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqO-EJ-Lgm">
+                                            <rect key="frame" x="83" y="21" width="446" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm9-R6-Jph">
+                                            <rect key="frame" x="83" y="0.0" width="425" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mET-Mp-axU">
+                                            <rect key="frame" x="8" y="11" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="checkboxSwitched:" destination="fvq-sP-PRF" eventType="valueChanged" id="Ale-OQ-JqV"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Jm9-R6-Jph" firstAttribute="top" secondItem="jFQ-LJ-z5I" secondAttribute="top" id="2lt-dw-ECw"/>
+                                        <constraint firstItem="XqO-EJ-Lgm" firstAttribute="leading" secondItem="mET-Mp-axU" secondAttribute="trailing" constant="26" id="91s-BX-DL1"/>
+                                        <constraint firstItem="mET-Mp-axU" firstAttribute="centerY" secondItem="jFQ-LJ-z5I" secondAttribute="centerY" id="Eyt-6V-p2A"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="mET-Mp-axU" secondAttribute="leading" id="NfM-S0-dW0"/>
+                                        <constraint firstItem="Jm9-R6-Jph" firstAttribute="leading" secondItem="mET-Mp-axU" secondAttribute="trailing" constant="26" id="oXP-iy-gaK"/>
+                                        <constraint firstItem="XqO-EJ-Lgm" firstAttribute="top" secondItem="Jm9-R6-Jph" secondAttribute="bottom" constant="1" id="w3N-Dz-6Pf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkSwitch" destination="mET-Mp-axU" id="xw4-6a-9lx"/>
+                                    <outlet property="nameLabel" destination="Jm9-R6-Jph" id="HTP-bw-pEd"/>
+                                    <outlet property="purposeLabel" destination="XqO-EJ-Lgm" id="oa5-ct-BFN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cqH-Q0-bWg" id="joW-Uh-1ec"/>
+                            <outlet property="delegate" destination="cqH-Q0-bWg" id="OJS-tu-bOS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hGx-pS-2aG"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="pullToRefreshEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="objectsPerPage">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="parseClassName" value="Group"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="paginationEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U8V-jv-zBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2858" y="1626"/>
         </scene>
     </scenes>
     <resources>

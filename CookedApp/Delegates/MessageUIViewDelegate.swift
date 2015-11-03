@@ -6,9 +6,10 @@
 //  Copyright © 2015 The Wise City. All rights reserved.
 //
 
-protocol MessageUIViewDelegate : UITextFieldDelegate{
+protocol MessageUIViewDelegate : UITextFieldDelegate, GroupCheckboxTableViewDelegate {
     var messageTextField: UITextField? {get set}
     var chosenCategory: AlertCategory? {get set}
+    var selectedGroups: [Group]? {get set}
     func plusButtonTouched() -> Void
     func alertButtonTouched() -> Void
     func messageButtonTouched() -> Void
