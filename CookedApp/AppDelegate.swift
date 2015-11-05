@@ -10,7 +10,7 @@ import UIKit
 import Social
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     
     var drawerController: DrawerController?
 
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func presentUserDetails() -> Void
+    func presentEditUserDetails() -> Void
     {
         
         
@@ -53,6 +53,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userDetailsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
         
     }
+    
+    func presentViewAllGroups() -> Void
+    {
+        print("View All Groups")
+    }
+
+    func presentCreateNewGroup() -> Void
+    {
+        print("Create new group")
+    }
+
+    func presentViewFAQ() -> Void
+    {
+        
+        let vc = UIViewController()
+        
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
+        vc.navigationItem.setLeftBarButtonItem(button, animated: true)
+        
+        let webV:UIWebView = UIWebView(frame: vc.view.frame)
+        vc.view.addSubview(webV)
+        
+        let nav = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
+        
+        webV.backgroundColor = UIColor.redColor()
+        
+        webV.loadRequest(NSURLRequest(URL: NSURL(string: "http://www.google.com")!))
+        webV.delegate = self
+        
+    }
+
+    func presentAboutDeclareHome() -> Void
+    {
+        
+        let vc = UIViewController()
+        
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
+        vc.navigationItem.setLeftBarButtonItem(button, animated: true)
+        
+        let webV:UIWebView = UIWebView(frame: vc.view.frame)
+        vc.view.addSubview(webV)
+        
+        let nav = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
+        
+        webV.backgroundColor = UIColor.redColor()
+        
+        webV.loadRequest(NSURLRequest(URL: NSURL(string: "http://www.yahoo.com")!))
+        webV.delegate = self
+        
+    }
+    
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
+    {
+        print(error?.description)
+    }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        return true
+    }
+
+    
     
     func closeDrawer() -> Void
     {

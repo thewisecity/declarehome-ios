@@ -15,7 +15,13 @@ class SideNavTableViewController: UITableViewController {
                     "Create A New Group",
                     "View FAQ",
                     "About Declare Home"]
-
+    
+    let EDIT_MY_PROFILE = 0
+    let VIEW_ALL_GROUPS = 1
+    let CREATE_NEW_GROUP = 2
+    let VIEW_FAQ = 3
+    let ABOUT_DECLARE_HOME = 4
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +60,30 @@ class SideNavTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        delegate.presentUserDetails()
+        
+        let selection = indexPath.row
+        
+        if selection == EDIT_MY_PROFILE
+        {
+            delegate.presentEditUserDetails()
+        }
+        else if selection == VIEW_ALL_GROUPS
+        {
+            delegate.presentViewAllGroups()
+        }
+        else if selection == CREATE_NEW_GROUP
+        {
+            delegate.presentCreateNewGroup()
+        }
+        else if selection == VIEW_FAQ
+        {
+            delegate.presentViewFAQ()
+        }
+        else if selection == ABOUT_DECLARE_HOME
+        {
+            delegate.presentAboutDeclareHome()
+        }
+        
     }
 
 

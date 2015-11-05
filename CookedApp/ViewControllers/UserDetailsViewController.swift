@@ -78,7 +78,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource {
         
         // Configure the cell to show todo item with a priority at the bottom
         if(allGroups.count > 0){
-            if let group = allGroups[indexPath.row] as? Group? {
+            if let group = allGroups[indexPath.row] as Group? {
                 cell?.group = group
             }
         }
