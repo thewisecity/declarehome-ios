@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var presentedViewController: UIViewController?
+    
     func segueToTabViewController() -> Void {
         
         let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
@@ -30,11 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController? = drawerController!
         
-        
-        
     }
     
-    func switchToUserDetails() -> Void
+    func presentUserDetails() -> Void
     {
         let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserDetailsVC") as! UserDetailsViewController
 
@@ -44,33 +44,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav = UINavigationController(rootViewController: userDetailsVC)
         
-        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "switchToDrawerController")
-
-        let item = nav.navigationItem
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
         
-        
-        self.window?.rootViewController?.navigationItem.setLeftBarButtonItem(button, animated: true)
-            
         self.window?.rootViewController?.presentViewController(nav, animated: true, completion: nil)
         
-        nav.navigationItem.setLeftBarButtonItem(button, animated: true)
-
+        userDetailsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
     }
     
-    func switchToDrawerController() -> Void
+    func dismissPresentedViewController() -> Void
     {
-        self.window?.rootViewController?.presentViewController(drawerController!, animated: true, completion: nil)
+        self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func registerSubclasses() -> Void {
         Group.registerSubclass()
-//        Group()
         User.registerSubclass()
-//        User()
         AlertCategory.registerSubclass()
-//        AlertCategory()
         Message.registerSubclass()
-//        Message()
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -79,10 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("BrndBVrRczElKefgG3TvjCk3JYxtd5GB2GMzKoEP", clientKey: "Xb7Pcc0lT2I3uJYNNoT6buaCuZ9dcvBMtCx9U5gw")
         
         
-        if let currentUser = PFUser.currentUser() {
-//            let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
-//            
-//            self.window?.rootViewController? = tabController
+        if let _ = PFUser.currentUser() {
             
             segueToTabViewController()
         }

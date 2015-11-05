@@ -54,7 +54,7 @@ class SideNavTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        delegate.switchToUserDetails()
+        delegate.presentUserDetails()
     }
 
 
