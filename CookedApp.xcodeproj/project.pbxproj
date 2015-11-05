@@ -37,6 +37,12 @@
 		3942193E1BD029CC00F06ADF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193A1BD029CC00F06ADF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219401BD029CC00F06ADF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219411BD02C3300F06ADF /* MessageWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */; };
+		395004261BEAC97400CCC720 /* AnimatedMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004201BEAC97400CCC720 /* AnimatedMenuButton.swift */; settings = {ASSET_TAGS = (); }; };
+		395004271BEAC97400CCC720 /* DrawerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004211BEAC97400CCC720 /* DrawerBarButtonItem.swift */; settings = {ASSET_TAGS = (); }; };
+		395004281BEAC97400CCC720 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004231BEAC97400CCC720 /* DrawerController.swift */; settings = {ASSET_TAGS = (); }; };
+		395004291BEAC97400CCC720 /* DrawerVisualState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004241BEAC97400CCC720 /* DrawerVisualState.swift */; settings = {ASSET_TAGS = (); }; };
+		3950042A1BEAC97400CCC720 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395004251BEAC97400CCC720 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		3950042C1BEACC5A00CCC720 /* SideNavTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950042B1BEACC5A00CCC720 /* SideNavTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF89441BE80D8D00EBDDAE /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF89481BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF894A1BE8229D00EBDDAE /* GroupCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -85,6 +91,13 @@
 		3942193A1BD029CC00F06ADF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageWallViewController.swift; path = ViewControllers/MessageWallViewController.swift; sourceTree = "<group>"; };
 		3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = ViewControllers/RegistrationViewController.swift; sourceTree = "<group>"; };
+		395004201BEAC97400CCC720 /* AnimatedMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedMenuButton.swift; sourceTree = "<group>"; };
+		395004211BEAC97400CCC720 /* DrawerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerBarButtonItem.swift; sourceTree = "<group>"; };
+		395004221BEAC97400CCC720 /* DrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerController.h; sourceTree = "<group>"; };
+		395004231BEAC97400CCC720 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
+		395004241BEAC97400CCC720 /* DrawerVisualState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerVisualState.swift; sourceTree = "<group>"; };
+		395004251BEAC97400CCC720 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3950042B1BEACC5A00CCC720 /* SideNavTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideNavTableViewController.swift; path = TableViewControllers/SideNavTableViewController.swift; sourceTree = "<group>"; };
 		39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyGroupsTableViewController.swift; path = TableViewControllers/MyGroupsTableViewController.swift; sourceTree = "<group>"; };
 		39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsCheckboxTableViewController.swift; path = TableViewControllers/GroupsCheckboxTableViewController.swift; sourceTree = "<group>"; };
 		39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxCell.swift; path = TableViewCells/GroupCheckboxCell.swift; sourceTree = "<group>"; };
@@ -166,6 +179,7 @@
 				39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */,
 				394219091BCDD6B800F06ADF /* GroupsTableViewController.swift */,
 				39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */,
+				3950042B1BEACC5A00CCC720 /* SideNavTableViewController.swift */,
 			);
 			name = TableViews;
 			sourceTree = "<group>";
@@ -184,6 +198,7 @@
 		3942191F1BCE2D2300F06ADF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3950041F1BEAC97400CCC720 /* DrawerController */,
 				3942191B1BCE2CF600F06ADF /* AudioToolbox.framework */,
 				394219191BCE2CC900F06ADF /* AVFoundation.framework */,
 				394219171BCE2C9900F06ADF /* SystemConfiguration.framework */,
@@ -229,6 +244,19 @@
 				39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3950041F1BEAC97400CCC720 /* DrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				395004201BEAC97400CCC720 /* AnimatedMenuButton.swift */,
+				395004211BEAC97400CCC720 /* DrawerBarButtonItem.swift */,
+				395004221BEAC97400CCC720 /* DrawerController.h */,
+				395004231BEAC97400CCC720 /* DrawerController.swift */,
+				395004241BEAC97400CCC720 /* DrawerVisualState.swift */,
+				395004251BEAC97400CCC720 /* Info.plist */,
+			);
+			path = DrawerController;
 			sourceTree = "<group>";
 		};
 		39F0E9BC1BE93C4100A27B21 /* Delegates */ = {
@@ -301,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3950042A1BEAC97400CCC720 /* Info.plist in Resources */,
 				394218C31BCC3ECD00F06ADF /* LaunchScreen.storyboard in Resources */,
 				394218C01BCC3ECD00F06ADF /* Assets.xcassets in Resources */,
 				394218BE1BCC3ECD00F06ADF /* Main.storyboard in Resources */,
@@ -337,10 +366,15 @@
 				394219301BCF151C00F06ADF /* MessageTableViewController.swift in Sources */,
 				393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */,
 				39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */,
+				395004271BEAC97400CCC720 /* DrawerBarButtonItem.swift in Sources */,
+				3950042C1BEACC5A00CCC720 /* SideNavTableViewController.swift in Sources */,
 				39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */,
+				395004291BEAC97400CCC720 /* DrawerVisualState.swift in Sources */,
 				39F0E9BE1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift in Sources */,
+				395004281BEAC97400CCC720 /* DrawerController.swift in Sources */,
 				394219241BCEF53900F06ADF /* User.swift in Sources */,
 				39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */,
+				395004261BEAC97400CCC720 /* AnimatedMenuButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

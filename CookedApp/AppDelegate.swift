@@ -11,6 +11,8 @@ import Social
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var drawerController: DrawerController?
 
     var window: UIWindow?
     
@@ -18,8 +20,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
         
-        self.window?.rootViewController?.presentViewController(tabController, animated: true, completion: nil)
+        let sideNav = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("SideNavController") as! SideNavTableViewController
         
+        drawerController = DrawerController(centerViewController: tabController, leftDrawerViewController: sideNav)
+        
+        drawerController!.maximumRightDrawerWidth = 200.0
+        drawerController!.openDrawerGestureModeMask = .All
+        drawerController!.closeDrawerGestureModeMask = .All
+        
+        self.window?.rootViewController? = drawerController!
+        
+        
+        
+    }
+    
+    func switchToUserDetails() -> Void
+    {
+        let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserDetailsVC") as! UserDetailsViewController
+
+        let user = PFUser.currentUser() as! User
+        
+        userDetailsVC.user = user
+        
+        let nav = UINavigationController(rootViewController: userDetailsVC)
+        
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "switchToDrawerController")
+
+        let item = nav.navigationItem
+        
+        
+        self.window?.rootViewController?.navigationItem.setLeftBarButtonItem(button, animated: true)
+            
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: nil)
+        
+        nav.navigationItem.setLeftBarButtonItem(button, animated: true)
+
+    }
+    
+    func switchToDrawerController() -> Void
+    {
+        self.window?.rootViewController?.presentViewController(drawerController!, animated: true, completion: nil)
     }
     
     func registerSubclasses() -> Void {
@@ -40,9 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if let currentUser = PFUser.currentUser() {
-            let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
+//            let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
+//            
+//            self.window?.rootViewController? = tabController
             
-            self.window?.rootViewController? = tabController
+            segueToTabViewController()
         }
         return true
     }

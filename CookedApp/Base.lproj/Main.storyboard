@@ -134,7 +134,7 @@
         <!--My Groups Table View Controller-->
         <scene sceneID="25e-ZS-bZX">
             <objects>
-                <tableViewController id="deX-78-3JS" customClass="MyGroupsTableViewController" customModule="CookedApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MyGroupsTable" id="deX-78-3JS" customClass="MyGroupsTableViewController" customModule="CookedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" id="YtN-tI-wMm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -387,7 +387,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3684" y="882"/>
+            <point key="canvasLocation" x="3943" y="874"/>
         </scene>
         <!--Choose a Category-->
         <scene sceneID="zMO-1m-34F">
@@ -443,7 +443,7 @@
         <!--User Details View Controller-->
         <scene sceneID="BIe-mK-YfR">
             <objects>
-                <viewController id="iIA-Da-9Sr" customClass="UserDetailsViewController" customModule="CookedApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDetailsVC" id="iIA-Da-9Sr" customClass="UserDetailsViewController" customModule="CookedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vda-EP-XFb"/>
                         <viewControllerLayoutGuide type="bottom" id="QAV-IA-hXS"/>
@@ -800,6 +800,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Q8-K8-VrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1022" y="978"/>
+        </scene>
+        <!--Side Nav Table View Controller-->
+        <scene sceneID="E8j-cs-nWO">
+            <objects>
+                <tableViewController storyboardIdentifier="SideNavController" id="is0-Wa-boo" customClass="SideNavTableViewController" customModule="CookedApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qwF-Wu-rue">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideNavCell" id="fGw-ms-ME3">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fGw-ms-ME3" id="2io-29-VtM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="is0-Wa-boo" id="lnN-IC-ley"/>
+                            <outlet property="delegate" destination="is0-Wa-boo" id="eSg-Y3-83l"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXU-FG-yLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466" y="2364"/>
         </scene>
         <!--Alerts-->
         <scene sceneID="bYy-nq-Ucu">

@@ -49,8 +49,8 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         
         let application = UIApplication.sharedApplication()
         let topBarHeight = application.statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
-        let tabBarHeight = self.tabBarController?.tabBar.frame.size.height
-        let viewHeight = UIScreen.mainScreen().bounds.size.height - topBarHeight - tabBarHeight!
+//        let tabBarHeight = self.tabBarController?.tabBar.frame.size.height
+        let viewHeight = UIScreen.mainScreen().bounds.size.height - topBarHeight
         
         messagesTableViewController.view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y + topBarHeight, width: view.frame.width, height: viewHeight)
         
