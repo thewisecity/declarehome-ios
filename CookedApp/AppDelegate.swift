@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func presentUserDetails() -> Void
     {
+        
+        
         let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserDetailsVC") as! UserDetailsViewController
 
         let user = PFUser.currentUser() as! User
@@ -46,9 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
         
-        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: nil)
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
         
         userDetailsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
+        
+    }
+    
+    func closeDrawer() -> Void
+    {
+        drawerController?.closeDrawerAnimated(false, completion: nil)
     }
     
     func dismissPresentedViewController() -> Void
