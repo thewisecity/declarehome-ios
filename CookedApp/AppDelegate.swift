@@ -37,12 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func presentEditUserDetails() -> Void
     {
         
+//        let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserDetailsVC") as! UserDetailsViewController
         
-        let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserDetailsVC") as! UserDetailsViewController
+//        let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditUserDetails") as! EditUserDetailsViewController
 
+        let userDetailsVC = EditUserDetailsViewController()
         let user = PFUser.currentUser() as! User
         
-        userDetailsVC.user = user
+//        userDetailsVC.user = user
         
         let nav = UINavigationController(rootViewController: userDetailsVC)
         
