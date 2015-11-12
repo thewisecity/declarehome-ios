@@ -56,6 +56,8 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
         
         view.addSubview(scrollView)
         
+        view.backgroundColor = UIColor.whiteColor()
+        
         scrollView.contentSize = CGSizeMake(UIScreen.mainScreen().bounds.size.width, 680)
         
         contentContainer = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 680))
