@@ -511,7 +511,7 @@
                                     <constraint firstAttribute="height" constant="100" id="xIm-0C-fvZ"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-gn-5W3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-gn-5W3">
                                 <rect key="frame" x="17" y="170" width="548" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="PAN-PY-3ge"/>
