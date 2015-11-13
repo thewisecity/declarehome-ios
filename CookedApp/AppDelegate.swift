@@ -70,6 +70,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func presentViewAllGroups() -> Void
     {
         print("View All Groups")
+        print("Create new group")
+        let viewAllGroupsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AllGroupsTable") as! AllGroupsTableViewController
+        
+        let nav = UINavigationController(rootViewController: viewAllGroupsVC)
+        
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
+        
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
+        
+        viewAllGroupsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
     }
 
     func presentCreateNewGroup() -> Void

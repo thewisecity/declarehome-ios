@@ -41,8 +41,6 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
             //TODO: Error message or popup here?
         }
         
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {

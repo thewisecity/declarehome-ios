@@ -50,35 +50,110 @@ class Group : PFObject, PFSubclassing {
         
         group.saveInBackgroundWithBlock(callback)
     }
-}
+    
+    func isUserAdmin(user: User, forceServerContact : Bool) -> Bool
+    {
+        var userIsAdmin : Bool = false
+        
+        do {
+            
+            if forceServerContact == true
+            {
+                try self.fetch()
+            }
+            else
+            {
+                try self.fetchIfNeeded()
+            }
+            
+            let currentUser = PFUser.currentUser() as! User
+            
+            if let _ = adminsArray
+            {
+                for theUser in adminsArray!
+                {
+                    if theUser.objectId == currentUser.objectId
+                    {
+                        userIsAdmin = true
+                        break
+                    }
+                }
+            }
+            
+        } catch let error as NSError {
+            print("Error")
+            print(error.localizedDescription)
+        }
+        
+        return userIsAdmin
+    }
 
-//
-//{ (success:Bool, error:NSError?) -> Void in
-//    if let _ = error
-//    {
-//        print("Error while saving group")
-//        //Error while saving
-//        //TODO: Alert user to this error
-//        //TODO: Analytics callback for error
-//    }
+    func isUserMember(user: User, forceServerContact : Bool) -> Bool
+    {
+        var userIsMember : Bool = false
+        
+        do {
+            
+            if forceServerContact == true
+            {
+                try self.fetch()
+            }
+            else
+            {
+                try self.fetchIfNeeded()
+            }
+            
+            let currentUser = PFUser.currentUser() as! User
+            
+            if let _ = membersArray
+            {
+                for theUser in membersArray!
+                {
+                    if theUser.objectId == currentUser.objectId
+                    {
+                        userIsMember = true
+                        break
+                    }
+                }
+            }
+            
+            
+        } catch let error as NSError {
+            print("Error")
+            print(error.localizedDescription)
+        }
+        
+        return userIsMember
+    }
+    
+//    public boolean isUserMember(ParseUser user, boolean forceServerContact) {
+//    
+//    boolean userIsMember = false;
+//    
+//    
+//    try{
+//    
+//    if(forceServerContact == true)
+//    this.fetch();
 //    else
-//    {
-//        print("Group saved")
-//        //TODO: Update notifications
-//        //Notifications.subscribeToNotifsForNewGroup(group);
-//        
-//        // TODO: Analytics callback
-//        //    Analytics.with(App.getContext()).track("Group Created",
-//        //    new Properties().
-//        //    putValue(_NAME, name).
-//        //    putValue(_PURPOSE, purpose).
-//        //    putValue(_NEIGHBERHOODS, neighberhoods).
-//        //    putValue(_ADDRESS, address).
-//        //    putValue(_STATE, state).
-//        //    putValue(_CITY, city).
-//        //    putValue(_WEBSITE, website).
-//        //    putValue(_TWITTER, twitter).
-//        //    putValue(_FACEBOOK, facebook));
-//        //    }
+//    fetchIfNeeded();
+//    ArrayList<ParseUser> allMembers = getMembersArray();
+//    for(ParseUser member : allMembers) {
+//    if(member.getObjectId().equalsIgnoreCase(user.getObjectId())) {
+//    userIsMember = true;
+//    break;
 //    }
-//}
+//    }
+//    
+//    } catch (ParseException e) {
+//    e.printStackTrace();
+//    return false;
+//    }
+//    
+//    return userIsMember;
+//    }
+    
+    
+    
+    
+}

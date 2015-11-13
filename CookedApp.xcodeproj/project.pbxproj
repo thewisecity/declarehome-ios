@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393672C31BD058DD006647C9 /* NavigationDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		393672CA1BD0E974006647C9 /* MessageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393672C91BD0E974006647C9 /* MessageUIView.swift */; settings = {ASSET_TAGS = (); }; };
 		394218B91BCC3ECD00F06ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394218B81BCC3ECD00F06ADF /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupsTableViewController.swift; path = TableViewControllers/AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		393672C31BD058DD006647C9 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		393672C91BD0E974006647C9 /* MessageUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIView.swift; path = Views/MessageUIView.swift; sourceTree = "<group>"; };
 		394218B51BCC3ECD00F06ADF /* CookedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 				39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */,
 				394219091BCDD6B800F06ADF /* GroupsTableViewController.swift */,
 				39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */,
+				390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */,
 				3950042B1BEACC5A00CCC720 /* SideNavTableViewController.swift */,
 			);
 			name = TableViews;
@@ -357,6 +360,7 @@
 				39BE1CCC1BD84D990060DB2A /* AlertsTableViewController.swift in Sources */,
 				394218B91BCC3ECD00F06ADF /* AppDelegate.swift in Sources */,
 				39AF894A1BE8229D00EBDDAE /* GroupCheckboxCell.swift in Sources */,
+				390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */,
 				394219361BCF174400F06ADF /* MessageCell.swift in Sources */,
 				3974C1BA1BF125EA0020236F /* EditUserDetailsViewController.swift in Sources */,
 				394219341BCF167000F06ADF /* AlertCategory.swift in Sources */,

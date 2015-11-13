@@ -12,6 +12,7 @@ class GroupCell: PFTableViewCell {
     
     @IBOutlet weak var purposeLabel : UILabel!
     @IBOutlet weak var nameLabel : UILabel!
+    @IBOutlet weak var detailsButton : UIButton!
     
     var group : Group! {
         didSet{
