@@ -34,4 +34,51 @@ class Group : PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "Group"
     }
+    
+    static func createGroup(name:String?, purpose:String?, neighberhoods:String?, address:String?, city:String?, state:String?, website:String?, facebook:String?, twitter:String?, callback: (Bool, NSError?) -> Void) -> Void
+    {
+        let group = Group()
+        group.name = name
+        group.purpose = purpose
+        group.neighberhoods = neighberhoods
+        group.address = address
+        group.city = city
+        group.state = state
+        group.website = website
+        group.facebook = facebook
+        group.twitter = twitter
+        
+        group.saveInBackgroundWithBlock(callback)
+    }
 }
+
+//
+//{ (success:Bool, error:NSError?) -> Void in
+//    if let _ = error
+//    {
+//        print("Error while saving group")
+//        //Error while saving
+//        //TODO: Alert user to this error
+//        //TODO: Analytics callback for error
+//    }
+//    else
+//    {
+//        print("Group saved")
+//        //TODO: Update notifications
+//        //Notifications.subscribeToNotifsForNewGroup(group);
+//        
+//        // TODO: Analytics callback
+//        //    Analytics.with(App.getContext()).track("Group Created",
+//        //    new Properties().
+//        //    putValue(_NAME, name).
+//        //    putValue(_PURPOSE, purpose).
+//        //    putValue(_NEIGHBERHOODS, neighberhoods).
+//        //    putValue(_ADDRESS, address).
+//        //    putValue(_STATE, state).
+//        //    putValue(_CITY, city).
+//        //    putValue(_WEBSITE, website).
+//        //    putValue(_TWITTER, twitter).
+//        //    putValue(_FACEBOOK, facebook));
+//        //    }
+//    }
+//}

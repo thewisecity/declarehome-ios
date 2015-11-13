@@ -55,6 +55,7 @@
 		39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729161BD70A29003F451B /* AlertCategoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		39F0E9BE1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0E9BD1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		39F9600B1BF5241000908882 /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		39C729161BD70A29003F451B /* AlertCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoryCell.swift; path = TableViewCells/AlertCategoryCell.swift; sourceTree = "<group>"; };
 		39F0E9BD1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCheckboxDelegate.swift; sourceTree = "<group>"; };
 		39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxTableViewDelegate.swift; path = Delegates/GroupCheckboxTableViewDelegate.swift; sourceTree = "<group>"; };
+		39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNewGroupViewController.swift; path = ViewControllers/CreateNewGroupViewController.swift; sourceTree = "<group>"; };
 		39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIViewDelegate.swift; path = Delegates/MessageUIViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 				3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */,
 				39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */,
 				3974C1B91BF125EA0020236F /* EditUserDetailsViewController.swift */,
+				39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				394219341BCF167000F06ADF /* AlertCategory.swift in Sources */,
 				39B1BE811BD0388800E30EFF /* UserDetailsViewController.swift in Sources */,
 				394219401BD029CC00F06ADF /* RegistrationViewController.swift in Sources */,
+				39F9600B1BF5241000908882 /* CreateNewGroupViewController.swift in Sources */,
 				394219271BCEF90F00F06ADF /* Group.swift in Sources */,
 				3942190A1BCDD6B900F06ADF /* GroupsTableViewController.swift in Sources */,
 				3942193D1BD029CC00F06ADF /* GroupDetailsViewController.swift in Sources */,

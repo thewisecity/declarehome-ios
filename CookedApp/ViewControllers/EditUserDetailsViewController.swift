@@ -192,7 +192,6 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -205,7 +204,6 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        
     }
     
     func uploadNewProfilePic() {

@@ -13,6 +13,10 @@ import Social
 class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     
     var drawerController: DrawerController?
+    
+    var myGroupsVC : MyGroupsTableViewController?
+    
+    var alertsVC : AlertsTableViewController?
 
     var window: UIWindow?
     
@@ -21,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func segueToTabViewController() -> Void {
         
         let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
+        
+        
+        let navCont = tabController.viewControllers![0] as? UINavigationController
+        
+        myGroupsVC = navCont?.topViewController as? MyGroupsTableViewController
+        
+        alertsVC = tabController.viewControllers![1] as? AlertsTableViewController
         
         let sideNav = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("SideNavController") as! SideNavTableViewController
         
@@ -64,6 +75,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func presentCreateNewGroup() -> Void
     {
         print("Create new group")
+        let createGroupVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CreateNewGroupViewController") as! CreateNewGroupViewController
+        
+        let nav = UINavigationController(rootViewController: createGroupVC)
+        
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
+        
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
+        
+        createGroupVC.navigationItem.setLeftBarButtonItem(button, animated: true)
     }
 
     func presentViewFAQ() -> Void
@@ -128,6 +148,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     {
         self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func dismissPresentedViewControllerAndReloadGroups() -> Void
+    {
+        self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        myGroupsVC?.loadObjects()
+    }
+    
+    func dismissPresentedViewControllerAndReloadAlerts() -> Void
+    {
+        self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
     func registerSubclasses() -> Void {
         Group.registerSubclass()
