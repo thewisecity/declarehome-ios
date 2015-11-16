@@ -10,16 +10,21 @@ import UIKit
 
 class GroupDetailsViewController: UIViewController {
     
-    @IBOutlet weak var groupName : UILabel!
-    @IBOutlet weak var groupPurpose : UILabel!
+    @IBOutlet weak var groupName : UILabel?
+    @IBOutlet weak var groupPurpose : UILabel?
     
-    var group : Group!
+    var group : Group? {
+        didSet {
+            groupName?.text = group?.name
+            groupPurpose?.text = group?.purpose
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupName.text = group?.name
-        groupPurpose.text = group?.purpose
-
+        
+        groupName?.text = group?.name
+        groupPurpose?.text = group?.purpose
         // Do any additional setup after loading the view.
     }
 

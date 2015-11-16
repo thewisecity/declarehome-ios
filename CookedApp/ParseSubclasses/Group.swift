@@ -126,34 +126,4 @@ class Group : PFObject, PFSubclassing {
         return userIsMember
     }
     
-//    public boolean isUserMember(ParseUser user, boolean forceServerContact) {
-//    
-//    boolean userIsMember = false;
-//    
-//    
-//    try{
-//    
-//    if(forceServerContact == true)
-//    this.fetch();
-//    else
-//    fetchIfNeeded();
-//    ArrayList<ParseUser> allMembers = getMembersArray();
-//    for(ParseUser member : allMembers) {
-//    if(member.getObjectId().equalsIgnoreCase(user.getObjectId())) {
-//    userIsMember = true;
-//    break;
-//    }
-//    }
-//    
-//    } catch (ParseException e) {
-//    e.printStackTrace();
-//    return false;
-//    }
-//    
-//    return userIsMember;
-//    }
-    
-    
-    
-    
 }
