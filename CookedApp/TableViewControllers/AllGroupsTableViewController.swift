@@ -48,14 +48,9 @@ class AllGroupsTableViewController: GroupsTableViewController, GroupCellDelegate
         }
         else
         {
-            performSegueWithIdentifier("ViewGroupDetails", sender: selectedGroup)        }
-        
-        /*
-        * If user is member or admin
-            Go to message wall
-        * else
-            Go to details screen
-        */
+            performSegueWithIdentifier("ViewGroupDetails", sender: selectedGroup)
+        }
+       
     }
     
     func detailsButtonPressed(cell:GroupCell) -> Void

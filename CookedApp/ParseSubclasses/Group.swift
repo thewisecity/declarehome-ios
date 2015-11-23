@@ -51,6 +51,16 @@ class Group : PFObject, PFSubclassing {
         group.saveInBackgroundWithBlock(callback)
     }
     
+    func isCurrentUserAdmin() -> Bool
+    {
+        return isUserAdmin(PFUser.currentUser() as! User, forceServerContact: false)
+    }
+    
+    func isCurrentUserMember() -> Bool
+    {
+        return isUserMember(PFUser.currentUser() as! User, forceServerContact: false)
+    }
+    
     func isUserAdmin(user: User, forceServerContact : Bool) -> Bool
     {
         var userIsAdmin : Bool = false

@@ -47,11 +47,13 @@
 		3974C1BA1BF125EA0020236F /* EditUserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974C1B91BF125EA0020236F /* EditUserDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39755D981BF288E500D1E134 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39755D971BF288E500D1E134 /* ImageUtilities.swift */; settings = {ASSET_TAGS = (); }; };
 		398B02E01BFA698C00D43054 /* GroupCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */; settings = {ASSET_TAGS = (); }; };
+		399A27A61BFD38C500FBAE43 /* GroupContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A27A51BFD38C500FBAE43 /* GroupContract.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF89441BE80D8D00EBDDAE /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF89481BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF894A1BE8229D00EBDDAE /* GroupCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */; settings = {ASSET_TAGS = (); }; };
 		39B1BE811BD0388800E30EFF /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39BE1CCC1BD84D990060DB2A /* AlertsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE1CCB1BD84D990060DB2A /* AlertsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		39C580BB1BFD06BB007804F6 /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C580BA1BFD06BB007804F6 /* GroupMemberCell.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729161BD70A29003F451B /* AlertCategoryCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -108,11 +110,13 @@
 		3974C1B91BF125EA0020236F /* EditUserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditUserDetailsViewController.swift; path = ViewControllers/EditUserDetailsViewController.swift; sourceTree = "<group>"; };
 		39755D971BF288E500D1E134 /* ImageUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
 		398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCellWithButton.swift; path = TableViewCells/GroupCellWithButton.swift; sourceTree = "<group>"; };
+		399A27A51BFD38C500FBAE43 /* GroupContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupContract.swift; path = ParseSubclasses/GroupContract.swift; sourceTree = "<group>"; };
 		39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyGroupsTableViewController.swift; path = TableViewControllers/MyGroupsTableViewController.swift; sourceTree = "<group>"; };
 		39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsCheckboxTableViewController.swift; path = TableViewControllers/GroupsCheckboxTableViewController.swift; sourceTree = "<group>"; };
 		39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxCell.swift; path = TableViewCells/GroupCheckboxCell.swift; sourceTree = "<group>"; };
 		39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ViewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
 		39BE1CCB1BD84D990060DB2A /* AlertsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertsTableViewController.swift; path = TableViewControllers/AlertsTableViewController.swift; sourceTree = "<group>"; };
+		39C580BA1BFD06BB007804F6 /* GroupMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupMemberCell.swift; path = TableViewCells/GroupMemberCell.swift; sourceTree = "<group>"; };
 		39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewController.swift; path = TableViewControllers/AlertCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewDelegate.swift; path = Delegates/AlertCategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
 		39C729161BD70A29003F451B /* AlertCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoryCell.swift; path = TableViewCells/AlertCategoryCell.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				3942190B1BCDD75E00F06ADF /* GroupCell.swift */,
 				39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */,
 				394219351BCF174400F06ADF /* MessageCell.swift */,
+				39C580BA1BFD06BB007804F6 /* GroupMemberCell.swift */,
 				39C729161BD70A29003F451B /* AlertCategoryCell.swift */,
 			);
 			name = "TableView Cells";
@@ -245,6 +250,7 @@
 				394219261BCEF90F00F06ADF /* Group.swift */,
 				394219311BCF159C00F06ADF /* Message.swift */,
 				394219331BCF167000F06ADF /* AlertCategory.swift */,
+				399A27A51BFD38C500FBAE43 /* GroupContract.swift */,
 			);
 			name = "Parse Classes";
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				3942193D1BD029CC00F06ADF /* GroupDetailsViewController.swift in Sources */,
 				394219321BCF159C00F06ADF /* Message.swift in Sources */,
 				39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */,
+				399A27A61BFD38C500FBAE43 /* GroupContract.swift in Sources */,
 				393672CA1BD0E974006647C9 /* MessageUIView.swift in Sources */,
 				39EF705E1BFA8ABE0065D6ED /* GroupCellDelegate.swift in Sources */,
 				394219211BCE4AFA00F06ADF /* Validation.swift in Sources */,
@@ -385,6 +392,7 @@
 				398B02E01BFA698C00D43054 /* GroupCellWithButton.swift in Sources */,
 				39AF89481BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift in Sources */,
 				3942190C1BCDD75E00F06ADF /* GroupCell.swift in Sources */,
+				39C580BB1BFD06BB007804F6 /* GroupMemberCell.swift in Sources */,
 				39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */,
 				394219301BCF151C00F06ADF /* MessageTableViewController.swift in Sources */,
 				393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */,

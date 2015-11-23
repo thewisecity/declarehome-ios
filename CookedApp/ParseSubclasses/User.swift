@@ -27,6 +27,8 @@ class User : PFUser {
 //        return nil;
 //    }
     
+    static var className = "User"
+    
     override class func initialize() {
         struct Static {
             static var onceToken : dispatch_once_t = 0;
