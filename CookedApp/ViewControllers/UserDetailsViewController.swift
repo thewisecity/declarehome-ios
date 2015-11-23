@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDetailsViewController: UIViewController, UITableViewDataSource {
+class UserDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var user: User!
     
@@ -39,8 +39,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource {
         linkThreeField.text = user.linkThree
         descriptionField.text = user.userDescription
         
-//        allGroups = user.objectForKey("adminOfArray") as! [Group]!
-//        allGroups = allGroups + (user.objectForKey("memberOfArray") as! [Group]!)
+        
         if let adminsArray = user.adminOfArray {
             allGroups = allGroups + adminsArray
         }
@@ -64,10 +63,6 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "GroupCell"
-//        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! GroupCell
-//        if cell == nil {
-//            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
-//        }
         
         var cell: GroupCell!
         if let dequedCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier){
@@ -86,8 +81,34 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedGroup = allGroups[indexPath.row]
+        print(selectedGroup.name)
+        performSegueWithIdentifier("ViewGroupDetails", sender: selectedGroup)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allGroups.count
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let selectedGroup = sender as? Group
+        {
+            if let destinationController = segue.destinationViewController as? MessageWallViewController
+            {
+                destinationController.group = selectedGroup
+            }
+            else if let destinationController = segue.destinationViewController as? GroupDetailsViewController
+            {
+                destinationController.group = selectedGroup
+            }
+        }
     }
     
 }

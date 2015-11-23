@@ -501,6 +501,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="iIA-Da-9Sr" id="re5-jD-aOE"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jnx-nL-lIh" customClass="PFImageView">
                                 <rect key="frame" x="20" y="20" width="100" height="100"/>
@@ -615,11 +618,12 @@
                         <outlet property="nameField" destination="fTa-cZ-31Z" id="jLp-Hq-Owp"/>
                         <outlet property="phoneNumberField" destination="nf6-Kv-MdT" id="4wg-qY-aYG"/>
                         <outlet property="profilePicture" destination="Jnx-nL-lIh" id="Rk8-8d-eVL"/>
+                        <segue destination="J43-6m-he6" kind="show" identifier="ViewGroupDetails" id="zCp-B5-5bI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frE-4k-Z7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4588" y="356"/>
+            <point key="canvasLocation" x="4247" y="52"/>
         </scene>
         <!--GroupDetails-->
         <scene sceneID="NgL-MS-bBT">
@@ -1674,7 +1678,8 @@
         <image name="DefaultBioPic" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mIO-Mf-U5q"/>
+        <segue reference="zCp-B5-5bI"/>
         <segue reference="pGx-g2-p9J"/>
+        <segue reference="mIO-Mf-U5q"/>
     </inferredMetricsTieBreakers>
 </document>
