@@ -112,7 +112,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         webV.backgroundColor = UIColor.redColor()
         
-        webV.loadRequest(NSURLRequest(URL: NSURL(string: "http://www.google.com")!))
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        webV.addSubview(loadingIndicator)
+        loadingIndicator.center = CGPointMake(webV.frame.size.width  / 2,
+            webV.frame.size.height / 2);
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
+        
+        let q = PFQuery(className: "WebAddress")
+        q.whereKey("title", equalTo: "faq")
+        
+        q.getFirstObjectInBackgroundWithBlock { (obj:PFObject?, err:NSError?) -> Void in
+            loadingIndicator.stopAnimating()
+            if let _ = err
+            {
+                //There was an error
+            }
+            else
+            {
+                webV.loadRequest(NSURLRequest(URL: NSURL(string: obj?.valueForKey("url") as! String)!))
+                
+            }
+            
+        }
         webV.delegate = self
         
     }
@@ -133,9 +155,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         webV.backgroundColor = UIColor.redColor()
         
-        webV.loadRequest(NSURLRequest(URL: NSURL(string: "http://www.yahoo.com")!))
-        webV.delegate = self
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        webV.addSubview(loadingIndicator)
+        loadingIndicator.center = CGPointMake(webV.frame.size.width  / 2,
+            webV.frame.size.height / 2);
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
         
+        let q = PFQuery(className: "WebAddress")
+        q.whereKey("title", equalTo: "about")
+        
+        q.getFirstObjectInBackgroundWithBlock { (obj:PFObject?, err:NSError?) -> Void in
+            loadingIndicator.stopAnimating()
+            if let _ = err
+            {
+                //There was an error
+            }
+            else
+            {
+                webV.loadRequest(NSURLRequest(URL: NSURL(string: obj?.valueForKey("url") as! String)!))
+                
+            }
+            
+        }
+        webV.delegate = self
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
