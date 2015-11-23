@@ -38,6 +38,12 @@ class AllGroupsTableViewController: GroupsTableViewController, GroupCellDelegate
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row >= self.objects?.count {
+            loadNextPage()
+            return
+        }
+        
         let selectedGroup = objectAtIndexPath(indexPath) as? Group
 
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! GroupCellWithButton

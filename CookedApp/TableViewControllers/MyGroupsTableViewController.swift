@@ -55,6 +55,12 @@ class MyGroupsTableViewController: GroupsTableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row >= self.objects?.count {
+            loadNextPage()
+            return
+        }
+        
         let selectedGroup = objectAtIndexPath(indexPath) as? Group
         
         performSegueWithIdentifier("ViewMessageWallSegue", sender: selectedGroup)
