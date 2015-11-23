@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupDetailsViewController: UIViewController, UITableViewDataSource {
+class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var groupName : UILabel?
     @IBOutlet weak var groupPurpose : UILabel?
@@ -51,17 +51,21 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource {
                     cell?.username.text?.appendContentsOf(" (pending")
                 }
             }
-        
-        
-        
-        
         return cell!
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedMember = members[indexPath.row]
+        
+        performSegueWithIdentifier("ViewUserDetails", sender: selectedMember)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshInfo()
         let current = PFUser.currentUser() as! User
+        
         
         // Do any additional setup after loading the view.
     }
@@ -95,42 +99,10 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource {
             }
             else
             {
-//                members = objects
                 self.members = objects as! [User]
                 self.membersList?.reloadData()
             }
         }
-//        ParseQuery<User> assembledQuery = null;
-//        
-//        ArrayList<ParseQuery<User>> queryList = new ArrayList<ParseQuery<User>>();
-//        
-//        if (includeMembers) {
-//            sMembersQuery = getQueryForMembersOfGroup(membersOfGroup);
-//            queryList.add(sMembersQuery);
-//        }
-//        
-//        if(includeAdmins) {
-//            sAdminsQuery = getQueryForAdminsOfGroup(membersOfGroup);
-//            queryList.add(sAdminsQuery);
-//        }
-//        
-//        if(includePendingNeedsApproval) {
-//            sRequestersQuery = getQueryForOutstandingRequestersOfGroup(membersOfGroup);
-//            queryList.add(sRequestersQuery);
-//        }
-//        
-//        if(includePendingNeedsToAccept) {
-//            sInviteesQuery = getQueryForOutstandingInviteesOfGroup(membersOfGroup);
-//            queryList.add(sInviteesQuery);
-//        }
-//        
-//        if(queryList.size() > 0)
-//        assembledQuery = ParseQuery.or(queryList);
-//        
-//        return assembledQuery;
-        
-        
-        
     }
     
     static func getQueryForMembersOfGroup(g : Group) -> PFQuery
@@ -139,32 +111,14 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource {
         q?.whereKey("memberOfArray", equalTo: g)
         return q!
     }
-    
-    
-//    private static ParseQuery<User> getQueryForMembersOfGroup(Group group) {
-//    
-//    ParseQuery<User> membersQuery = new ParseQuery<>(User.class);
-//    membersQuery.whereEqualTo("memberOfArray", group);
-//    
-//    
-//    return membersQuery;
-//    }
-    
+
     static func getQueryForAdminsOfGroup(g : Group) -> PFQuery
     {
         let q = User.query()
         q?.whereKey("adminOfArray", equalTo: g)
         return q!
     }
-//    
-//    private static ParseQuery<User> getQueryForAdminsOfGroup(Group group) {
-//    
-//    ParseQuery<User> adminsQuery = new ParseQuery<>(User.class);
-//    adminsQuery.whereEqualTo("adminOfArray", group);
-//    
-//    return adminsQuery;
-//    }
-    
+
     static func getQueryForOutstandingInviteesOfGroup(g : Group) -> PFQuery
     {
         
@@ -178,20 +132,6 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource {
         return q!
     }
     
-//    
-//    private static ParseQuery<User> getQueryForOutstandingInviteesOfGroup(Group group) {
-//    
-//    ParseQuery<GroupContract> contractsQuery = new ParseQuery<>(GroupContract.class);
-//    contractsQuery.whereEqualTo(GroupContract._GROUP, group);
-//    contractsQuery.whereEqualTo(GroupContract._STATUS, GroupContract.STATUS_USER_INVITED);
-//    
-//    ParseQuery<User> users = new ParseQuery<>(User.class);
-//    users.whereMatchesKeyInQuery("email", "inviteeEmail", contractsQuery);
-//    
-//    return users;
-//    
-//    }
-    
     static func getQueryForOutstandingRequestersOfGroup(g : Group) -> PFQuery
     {
         
@@ -204,20 +144,6 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource {
         return q!
     }
     
-//    
-//    private static ParseQuery<User> getQueryForOutstandingRequestersOfGroup(Group group) {
-//    
-//    ParseQuery<GroupContract> contractsQuery = new ParseQuery<>(GroupContract.class);
-//    contractsQuery.whereEqualTo(GroupContract._GROUP, group);
-//    contractsQuery.whereEqualTo(GroupContract._STATUS, GroupContract.STATUS_USER_REQUESTED);
-//    
-//    ParseQuery<User> users = new ParseQuery<>(User.class);
-//    users.whereMatchesKeyInQuery("email", "inviteeEmail", contractsQuery);
-//    
-//    return users;
-//    
-//    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -225,13 +151,22 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource {
     
 
     // MARK: - Navigation
-    /*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if let authorOfSelectedMessage = sender as? User
+        {
+            if let destinationController = segue.destinationViewController as? UserDetailsViewController
+            {
+                destinationController.user = authorOfSelectedMessage
+            }
+        }
+
     }
-    */
+    
 
 }
 

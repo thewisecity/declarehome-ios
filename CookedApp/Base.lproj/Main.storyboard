@@ -619,7 +619,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frE-4k-Z7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4576" y="978"/>
+            <point key="canvasLocation" x="4588" y="356"/>
         </scene>
         <!--GroupDetails-->
         <scene sceneID="NgL-MS-bBT">
@@ -769,7 +769,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="J43-6m-he6" id="cNz-xA-HAM"/>
-                                    <outlet property="delegate" destination="J43-6m-he6" id="73x-WL-3cu"/>
+                                    <outlet property="delegate" destination="J43-6m-he6" id="fP5-Co-R7c"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Members:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-o3-4qh">
@@ -824,6 +824,7 @@
                         <outlet property="groupName" destination="5dy-lz-KHa" id="jxS-sb-XTU"/>
                         <outlet property="groupPurpose" destination="jub-Zx-eUC" id="9Yq-Hy-Art"/>
                         <outlet property="membersList" destination="m1b-pE-3Ap" id="2uj-tQ-HOm"/>
+                        <segue destination="iIA-Da-9Sr" kind="show" identifier="ViewUserDetails" id="pGx-g2-p9J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57A-Mc-Mu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1674,5 +1675,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mIO-Mf-U5q"/>
+        <segue reference="pGx-g2-p9J"/>
     </inferredMetricsTieBreakers>
 </document>
