@@ -38,6 +38,7 @@
 		3942193E1BD029CC00F06ADF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193A1BD029CC00F06ADF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219401BD029CC00F06ADF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		394219411BD02C3300F06ADF /* MessageWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */; };
+		394D2B3B1C04ED2B0041B1CF /* MessageTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D2B3A1C04ED2B0041B1CF /* MessageTableDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		395004261BEAC97400CCC720 /* AnimatedMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004201BEAC97400CCC720 /* AnimatedMenuButton.swift */; settings = {ASSET_TAGS = (); }; };
 		395004271BEAC97400CCC720 /* DrawerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004211BEAC97400CCC720 /* DrawerBarButtonItem.swift */; settings = {ASSET_TAGS = (); }; };
 		395004281BEAC97400CCC720 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395004231BEAC97400CCC720 /* DrawerController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -100,6 +101,7 @@
 		3942193A1BD029CC00F06ADF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		3942193B1BD029CC00F06ADF /* MessageWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageWallViewController.swift; path = ViewControllers/MessageWallViewController.swift; sourceTree = "<group>"; };
 		3942193C1BD029CC00F06ADF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = ViewControllers/RegistrationViewController.swift; sourceTree = "<group>"; };
+		394D2B3A1C04ED2B0041B1CF /* MessageTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableDelegate.swift; path = Delegates/MessageTableDelegate.swift; sourceTree = "<group>"; };
 		395004201BEAC97400CCC720 /* AnimatedMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedMenuButton.swift; sourceTree = "<group>"; };
 		395004211BEAC97400CCC720 /* DrawerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerBarButtonItem.swift; sourceTree = "<group>"; };
 		395004221BEAC97400CCC720 /* DrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerController.h; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */,
 				39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */,
 				39F0E9BD1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift */,
+				394D2B3A1C04ED2B0041B1CF /* MessageTableDelegate.swift */,
 				39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */,
 				39EF705D1BFA8ABE0065D6ED /* GroupCellDelegate.swift */,
 			);
@@ -402,6 +405,7 @@
 				39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */,
 				395004291BEAC97400CCC720 /* DrawerVisualState.swift in Sources */,
 				39755D981BF288E500D1E134 /* ImageUtilities.swift in Sources */,
+				394D2B3B1C04ED2B0041B1CF /* MessageTableDelegate.swift in Sources */,
 				39F0E9BE1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift in Sources */,
 				395004281BEAC97400CCC720 /* DrawerController.swift in Sources */,
 				394219241BCEF53900F06ADF /* User.swift in Sources */,

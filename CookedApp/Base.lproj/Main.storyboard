@@ -201,6 +201,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-Lh-Nbe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Messages have been posted to this group" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-8t-Ewd">
+                                        <rect key="frame" x="126" y="289" width="348" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Post a message by touching the green '+' icon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYx-3n-y3n">
+                                        <rect key="frame" x="121" y="318" width="353" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="iHG-8t-Ewd" firstAttribute="centerX" secondItem="x5H-Lh-Nbe" secondAttribute="centerX" id="JoD-02-kxP"/>
+                                    <constraint firstItem="iHG-8t-Ewd" firstAttribute="centerY" secondItem="x5H-Lh-Nbe" secondAttribute="centerY" id="MMM-jr-cbA"/>
+                                    <constraint firstItem="gYx-3n-y3n" firstAttribute="centerX" secondItem="x5H-Lh-Nbe" secondAttribute="centerX" id="UX7-pE-CQM"/>
+                                    <constraint firstItem="gYx-3n-y3n" firstAttribute="top" secondItem="iHG-8t-Ewd" secondAttribute="bottom" constant="8" id="Vnf-0v-UtE"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CAo-eM-BKp">
+                                <rect key="frame" x="0.0" y="219" width="600" height="332"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chose an Alert Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2sO-6s-mwi">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="ip9-7l-1Yt" customClass="AlertCategoryCell" customModule="CookedApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ip9-7l-1Yt" id="55K-rn-Ja4">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="261-hc-ahg">
+                                                    <rect key="frame" x="8" y="0.0" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7N-L3-WAR" customClass="MessageUIView" customModule="CookedApp" customModuleProvider="target">
                                 <rect key="frame" x="492" y="346" width="108" height="205"/>
                                 <subviews>
@@ -264,44 +317,19 @@
                                     <outlet property="postMessageButton" destination="6UF-5X-Zbt" id="qBK-yC-Yir"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CAo-eM-BKp">
-                                <rect key="frame" x="0.0" y="219" width="600" height="332"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chose an Alert Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2sO-6s-mwi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="ip9-7l-1Yt" customClass="AlertCategoryCell" customModule="CookedApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ip9-7l-1Yt" id="55K-rn-Ja4">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="261-hc-ahg">
-                                                    <rect key="frame" x="8" y="0.0" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CAo-eM-BKp" firstAttribute="top" secondItem="eCq-hp-XCR" secondAttribute="bottom" constant="155" id="2mP-Ti-7dv"/>
                             <constraint firstAttribute="trailing" secondItem="R7N-L3-WAR" secondAttribute="trailing" id="CJC-wr-Ut9"/>
+                            <constraint firstItem="x5H-Lh-Nbe" firstAttribute="top" secondItem="Qgs-rJ-033" secondAttribute="top" id="LYY-xv-boh"/>
+                            <constraint firstAttribute="trailing" secondItem="x5H-Lh-Nbe" secondAttribute="trailing" id="VXk-cN-h4Y"/>
+                            <constraint firstItem="x5H-Lh-Nbe" firstAttribute="leading" secondItem="Qgs-rJ-033" secondAttribute="leading" id="WGT-82-Z44"/>
                             <constraint firstAttribute="trailing" secondItem="CAo-eM-BKp" secondAttribute="trailing" id="Y38-6j-ykv"/>
                             <constraint firstItem="7L6-Ij-rV7" firstAttribute="top" secondItem="CAo-eM-BKp" secondAttribute="bottom" id="YDi-cS-2HF"/>
                             <constraint firstItem="7L6-Ij-rV7" firstAttribute="top" secondItem="R7N-L3-WAR" secondAttribute="bottom" id="dO1-s4-FeR"/>
                             <constraint firstItem="CAo-eM-BKp" firstAttribute="leading" secondItem="Qgs-rJ-033" secondAttribute="leading" id="dus-lX-xpo"/>
+                            <constraint firstItem="7L6-Ij-rV7" firstAttribute="top" secondItem="x5H-Lh-Nbe" secondAttribute="bottom" id="kGF-V0-hd0"/>
                             <constraint firstItem="7L6-Ij-rV7" firstAttribute="top" secondItem="R7N-L3-WAR" secondAttribute="bottom" id="ozZ-cU-nff"/>
                         </constraints>
                         <variation key="default">
@@ -312,6 +340,7 @@
                     </view>
                     <connections>
                         <outlet property="messageUI" destination="R7N-L3-WAR" id="sIk-yB-k03"/>
+                        <outlet property="noMessagesInidcator" destination="x5H-Lh-Nbe" id="tYy-pk-VXa"/>
                         <segue destination="iIA-Da-9Sr" kind="show" identifier="ViewUserDetailsSegue" id="LgZ-34-5SO"/>
                         <segue destination="EH0-Gw-tac" kind="show" identifier="ViewAlertCategoriesList" id="9T5-hv-hEl"/>
                         <segue destination="cqH-Q0-bWg" kind="show" identifier="ChooseGroupsForAlert" id="gJ3-le-E3t"/>
@@ -438,7 +467,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cL4-yu-bPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3310" y="1550"/>
+            <point key="canvasLocation" x="3530" y="1626"/>
         </scene>
         <!--User Details View Controller-->
         <scene sceneID="BIe-mK-YfR">
@@ -1679,7 +1708,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zCp-B5-5bI"/>
-        <segue reference="pGx-g2-p9J"/>
+        <segue reference="LgZ-34-5SO"/>
         <segue reference="mIO-Mf-U5q"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageWallViewController: UIViewController, NavigationDelegate, MessageUIViewDelegate, AlertCategoriesTableViewDelegate {
+class MessageWallViewController: UIViewController, NavigationDelegate, MessageUIViewDelegate, AlertCategoriesTableViewDelegate, MessageTableDelegate {
     
     var group: Group!
     var selectedGroups: [Group]? {
@@ -21,6 +21,8 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     }
     
     var chosenCategory: AlertCategory?
+    
+    @IBOutlet weak var noMessagesInidcator : UIView!
     
     @IBOutlet weak var messageUI : MessageUIView!
     
@@ -41,9 +43,11 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     {
         super.viewDidLoad()
         messageUI.delegate = self
+        
         messagesTableViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MessageTableViewController") as! MessageTableViewController
         messagesTableViewController.group = group
         messagesTableViewController.navDelegate = self
+        messagesTableViewController.messagesDelegate = self
         
         self.title = group.name
         
@@ -66,9 +70,6 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         // UNCOMMENT this to re-enable partial (read: broken) implementaiton of changing return key while editing
 //        messageTextField?.addTarget(self, action: "textFieldDidChange", forControlEvents: UIControlEvents.EditingChanged)
         self.view.bringSubviewToFront(messageTextField!)
-        
-        
-        
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -198,36 +199,6 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
     }
     
     
-    //TODO: Get this working. Not quite there yet
-    
-//    func textFieldDidChange() -> Void
-//    {
-//        var textSansCategory:String? = messageTextField?.text;
-//        
-//        if(chosenCategory != nil){
-//            textSansCategory = textSansCategory?.stringByReplacingOccurrencesOfString((chosenCategory?.title)!, withString: "");
-//        }
-//        
-//        
-//        if(textSansCategory == nil || (textSansCategory!.isEmpty == true))
-//        {
-//            messageTextField?.returnKeyType = UIReturnKeyType.Done
-//            messageTextField?.resignFirstResponder()
-//            messageTextField?.becomeFirstResponder()
-//            self.reloadInputViews()
-//            messageTextField?.reloadInputViews()
-//        }
-//        else
-//        {
-//            messageTextField?.returnKeyType = UIReturnKeyType.Send
-//            messageTextField?.resignFirstResponder()
-//            messageTextField?.becomeFirstResponder()
-//            self.reloadInputViews()
-//            messageTextField?.reloadInputViews()
-//        }
-//    }
-    
-    
     // MARK –– MessageUI Delegate methods
     
     func postNewMessage(messageBody: String?)
@@ -299,17 +270,22 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         selectedGroups = groups
     }
     
-//    - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//    {
-//    NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-//    NSLog(@"resulting string would be: %@", resultString);
-//    NSString *prefixString = @"blabla";
-//    NSRange prefixStringRange = [resultString rangeOfString:prefixString];
-//    if (prefixStringRange.location == 0) {
-//    // prefix found at the beginning of result string
-//    return YES;
-//    }
-//    return NO;
-//    }
+    func loadedObjects(objects:[AnyObject]?, error: NSError?) -> Void
+    {
+        if error != nil {
+            noMessagesInidcator.hidden = false
+        }
+        else
+        {
+            if objects != nil && objects?.count > 0
+            {
+                noMessagesInidcator.hidden = true
+            }
+            else
+            {
+                noMessagesInidcator.hidden = false
+            }
+        }
+    }
     
 }

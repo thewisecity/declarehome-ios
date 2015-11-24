@@ -13,6 +13,8 @@ class MessageTableViewController: PFQueryTableViewController {
     var group: Group!
     
     var navDelegate: NavigationDelegate!
+    
+    var messagesDelegate: MessageTableDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,8 +33,6 @@ class MessageTableViewController: PFQueryTableViewController {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 80
-        
-        
         
     }
     
@@ -55,6 +55,12 @@ class MessageTableViewController: PFQueryTableViewController {
         query.includeKey(Message._AUTHOR_MEMBER_ARRAY)
         
         return query
+    }
+    
+    override func objectsDidLoad(error: NSError?) {
+        super.objectsDidLoad(error)
+        messagesDelegate?.loadedObjects(objects, error: error)
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
@@ -81,7 +87,6 @@ class MessageTableViewController: PFQueryTableViewController {
         let selectedMessage = objectAtIndexPath(indexPath) as? Message
         let author = selectedMessage?.author
         navDelegate.performSegueWithId("ViewUserDetailsSegue", sender: author)
-//        performSegueWithIdentifier("ViewUserDetailsSegue", sender: self)
     }
     
     // MARK: - Navigation
