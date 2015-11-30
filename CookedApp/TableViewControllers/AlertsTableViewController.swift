@@ -12,6 +12,8 @@ class AlertsTableViewController: PFQueryTableViewController {
     
     var navDelegate: NavigationDelegate!
     
+    var statusLabel: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -24,11 +26,47 @@ class AlertsTableViewController: PFQueryTableViewController {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 80
+        
+        statusLabel = UILabel()
+        statusLabel.text = "Loading..."
+        view.addSubview(statusLabel)
+        statusLabel.sizeToFit()
+        statusLabel.center = CGPointMake(view.frame.size.width  / 2,
+            view.frame.size.height / 2);
+        statusLabel.hidden = true
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func objectsDidLoad(error: NSError?) {
+        super.objectsDidLoad(error)
+        
+        if error != nil
+        {
+            statusLabel.text = "Error while loading. Please try again."
+            statusLabel.sizeToFit()
+            statusLabel.center = CGPointMake(view.frame.size.width  / 2,
+                view.frame.size.height / 2);
+
+            statusLabel.hidden = false
+        }
+        else if objects?.count == 0
+        {
+            statusLabel.text = "No alerts have been posted from your groups"
+            statusLabel.sizeToFit()
+            statusLabel.center = CGPointMake(view.frame.size.width  / 2,
+                view.frame.size.height / 2);
+
+            statusLabel.hidden = false
+        }
+        else
+        {
+            statusLabel.hidden = true
+        }
     }
     
     override func queryForTable() -> PFQuery {
@@ -50,32 +88,6 @@ class AlertsTableViewController: PFQueryTableViewController {
                 
         return query
     }
-//    
-//    ParseQuery query = new ParseQuery("Message");
-//    query.orderByDescending("createdAt");
-//    
-//    
-//    query.whereEqualTo("isAlert", true);
-//    ParseQuery adminOfQuery = ParseUser.getCurrentUser().getRelation("adminOf").getQuery();
-//    ParseQuery memberOfQuery = ParseUser.getCurrentUser().getRelation("memberOf").getQuery();
-//    
-//    List<ParseQuery<Group>> queries = new ArrayList<ParseQuery<Group>>();
-//    queries.add(adminOfQuery);
-//    queries.add(memberOfQuery);
-//    
-//    //A query of all the groups of which currentUser is an admin or member
-//    ParseQuery< Group> groupsQuery = (ParseQuery<Group>) ParseQuery.or(queries);
-//    
-//    
-//    query.whereMatchesQuery("groups", groupsQuery);
-//    
-//    
-//    //              ParseObject groupProxy = ParseObject.createWithoutData("Group", groupId);
-//    //                query.whereEqualTo("group", groupProxy);
-//    
-//    query.include(Message._CATEGORY);
-//    query.include(Message._AUTHOR);
-//    return query;
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         let cellIdentifier = "MessageCell"
@@ -101,7 +113,6 @@ class AlertsTableViewController: PFQueryTableViewController {
         let selectedMessage = objectAtIndexPath(indexPath) as? Message
         let author = selectedMessage?.author
         navDelegate.performSegueWithId("ViewUserDetailsSegue", sender: author)
-        //        performSegueWithIdentifier("ViewUserDetailsSegue", sender: self)
     }
     
     // MARK: - Navigation
@@ -117,7 +128,5 @@ class AlertsTableViewController: PFQueryTableViewController {
         //            }
         //        }
     }
-    
-    
     
 }
