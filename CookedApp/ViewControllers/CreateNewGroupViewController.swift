@@ -56,7 +56,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func onGroupCreationFinished (success:Bool, error:NSError?) -> Void
+    func onGroupCreationFinished (group: Group?, success:Bool, error:NSError?) -> Void
     {
         loadingView.hidden = true
         if let _ = error
@@ -74,8 +74,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
             
             appDelegate.dismissPresentedViewControllerAndReloadGroups()
             
-            //TODO: Update notifications
-            //Notifications.subscribeToNotifsForNewGroup(group);
+            Notifications.subscribeToNotifsForNewGroup(group!)
             
             // TODO: Analytics callback
             //    Analytics.with(App.getContext()).track("Group Created",

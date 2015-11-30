@@ -215,4 +215,12 @@ class Notifications
         
         return allGroupsQuery
     }
+    
+    static func subscribeToNotifsForNewGroup(g: Group)
+    {
+        setSubscriptionForAlertsChannelForGroup(true, group: g)
+        setSubscriptionForMemberShipRequestedForGroup(true, group: g)
+        setSubscriptionForNewEventsChannelForGroup(true, group: g)
+        setSubscriptionForNewMessagesChannelForGroup(true, group: g)
+    }
 }

@@ -35,7 +35,7 @@ class Group : PFObject, PFSubclassing {
         return "Group"
     }
     
-    static func createGroup(name:String?, purpose:String?, neighberhoods:String?, address:String?, city:String?, state:String?, website:String?, facebook:String?, twitter:String?, callback: (Bool, NSError?) -> Void) -> Void
+    static func createGroup(name:String?, purpose:String?, neighberhoods:String?, address:String?, city:String?, state:String?, website:String?, facebook:String?, twitter:String?, callback: (Group, Bool, NSError?) -> Void) -> Void
     {
         let group = Group()
         group.name = name
@@ -48,7 +48,9 @@ class Group : PFObject, PFSubclassing {
         group.facebook = facebook
         group.twitter = twitter
         
-        group.saveInBackgroundWithBlock(callback)
+        group.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            callback(group, success, error)
+        }
     }
     
     func isCurrentUserAdmin() -> Bool

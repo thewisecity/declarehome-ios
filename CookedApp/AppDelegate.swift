@@ -226,13 +226,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         registerSubclasses()
         Parse.setApplicationId("BrndBVrRczElKefgG3TvjCk3JYxtd5GB2GMzKoEP", clientKey: "Xb7Pcc0lT2I3uJYNNoT6buaCuZ9dcvBMtCx9U5gw")
         
-        // Register for notifications
+        // Register device for notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         
         // If we're already logged in, skip the login screen
         if let _ = PFUser.currentUser() {
+            
+            // DEBUG / STANDIN : Subscribe to all notifs here
+            Notifications.setSubscriptionForAllNotifs(true)
             
             segueToTabViewController()
         }
