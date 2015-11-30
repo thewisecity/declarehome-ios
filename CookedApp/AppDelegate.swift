@@ -226,12 +226,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         registerSubclasses()
         Parse.setApplicationId("BrndBVrRczElKefgG3TvjCk3JYxtd5GB2GMzKoEP", clientKey: "Xb7Pcc0lT2I3uJYNNoT6buaCuZ9dcvBMtCx9U5gw")
         
+        // Register for notifications
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
         
+        // If we're already logged in, skip the login screen
         if let _ = PFUser.currentUser() {
             
             segueToTabViewController()
         }
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        // Store the deviceToken in the current Installation and save it to Parse
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackground()
     }
 
     func applicationWillResignActive(application: UIApplication) {
