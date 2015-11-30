@@ -58,6 +58,7 @@
 		39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C729161BD70A29003F451B /* AlertCategoryCell.swift */; settings = {ASSET_TAGS = (); }; };
+		39ED390B1C0C99910011AC7C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ED390A1C0C99910011AC7C /* Notifications.swift */; settings = {ASSET_TAGS = (); }; };
 		39EF705E1BFA8ABE0065D6ED /* GroupCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF705D1BFA8ABE0065D6ED /* GroupCellDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39F0E9BE1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0E9BD1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
@@ -122,6 +123,7 @@
 		39C729121BD706FF003F451B /* AlertCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewController.swift; path = TableViewControllers/AlertCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		39C729141BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoriesTableViewDelegate.swift; path = Delegates/AlertCategoriesTableViewDelegate.swift; sourceTree = "<group>"; };
 		39C729161BD70A29003F451B /* AlertCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCategoryCell.swift; path = TableViewCells/AlertCategoryCell.swift; sourceTree = "<group>"; };
+		39ED390A1C0C99910011AC7C /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Utilities/Notifications.swift; sourceTree = "<group>"; };
 		39EF705D1BFA8ABE0065D6ED /* GroupCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCellDelegate.swift; sourceTree = "<group>"; };
 		39F0E9BD1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCheckboxDelegate.swift; sourceTree = "<group>"; };
 		39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxTableViewDelegate.swift; path = Delegates/GroupCheckboxTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				394219201BCE4AFA00F06ADF /* Validation.swift */,
+				39ED390A1C0C99910011AC7C /* Notifications.swift */,
 				39755D971BF288E500D1E134 /* ImageUtilities.swift */,
 			);
 			name = Utilities;
@@ -330,6 +333,7 @@
 				TargetAttributes = {
 					394218B41BCC3ECD00F06ADF = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = G5E87A3297;
 					};
 				};
 			};
@@ -406,6 +410,7 @@
 				395004291BEAC97400CCC720 /* DrawerVisualState.swift in Sources */,
 				39755D981BF288E500D1E134 /* ImageUtilities.swift in Sources */,
 				394D2B3B1C04ED2B0041B1CF /* MessageTableDelegate.swift in Sources */,
+				39ED390B1C0C99910011AC7C /* Notifications.swift in Sources */,
 				39F0E9BE1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift in Sources */,
 				395004281BEAC97400CCC720 /* DrawerController.swift in Sources */,
 				394219241BCEF53900F06ADF /* User.swift in Sources */,
@@ -456,6 +461,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -501,6 +507,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -524,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -531,7 +539,7 @@
 				INFOPLIST_FILE = CookedApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = thewisecity.CookedApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thewisecity.CookedApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CookedApp/CookedApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -543,6 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -550,7 +559,7 @@
 				INFOPLIST_FILE = CookedApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = thewisecity.CookedApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thewisecity.CookedApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CookedApp/CookedApp-Bridging-Header.h";
 			};
