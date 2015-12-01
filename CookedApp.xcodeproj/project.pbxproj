@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39097ADD1C0D6E59007530BF /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39097ADC1C0D6E59007530BF /* Stats.swift */; settings = {ASSET_TAGS = (); }; };
 		390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3914F50A1C0D639A00586C91 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3914F5091C0D639A00586C91 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		3914F50C1C0D63B400586C91 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3914F50B1C0D63B400586C91 /* Accounts.framework */; };
@@ -92,6 +93,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39097ADC1C0D6E59007530BF /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stats.swift; path = Utilities/Stats.swift; sourceTree = "<group>"; };
 		390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupsTableViewController.swift; path = TableViewControllers/AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		3914F5091C0D639A00586C91 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3914F50B1C0D63B400586C91 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -329,6 +331,7 @@
 		394219221BCE4AFF00F06ADF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				39097ADC1C0D6E59007530BF /* Stats.swift */,
 				394219201BCE4AFA00F06ADF /* Validation.swift */,
 				39ED390A1C0C99910011AC7C /* Notifications.swift */,
 				39755D971BF288E500D1E134 /* ImageUtilities.swift */,
@@ -564,6 +567,7 @@
 				39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */,
 				39AEFF5D1C0D699A0015CE27 /* SEGAnalyticsRequest.m in Sources */,
 				394219301BCF151C00F06ADF /* MessageTableViewController.swift in Sources */,
+				39097ADD1C0D6E59007530BF /* Stats.swift in Sources */,
 				393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */,
 				39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */,
 				395004271BEAC97400CCC720 /* DrawerBarButtonItem.swift in Sources */,
