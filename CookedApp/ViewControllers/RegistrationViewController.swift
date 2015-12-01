@@ -96,6 +96,13 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
                             let errorString = error.localizedDescription // Show the errorString somewhere and let the user try again.
                             print(errorString)
                         } else {
+                            //We will not properly start up the app if we don't force fetch our user here, since their relations won't have been set up
+                            do {
+                                try PFUser.currentUser()?.fetch()
+                            } catch let error as NSError {
+                                print("Error")
+                                print(error.localizedDescription)
+                            }
                             Notifications.setSubscriptionForAllNotifs(true)
                             self.segueToTabBarController()
                             print("Success!")

@@ -208,10 +208,20 @@ class Notifications
             print(error.localizedDescription)
         }
         
+        
         let adminOfQuery = PFUser.currentUser()?.relationForKey("adminOf").query()
         let memberOfQuery = PFUser.currentUser()?.relationForKey("memberOf").query()
         
-        let allGroupsQuery = PFQuery.orQueryWithSubqueries([adminOfQuery!, memberOfQuery!])
+        var queries : [PFQuery] = []
+        if adminOfQuery != nil
+        {
+            queries.append(adminOfQuery!)
+        }
+        if memberOfQuery != nil
+        {
+            queries.append(memberOfQuery!)
+        }
+        let allGroupsQuery = PFQuery.orQueryWithSubqueries(queries)
         
         return allGroupsQuery
     }

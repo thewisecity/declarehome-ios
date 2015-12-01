@@ -164,16 +164,26 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
         contentContainer.addSubview(doneButton)
         contentContainer.addSubview(loadingView)
         
-        var user = PFUser.currentUser() as! User
-        profilePicture.file = user.profilePic
+        let user = PFUser.currentUser()
+//        profilePicture.file = user?.profilePic
+//        profilePicture.loadInBackground()
+//        nameTextField.text = user?.displayName
+//        emailTextField.text = user?.email
+//        mobileTextField.text = user?.phoneNumber
+//        link1TextField.text = user?.linkOne
+//        link2TextField.text = user?.linkTwo
+//        link3TextField.text = user?.linkThree
+//        descriptionTextView.text = user?.userDescription
+        
+        profilePicture.file = user?.objectForKey("profilePic") as? PFFile
         profilePicture.loadInBackground()
-        nameTextField.text = user.displayName
-        emailTextField.text = user.email
-        mobileTextField.text = user.phoneNumber
-        link1TextField.text = user.linkOne
-        link2TextField.text = user.linkTwo
-        link3TextField.text = user.linkThree
-        descriptionTextView.text = user.userDescription
+        nameTextField.text = user?.objectForKey("displayName") as? String
+        emailTextField.text = user?.email
+        mobileTextField.text = user?.objectForKey("phoneNumber") as? String
+        link1TextField.text = user?.objectForKey("linkOne") as? String
+        link2TextField.text = user?.objectForKey("linkTwo") as? String
+        link3TextField.text = user?.objectForKey("linkThree") as? String
+        descriptionTextView.text = user?.objectForKey("userDescription") as? String
         
     }
     
@@ -275,19 +285,32 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
         if (validateDisplayName(nameTextField.text) && validateEmail(emailTextField.text) && validatePhoneNumber(mobileTextField.text))
         {
             loadingView.hidden = false
-            var user = PFUser.currentUser() as! User
-            user.displayName = nameTextField.text
-            user.email = emailTextField.text
-            user.phoneNumber = mobileTextField.text
-            user.linkOne = link1TextField.text
-            user.linkTwo = link2TextField.text
-            user.linkThree = link3TextField.text
-            user.userDescription = descriptionTextView.text
+            
+//            profilePicture.file = user?.objectForKey("profilePic") as? PFFile
+//            profilePicture.loadInBackground()
+//            nameTextField.text = user?.objectForKey("displayName") as? String
+//            emailTextField.text = user?.email
+//            mobileTextField.text = user?.objectForKey("phoneNumber") as? String
+//            link1TextField.text = user?.objectForKey("linkOne") as? String
+//            link2TextField.text = user?.objectForKey("linkTwo") as? String
+//            link3TextField.text = user?.objectForKey("linkThree") as? String
+//            descriptionTextView.text = user?.objectForKey("userDescription") as? String
+
+            
+            let user = PFUser.currentUser()
+            user?.setObject((nameTextField.text)!, forKey: "displayName")
+            user?.email = emailTextField.text
+            user?.setObject(link1TextField.text!, forKey: "linkOne")
+            user?.setObject(mobileTextField.text!, forKey: "phoneNumber")
+            user?.setObject(link2TextField.text!, forKey: "linkTwo")
+            user?.setObject(link3TextField.text!, forKey: "linkThree")
+            user?.setObject(descriptionTextView.text, forKey: "userDescription")
+
             if (hasPickedImage)
             {
-               user.profilePic = profilePicUploadFile
+                user?.setObject(profilePicUploadFile!, forKey: "profilePic")
             }
-            user.saveInBackgroundWithBlock({ ( success:Bool, error: NSError?) -> Void in
+            user?.saveInBackgroundWithBlock({ ( success:Bool, error: NSError?) -> Void in
                 if(success)
                 {
                     print("Saved user")

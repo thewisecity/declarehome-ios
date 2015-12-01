@@ -1,4 +1,4 @@
-//
+    //
 //  AppDelegate.swift
 //  CookedApp
 //
@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         let tabController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainTabController") as! UITabBarController
         
-        
         let navCont = tabController.viewControllers![0] as? UINavigationController
         
         myGroupsVC = navCont?.topViewController as? MyGroupsTableViewController
@@ -51,16 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     {
         
         let userDetailsVC = EditUserDetailsViewController()
-        let user = PFUser.currentUser() as! User
+
+            
+            let nav = UINavigationController(rootViewController: userDetailsVC)
+            
+            let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
+            
+            self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
+            
+            userDetailsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
+
         
-        let nav = UINavigationController(rootViewController: userDetailsVC)
-        
-        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
-        
-        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
-        
-        userDetailsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
-     
     }
     
     func presentViewAllGroups() -> Void
@@ -215,6 +215,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         User.registerSubclass()
         AlertCategory.registerSubclass()
         Message.registerSubclass()
+        GroupContract.registerSubclass()
+        
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
