@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3922ECCB1C0CEEC300F6514F /* MixpanelAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922ECCA1C0CEEC300F6514F /* MixpanelAccountInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		3914F50A1C0D639A00586C91 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3914F5091C0D639A00586C91 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		3914F50C1C0D63B400586C91 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3914F50B1C0D63B400586C91 /* Accounts.framework */; };
+		3914F50E1C0D63FF00586C91 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3914F50D1C0D63FF00586C91 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		3922ECCB1C0CEEC300F6514F /* SegmentAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922ECCA1C0CEEC300F6514F /* SegmentAccountInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393672C31BD058DD006647C9 /* NavigationDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		393672CA1BD0E974006647C9 /* MessageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393672C91BD0E974006647C9 /* MessageUIView.swift */; settings = {ASSET_TAGS = (); }; };
 		394218B91BCC3ECD00F06ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394218B81BCC3ECD00F06ADF /* AppDelegate.swift */; };
@@ -24,7 +27,6 @@
 		394219121BCE2B1200F06ADF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3942190F1BCE2B1200F06ADF /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
 		394219131BCE2B1200F06ADF /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394219101BCE2B1200F06ADF /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
 		394219141BCE2B1200F06ADF /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394219111BCE2B1200F06ADF /* ParseTwitterUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		394219161BCE2C5D00F06ADF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394219151BCE2C5D00F06ADF /* Social.framework */; };
 		394219181BCE2C9900F06ADF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394219171BCE2C9900F06ADF /* SystemConfiguration.framework */; };
 		3942191C1BCE2CF600F06ADF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3942191B1BCE2CF600F06ADF /* AudioToolbox.framework */; };
 		3942191E1BCE2D0500F06ADF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3942191D1BCE2D0500F06ADF /* libsqlite3.0.tbd */; };
@@ -57,6 +59,21 @@
 		398211A91C0CE8EC00899DD7 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A81C0CE8EC00899DD7 /* libicucore.tbd */; };
 		398B02E01BFA698C00D43054 /* GroupCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */; settings = {ASSET_TAGS = (); }; };
 		399A27A61BFD38C500FBAE43 /* GroupContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A27A51BFD38C500FBAE43 /* GroupContract.swift */; settings = {ASSET_TAGS = (); }; };
+		39AEFF561C0D699A0015CE27 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 39AEFF351C0D699A0015CE27 /* .gitkeep */; settings = {ASSET_TAGS = (); }; };
+		39AEFF571C0D699A0015CE27 /* SEGAliasPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF381C0D699A0015CE27 /* SEGAliasPayload.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF581C0D699A0015CE27 /* SEGGroupPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF3A1C0D699A0015CE27 /* SEGGroupPayload.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF591C0D699A0015CE27 /* SEGIdentifyPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF3C1C0D699A0015CE27 /* SEGIdentifyPayload.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF5A1C0D699A0015CE27 /* SEGPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF401C0D699A0015CE27 /* SEGPayload.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF5B1C0D699A0015CE27 /* SEGScreenPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF421C0D699A0015CE27 /* SEGScreenPayload.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF5C1C0D699A0015CE27 /* SEGTrackPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF441C0D699A0015CE27 /* SEGTrackPayload.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF5D1C0D699A0015CE27 /* SEGAnalyticsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF471C0D699A0015CE27 /* SEGAnalyticsRequest.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF5E1C0D699A0015CE27 /* SEGAnalyticsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF491C0D699A0015CE27 /* SEGAnalyticsUtils.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF5F1C0D699A0015CE27 /* SEGBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF4B1C0D699A0015CE27 /* SEGBluetooth.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF601C0D699A0015CE27 /* SEGLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF4D1C0D699A0015CE27 /* SEGLocation.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF611C0D699A0015CE27 /* SEGReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF4F1C0D699A0015CE27 /* SEGReachability.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF621C0D699A0015CE27 /* SEGSegmentIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF511C0D699A0015CE27 /* SEGSegmentIntegration.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF631C0D699A0015CE27 /* SEGSegmentIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF531C0D699A0015CE27 /* SEGSegmentIntegrationFactory.m */; settings = {ASSET_TAGS = (); }; };
+		39AEFF641C0D699A0015CE27 /* SEGAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AEFF551C0D699A0015CE27 /* SEGAnalytics.m */; settings = {ASSET_TAGS = (); }; };
 		39AF89441BE80D8D00EBDDAE /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF89481BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF894A1BE8229D00EBDDAE /* GroupCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -72,12 +89,14 @@
 		39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39F9600B1BF5241000908882 /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		FA2FBFDD646B4050063048E7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FDB7B6F365C4C173DF3B8E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupsTableViewController.swift; path = TableViewControllers/AllGroupsTableViewController.swift; sourceTree = "<group>"; };
-		3922ECCA1C0CEEC300F6514F /* MixpanelAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixpanelAccountInfo.swift; sourceTree = "<group>"; };
+		3914F5091C0D639A00586C91 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3914F50B1C0D63B400586C91 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		3914F50D1C0D63FF00586C91 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3922ECCA1C0CEEC300F6514F /* SegmentAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentAccountInfo.swift; sourceTree = "<group>"; };
 		393672C31BD058DD006647C9 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		393672C91BD0E974006647C9 /* MessageUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIView.swift; path = Views/MessageUIView.swift; sourceTree = "<group>"; };
 		394218B51BCC3ECD00F06ADF /* CookedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +150,37 @@
 		398211A81C0CE8EC00899DD7 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCellWithButton.swift; path = TableViewCells/GroupCellWithButton.swift; sourceTree = "<group>"; };
 		399A27A51BFD38C500FBAE43 /* GroupContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupContract.swift; path = ParseSubclasses/GroupContract.swift; sourceTree = "<group>"; };
+		39AEFF351C0D699A0015CE27 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		39AEFF371C0D699A0015CE27 /* SEGAliasPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAliasPayload.h; sourceTree = "<group>"; };
+		39AEFF381C0D699A0015CE27 /* SEGAliasPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAliasPayload.m; sourceTree = "<group>"; };
+		39AEFF391C0D699A0015CE27 /* SEGGroupPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGGroupPayload.h; sourceTree = "<group>"; };
+		39AEFF3A1C0D699A0015CE27 /* SEGGroupPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGGroupPayload.m; sourceTree = "<group>"; };
+		39AEFF3B1C0D699A0015CE27 /* SEGIdentifyPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGIdentifyPayload.h; sourceTree = "<group>"; };
+		39AEFF3C1C0D699A0015CE27 /* SEGIdentifyPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGIdentifyPayload.m; sourceTree = "<group>"; };
+		39AEFF3D1C0D699A0015CE27 /* SEGIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGIntegration.h; sourceTree = "<group>"; };
+		39AEFF3E1C0D699A0015CE27 /* SEGIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGIntegrationFactory.h; sourceTree = "<group>"; };
+		39AEFF3F1C0D699A0015CE27 /* SEGPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGPayload.h; sourceTree = "<group>"; };
+		39AEFF401C0D699A0015CE27 /* SEGPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGPayload.m; sourceTree = "<group>"; };
+		39AEFF411C0D699A0015CE27 /* SEGScreenPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGScreenPayload.h; sourceTree = "<group>"; };
+		39AEFF421C0D699A0015CE27 /* SEGScreenPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGScreenPayload.m; sourceTree = "<group>"; };
+		39AEFF431C0D699A0015CE27 /* SEGTrackPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGTrackPayload.h; sourceTree = "<group>"; };
+		39AEFF441C0D699A0015CE27 /* SEGTrackPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGTrackPayload.m; sourceTree = "<group>"; };
+		39AEFF461C0D699A0015CE27 /* SEGAnalyticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAnalyticsRequest.h; sourceTree = "<group>"; };
+		39AEFF471C0D699A0015CE27 /* SEGAnalyticsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAnalyticsRequest.m; sourceTree = "<group>"; };
+		39AEFF481C0D699A0015CE27 /* SEGAnalyticsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAnalyticsUtils.h; sourceTree = "<group>"; };
+		39AEFF491C0D699A0015CE27 /* SEGAnalyticsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAnalyticsUtils.m; sourceTree = "<group>"; };
+		39AEFF4A1C0D699A0015CE27 /* SEGBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGBluetooth.h; sourceTree = "<group>"; };
+		39AEFF4B1C0D699A0015CE27 /* SEGBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGBluetooth.m; sourceTree = "<group>"; };
+		39AEFF4C1C0D699A0015CE27 /* SEGLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGLocation.h; sourceTree = "<group>"; };
+		39AEFF4D1C0D699A0015CE27 /* SEGLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGLocation.m; sourceTree = "<group>"; };
+		39AEFF4E1C0D699A0015CE27 /* SEGReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGReachability.h; sourceTree = "<group>"; };
+		39AEFF4F1C0D699A0015CE27 /* SEGReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGReachability.m; sourceTree = "<group>"; };
+		39AEFF501C0D699A0015CE27 /* SEGSegmentIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGSegmentIntegration.h; sourceTree = "<group>"; };
+		39AEFF511C0D699A0015CE27 /* SEGSegmentIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGSegmentIntegration.m; sourceTree = "<group>"; };
+		39AEFF521C0D699A0015CE27 /* SEGSegmentIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGSegmentIntegrationFactory.h; sourceTree = "<group>"; };
+		39AEFF531C0D699A0015CE27 /* SEGSegmentIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGSegmentIntegrationFactory.m; sourceTree = "<group>"; };
+		39AEFF541C0D699A0015CE27 /* SEGAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAnalytics.h; sourceTree = "<group>"; };
+		39AEFF551C0D699A0015CE27 /* SEGAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAnalytics.m; sourceTree = "<group>"; };
 		39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyGroupsTableViewController.swift; path = TableViewControllers/MyGroupsTableViewController.swift; sourceTree = "<group>"; };
 		39AF89471BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupsCheckboxTableViewController.swift; path = TableViewControllers/GroupsCheckboxTableViewController.swift; sourceTree = "<group>"; };
 		39AF89491BE8229D00EBDDAE /* GroupCheckboxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxCell.swift; path = TableViewCells/GroupCheckboxCell.swift; sourceTree = "<group>"; };
@@ -146,9 +196,6 @@
 		39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxTableViewDelegate.swift; path = Delegates/GroupCheckboxTableViewDelegate.swift; sourceTree = "<group>"; };
 		39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNewGroupViewController.swift; path = ViewControllers/CreateNewGroupViewController.swift; sourceTree = "<group>"; };
 		39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIViewDelegate.swift; path = Delegates/MessageUIViewDelegate.swift; sourceTree = "<group>"; };
-		59FDB7B6F365C4C173DF3B8E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98EDBC237A5C48ED9005F986 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FC73C999D59B23775D88E4B8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,17 +203,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3914F50C1C0D63B400586C91 /* Accounts.framework in Frameworks */,
 				398211A91C0CE8EC00899DD7 /* libicucore.tbd in Frameworks */,
 				398211A71C0CE8E500899DD7 /* QuartzCore.framework in Frameworks */,
 				398211A51C0CE8DF00899DD7 /* CoreGraphics.framework in Frameworks */,
 				398211A31C0CE8DA00899DD7 /* Accelerate.framework in Frameworks */,
 				398211A11C0CE8D300899DD7 /* CoreTelephony.framework in Frameworks */,
+				3914F50A1C0D639A00586C91 /* FBSDKCoreKit.framework in Frameworks */,
 				394219181BCE2C9900F06ADF /* SystemConfiguration.framework in Frameworks */,
 				3982119F1C0CE8C500899DD7 /* Foundation.framework in Frameworks */,
 				3982119D1C0CE8C000899DD7 /* UIKit.framework in Frameworks */,
 				3942191E1BCE2D0500F06ADF /* libsqlite3.0.tbd in Frameworks */,
+				3914F50E1C0D63FF00586C91 /* FBSDKLoginKit.framework in Frameworks */,
 				3942191C1BCE2CF600F06ADF /* AudioToolbox.framework in Frameworks */,
-				394219161BCE2C5D00F06ADF /* Social.framework in Frameworks */,
 				394219011BCD4F7F00F06ADF /* Parse.framework in Frameworks */,
 				394219021BCD4F7F00F06ADF /* ParseCrashReporting.framework in Frameworks */,
 				394219131BCE2B1200F06ADF /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -174,7 +223,6 @@
 				394219061BCD4F7F00F06ADF /* ParseUI.framework in Frameworks */,
 				394219121BCE2B1200F06ADF /* ParseFacebookUtils.framework in Frameworks */,
 				394219001BCD4F7F00F06ADF /* Bolts.framework in Frameworks */,
-				FA2FBFDD646B4050063048E7 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +235,6 @@
 				394218B71BCC3ECD00F06ADF /* CookedApp */,
 				394218B61BCC3ECD00F06ADF /* Products */,
 				3942191F1BCE2D2300F06ADF /* Frameworks */,
-				689309450E670EF45636426C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,7 +262,8 @@
 				394218C41BCC3ECD00F06ADF /* Info.plist */,
 				394218F01BCD4EA700F06ADF /* CookedApp-Bridging-Header.h */,
 				393672C91BD0E974006647C9 /* MessageUIView.swift */,
-				3922ECCA1C0CEEC300F6514F /* MixpanelAccountInfo.swift */,
+				3922ECCA1C0CEEC300F6514F /* SegmentAccountInfo.swift */,
+				39AEFF331C0D699A0015CE27 /* Analytics */,
 			);
 			path = CookedApp;
 			sourceTree = "<group>";
@@ -251,6 +299,9 @@
 		3942191F1BCE2D2300F06ADF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3914F50D1C0D63FF00586C91 /* FBSDKLoginKit.framework */,
+				3914F50B1C0D63B400586C91 /* Accounts.framework */,
+				3914F5091C0D639A00586C91 /* FBSDKCoreKit.framework */,
 				398211A81C0CE8EC00899DD7 /* libicucore.tbd */,
 				398211A61C0CE8E500899DD7 /* QuartzCore.framework */,
 				398211A41C0CE8DF00899DD7 /* CoreGraphics.framework */,
@@ -271,7 +322,6 @@
 				394218FA1BCD4F7F00F06ADF /* Parse.framework */,
 				394218FB1BCD4F7F00F06ADF /* ParseCrashReporting.framework */,
 				394218FF1BCD4F7F00F06ADF /* ParseUI.framework */,
-				59FDB7B6F365C4C173DF3B8E /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,6 +375,68 @@
 			path = DrawerController;
 			sourceTree = "<group>";
 		};
+		39AEFF331C0D699A0015CE27 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				39AEFF341C0D699A0015CE27 /* Classes */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		39AEFF341C0D699A0015CE27 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				39AEFF351C0D699A0015CE27 /* .gitkeep */,
+				39AEFF361C0D699A0015CE27 /* Integrations */,
+				39AEFF451C0D699A0015CE27 /* Internal */,
+				39AEFF541C0D699A0015CE27 /* SEGAnalytics.h */,
+				39AEFF551C0D699A0015CE27 /* SEGAnalytics.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		39AEFF361C0D699A0015CE27 /* Integrations */ = {
+			isa = PBXGroup;
+			children = (
+				39AEFF371C0D699A0015CE27 /* SEGAliasPayload.h */,
+				39AEFF381C0D699A0015CE27 /* SEGAliasPayload.m */,
+				39AEFF391C0D699A0015CE27 /* SEGGroupPayload.h */,
+				39AEFF3A1C0D699A0015CE27 /* SEGGroupPayload.m */,
+				39AEFF3B1C0D699A0015CE27 /* SEGIdentifyPayload.h */,
+				39AEFF3C1C0D699A0015CE27 /* SEGIdentifyPayload.m */,
+				39AEFF3D1C0D699A0015CE27 /* SEGIntegration.h */,
+				39AEFF3E1C0D699A0015CE27 /* SEGIntegrationFactory.h */,
+				39AEFF3F1C0D699A0015CE27 /* SEGPayload.h */,
+				39AEFF401C0D699A0015CE27 /* SEGPayload.m */,
+				39AEFF411C0D699A0015CE27 /* SEGScreenPayload.h */,
+				39AEFF421C0D699A0015CE27 /* SEGScreenPayload.m */,
+				39AEFF431C0D699A0015CE27 /* SEGTrackPayload.h */,
+				39AEFF441C0D699A0015CE27 /* SEGTrackPayload.m */,
+			);
+			path = Integrations;
+			sourceTree = "<group>";
+		};
+		39AEFF451C0D699A0015CE27 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				39AEFF461C0D699A0015CE27 /* SEGAnalyticsRequest.h */,
+				39AEFF471C0D699A0015CE27 /* SEGAnalyticsRequest.m */,
+				39AEFF481C0D699A0015CE27 /* SEGAnalyticsUtils.h */,
+				39AEFF491C0D699A0015CE27 /* SEGAnalyticsUtils.m */,
+				39AEFF4A1C0D699A0015CE27 /* SEGBluetooth.h */,
+				39AEFF4B1C0D699A0015CE27 /* SEGBluetooth.m */,
+				39AEFF4C1C0D699A0015CE27 /* SEGLocation.h */,
+				39AEFF4D1C0D699A0015CE27 /* SEGLocation.m */,
+				39AEFF4E1C0D699A0015CE27 /* SEGReachability.h */,
+				39AEFF4F1C0D699A0015CE27 /* SEGReachability.m */,
+				39AEFF501C0D699A0015CE27 /* SEGSegmentIntegration.h */,
+				39AEFF511C0D699A0015CE27 /* SEGSegmentIntegration.m */,
+				39AEFF521C0D699A0015CE27 /* SEGSegmentIntegrationFactory.h */,
+				39AEFF531C0D699A0015CE27 /* SEGSegmentIntegrationFactory.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		39F0E9BC1BE93C4100A27B21 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,15 +451,6 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
-		689309450E670EF45636426C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				98EDBC237A5C48ED9005F986 /* Pods.debug.xcconfig */,
-				FC73C999D59B23775D88E4B8 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -355,12 +458,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 394218C71BCC3ECD00F06ADF /* Build configuration list for PBXNativeTarget "CookedApp" */;
 			buildPhases = (
-				821C36177B690A6B7508EAEF /* Check Pods Manifest.lock */,
 				394218B11BCC3ECD00F06ADF /* Sources */,
 				394218B21BCC3ECD00F06ADF /* Frameworks */,
 				394218B31BCC3ECD00F06ADF /* Resources */,
-				ED7AB6522E49C5F3FE2728D2 /* Embed Pods Frameworks */,
-				EFE9E433AA0951A070FC829F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -412,6 +512,7 @@
 			files = (
 				3950042A1BEAC97400CCC720 /* Info.plist in Resources */,
 				394218C31BCC3ECD00F06ADF /* LaunchScreen.storyboard in Resources */,
+				39AEFF561C0D699A0015CE27 /* .gitkeep in Resources */,
 				394218C01BCC3ECD00F06ADF /* Assets.xcassets in Resources */,
 				394218BE1BCC3ECD00F06ADF /* Main.storyboard in Resources */,
 			);
@@ -419,65 +520,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		821C36177B690A6B7508EAEF /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ED7AB6522E49C5F3FE2728D2 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EFE9E433AA0951A070FC829F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		394218B11BCC3ECD00F06ADF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AEFF611C0D699A0015CE27 /* SEGReachability.m in Sources */,
 				394219411BD02C3300F06ADF /* MessageWallViewController.swift in Sources */,
 				3942193E1BD029CC00F06ADF /* LoginViewController.swift in Sources */,
+				39AEFF5F1C0D699A0015CE27 /* SEGBluetooth.m in Sources */,
+				39AEFF621C0D699A0015CE27 /* SEGSegmentIntegration.m in Sources */,
 				39BE1CCC1BD84D990060DB2A /* AlertsTableViewController.swift in Sources */,
 				394218B91BCC3ECD00F06ADF /* AppDelegate.swift in Sources */,
 				39AF894A1BE8229D00EBDDAE /* GroupCheckboxCell.swift in Sources */,
 				390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */,
+				39AEFF5B1C0D699A0015CE27 /* SEGScreenPayload.m in Sources */,
+				39AEFF591C0D699A0015CE27 /* SEGIdentifyPayload.m in Sources */,
 				394219361BCF174400F06ADF /* MessageCell.swift in Sources */,
 				3974C1BA1BF125EA0020236F /* EditUserDetailsViewController.swift in Sources */,
 				394219341BCF167000F06ADF /* AlertCategory.swift in Sources */,
@@ -486,7 +544,8 @@
 				39F9600B1BF5241000908882 /* CreateNewGroupViewController.swift in Sources */,
 				394219271BCEF90F00F06ADF /* Group.swift in Sources */,
 				3942190A1BCDD6B900F06ADF /* GroupsTableViewController.swift in Sources */,
-				3922ECCB1C0CEEC300F6514F /* MixpanelAccountInfo.swift in Sources */,
+				39AEFF5C1C0D699A0015CE27 /* SEGTrackPayload.m in Sources */,
+				3922ECCB1C0CEEC300F6514F /* SegmentAccountInfo.swift in Sources */,
 				3942193D1BD029CC00F06ADF /* GroupDetailsViewController.swift in Sources */,
 				394219321BCF159C00F06ADF /* Message.swift in Sources */,
 				39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */,
@@ -498,23 +557,31 @@
 				398B02E01BFA698C00D43054 /* GroupCellWithButton.swift in Sources */,
 				39AF89481BE8211F00EBDDAE /* GroupsCheckboxTableViewController.swift in Sources */,
 				3942190C1BCDD75E00F06ADF /* GroupCell.swift in Sources */,
+				39AEFF5E1C0D699A0015CE27 /* SEGAnalyticsUtils.m in Sources */,
 				39C580BB1BFD06BB007804F6 /* GroupMemberCell.swift in Sources */,
+				39AEFF641C0D699A0015CE27 /* SEGAnalytics.m in Sources */,
+				39AEFF571C0D699A0015CE27 /* SEGAliasPayload.m in Sources */,
 				39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */,
+				39AEFF5D1C0D699A0015CE27 /* SEGAnalyticsRequest.m in Sources */,
 				394219301BCF151C00F06ADF /* MessageTableViewController.swift in Sources */,
 				393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */,
 				39C729151BD7078D003F451B /* AlertCategoriesTableViewDelegate.swift in Sources */,
 				395004271BEAC97400CCC720 /* DrawerBarButtonItem.swift in Sources */,
+				39AEFF601C0D699A0015CE27 /* SEGLocation.m in Sources */,
 				3950042C1BEACC5A00CCC720 /* SideNavTableViewController.swift in Sources */,
 				39C729171BD70A29003F451B /* AlertCategoryCell.swift in Sources */,
 				395004291BEAC97400CCC720 /* DrawerVisualState.swift in Sources */,
 				39755D981BF288E500D1E134 /* ImageUtilities.swift in Sources */,
 				394D2B3B1C04ED2B0041B1CF /* MessageTableDelegate.swift in Sources */,
+				39AEFF581C0D699A0015CE27 /* SEGGroupPayload.m in Sources */,
 				39ED390B1C0C99910011AC7C /* Notifications.swift in Sources */,
 				39F0E9BE1BE93C5D00A27B21 /* GroupCheckboxDelegate.swift in Sources */,
 				395004281BEAC97400CCC720 /* DrawerController.swift in Sources */,
+				39AEFF5A1C0D699A0015CE27 /* SEGPayload.m in Sources */,
 				394219241BCEF53900F06ADF /* User.swift in Sources */,
 				39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */,
 				395004261BEAC97400CCC720 /* AnimatedMenuButton.swift in Sources */,
+				39AEFF631C0D699A0015CE27 /* SEGSegmentIntegrationFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +694,6 @@
 		};
 		394218C81BCC3ECD00F06ADF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98EDBC237A5C48ED9005F986 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -648,7 +714,6 @@
 		};
 		394218C91BCC3ECD00F06ADF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC73C999D59B23775D88E4B8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

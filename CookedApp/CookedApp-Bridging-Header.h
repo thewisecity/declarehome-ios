@@ -5,3 +5,4 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import <Parse/PFObject+Subclass.h>
+#import <SEGAnalytics.h>

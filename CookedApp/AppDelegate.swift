@@ -8,7 +8,6 @@
 
 import UIKit
 import Social
-import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
@@ -226,7 +225,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         
         //Mixpanel
-        Mixpanel.sharedInstanceWithToken(MixpanelAccountInfo.token)
+//        Mixpanel.sharedInstanceWithToken(MixpanelAccountInfo.token)
         
         
         // If we're already logged in, skip the login screen
