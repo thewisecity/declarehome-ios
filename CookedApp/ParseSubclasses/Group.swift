@@ -78,13 +78,11 @@ class Group : PFObject, PFSubclassing {
                 try self.fetchIfNeeded()
             }
             
-            let currentUser = PFUser.currentUser() as! User
-            
             if let _ = adminsArray
             {
                 for theUser in adminsArray!
                 {
-                    if theUser.objectId == currentUser.objectId
+                    if theUser.objectId == user.objectId
                     {
                         userIsAdmin = true
                         break
@@ -115,13 +113,11 @@ class Group : PFObject, PFSubclassing {
                 try self.fetchIfNeeded()
             }
             
-            let currentUser = PFUser.currentUser() as! User
-            
             if let _ = membersArray
             {
                 for theUser in membersArray!
                 {
-                    if theUser.objectId == currentUser.objectId
+                    if theUser.objectId == user.objectId
                     {
                         userIsMember = true
                         break
