@@ -50,10 +50,22 @@ class LoginViewController: UIViewController {
     
     func keyboardWillShow(notification: NSNotification)
     {
+        
+        let topBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
+        let maxAmountToRaise = emailField.frame.origin.y - 20 - topBarHeight
+        
         print("Keyboard will show")
         let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
         var frame = self.view?.frame
-        frame = CGRect(x: frame!.origin.x, y: view.frame.height - frame!.height - keyboardFrame!.height, width: frame!.size.width, height: frame!.size.height)
+        
+        if keyboardFrame!.height < maxAmountToRaise
+        {
+            frame = CGRect(x: frame!.origin.x, y: view.frame.height - frame!.height - keyboardFrame!.height, width: frame!.size.width, height: frame!.size.height)
+        }
+        else
+        {
+            frame = CGRect(x: frame!.origin.x, y: view.frame.height - frame!.height - maxAmountToRaise, width: frame!.size.width, height: frame!.size.height)
+        }
         
         UIView.beginAnimations(nil, context: nil)
         
@@ -69,7 +81,7 @@ class LoginViewController: UIViewController {
     {
         print("Keyboard will hide")
         var frame = self.view?.frame
-        frame = CGRect(x: frame!.origin.x, y: view.frame.size.height, width: frame!.size.width, height: frame!.size.height)
+        frame = CGRect(x: frame!.origin.x, y: 0, width: frame!.size.width, height: frame!.size.height)
         
         UIView.beginAnimations(nil, context: nil)
         
@@ -81,6 +93,7 @@ class LoginViewController: UIViewController {
         UIView.commitAnimations()
         
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -97,7 +110,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {

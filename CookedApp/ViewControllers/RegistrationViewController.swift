@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegistrationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var displayNameField : UITextField!
     @IBOutlet weak var emailField : UITextField!
@@ -30,7 +30,13 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         
         profilePicButton.layer.cornerRadius = 47 // Half of width set in storyboard xib
         profilePicButton.clipsToBounds = true
-
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,6 +108,23 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if (textField == displayNameField)
+        {
+            emailField.becomeFirstResponder()
+        }
+        else if (textField == emailField)
+        {
+            passwordField.becomeFirstResponder()
+        }
+        else if (textField == passwordField)
+        {
+            passwordField.resignFirstResponder()
+        }
+        
+        return true
+    }
+        
     func segueToTabBarController() -> Void {
         self.navigationController?.popToRootViewControllerAnimated(false)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
