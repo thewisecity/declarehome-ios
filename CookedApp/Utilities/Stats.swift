@@ -6,7 +6,6 @@
 //  Copyright © 2015 The Wise City. All rights reserved.
 //
 
-import Mixpanel
 
 class Stats {
 

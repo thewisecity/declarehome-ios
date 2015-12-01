@@ -90,6 +90,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
                             let errorString = error.localizedDescription // Show the errorString somewhere and let the user try again.
                             print(errorString)
                         } else {
+                            Notifications.setSubscriptionForAllNotifs(true)
                             self.segueToTabBarController()
                             print("Success!")
                         }

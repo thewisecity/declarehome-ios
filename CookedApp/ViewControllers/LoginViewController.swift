@@ -39,12 +39,60 @@ class LoginViewController: UIViewController {
 
     func loginCallback(user:PFUser?, error:NSError?) -> Void {
         if (user != nil){
+            Notifications.setSubscriptionForAllNotifs(true)
             segueToTabBarController()
         } else if(error != nil){
             print(error!.localizedDescription)
         }
         // Either way
         loadingView.hidden = true
+    }
+    
+    func keyboardWillShow(notification: NSNotification)
+    {
+        print("Keyboard will show")
+        let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        var frame = self.view?.frame
+        frame = CGRect(x: frame!.origin.x, y: view.frame.height - frame!.height - keyboardFrame!.height, width: frame!.size.width, height: frame!.size.height)
+        
+        UIView.beginAnimations(nil, context: nil)
+        
+        UIView.setAnimationDuration(0.32)
+        UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
+        self.view?.frame = frame!
+        
+        UIView.commitAnimations()
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification)
+    {
+        print("Keyboard will hide")
+        var frame = self.view?.frame
+        frame = CGRect(x: frame!.origin.x, y: view.frame.size.height, width: frame!.size.width, height: frame!.size.height)
+        
+        UIView.beginAnimations(nil, context: nil)
+        
+        UIView.setAnimationDuration(0.32)
+        UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
+        
+        self.view?.frame = frame!
+        
+        UIView.commitAnimations()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewDidLoad() {
