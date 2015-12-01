@@ -7,5 +7,5 @@
 //
 
 class SegmentAccountInfo {
-    static let token = "YOUR_TOKEN_HERE"
+    static let writeKey = "YOUR_TOKEN_HERE"
 }

@@ -43,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         self.window?.rootViewController? = drawerController!
         
+
+        
     }
     
     func presentEditUserDetails() -> Void
@@ -58,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
         
         userDetailsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
-        
+     
     }
     
     func presentViewAllGroups() -> Void
@@ -74,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
         
         viewAllGroupsVC.navigationItem.setLeftBarButtonItem(button, animated: true)
+        
     }
 
     func presentCreateNewGroup() -> Void
@@ -86,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
         
         self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
+        
         
         createGroupVC.navigationItem.setLeftBarButtonItem(button, animated: true)
     }
@@ -224,7 +228,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         application.registerForRemoteNotifications()
         
         
-        //Mixpanel
+        //Segment
+        SEGAnalytics.setupWithConfiguration(SEGAnalyticsConfiguration(writeKey: SegmentAccountInfo.writeKey))
+//        SEGAnalytics.setupWithConfiguration(SEGAnalyticsConfiguration.)
 //        Mixpanel.sharedInstanceWithToken(MixpanelAccountInfo.token)
         
         
