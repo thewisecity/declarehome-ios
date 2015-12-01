@@ -230,9 +230,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         //Segment
         SEGAnalytics.setupWithConfiguration(SEGAnalyticsConfiguration(writeKey: SegmentAccountInfo.writeKey))
-//        SEGAnalytics.setupWithConfiguration(SEGAnalyticsConfiguration.)
-//        Mixpanel.sharedInstanceWithToken(MixpanelAccountInfo.token)
-        
         
         // If we're already logged in, skip the login screen
         if let _ = PFUser.currentUser() {
