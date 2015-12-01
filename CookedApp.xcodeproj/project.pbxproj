@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3922ECCB1C0CEEC300F6514F /* MixpanelAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922ECCA1C0CEEC300F6514F /* MixpanelAccountInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		393672C41BD058DD006647C9 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393672C31BD058DD006647C9 /* NavigationDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		393672CA1BD0E974006647C9 /* MessageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393672C91BD0E974006647C9 /* MessageUIView.swift */; settings = {ASSET_TAGS = (); }; };
 		394218B91BCC3ECD00F06ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394218B81BCC3ECD00F06ADF /* AppDelegate.swift */; };
@@ -47,6 +48,13 @@
 		3950042C1BEACC5A00CCC720 /* SideNavTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950042B1BEACC5A00CCC720 /* SideNavTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3974C1BA1BF125EA0020236F /* EditUserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974C1B91BF125EA0020236F /* EditUserDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39755D981BF288E500D1E134 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39755D971BF288E500D1E134 /* ImageUtilities.swift */; settings = {ASSET_TAGS = (); }; };
+		3982119D1C0CE8C000899DD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3982119C1C0CE8C000899DD7 /* UIKit.framework */; };
+		3982119F1C0CE8C500899DD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3982119E1C0CE8C500899DD7 /* Foundation.framework */; };
+		398211A11C0CE8D300899DD7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A01C0CE8D300899DD7 /* CoreTelephony.framework */; };
+		398211A31C0CE8DA00899DD7 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A21C0CE8DA00899DD7 /* Accelerate.framework */; };
+		398211A51C0CE8DF00899DD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A41C0CE8DF00899DD7 /* CoreGraphics.framework */; };
+		398211A71C0CE8E500899DD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A61C0CE8E500899DD7 /* QuartzCore.framework */; };
+		398211A91C0CE8EC00899DD7 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A81C0CE8EC00899DD7 /* libicucore.tbd */; };
 		398B02E01BFA698C00D43054 /* GroupCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */; settings = {ASSET_TAGS = (); }; };
 		399A27A61BFD38C500FBAE43 /* GroupContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A27A51BFD38C500FBAE43 /* GroupContract.swift */; settings = {ASSET_TAGS = (); }; };
 		39AF89441BE80D8D00EBDDAE /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -64,10 +72,12 @@
 		39F0E9C01BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		39F9600B1BF5241000908882 /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		39FA11301BD0F3B00065FE24 /* MessageUIViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		FA2FBFDD646B4050063048E7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FDB7B6F365C4C173DF3B8E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		390C1B4F1BF67FEE00C4492C /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllGroupsTableViewController.swift; path = TableViewControllers/AllGroupsTableViewController.swift; sourceTree = "<group>"; };
+		3922ECCA1C0CEEC300F6514F /* MixpanelAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixpanelAccountInfo.swift; sourceTree = "<group>"; };
 		393672C31BD058DD006647C9 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		393672C91BD0E974006647C9 /* MessageUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIView.swift; path = Views/MessageUIView.swift; sourceTree = "<group>"; };
 		394218B51BCC3ECD00F06ADF /* CookedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +122,13 @@
 		3950042B1BEACC5A00CCC720 /* SideNavTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideNavTableViewController.swift; path = TableViewControllers/SideNavTableViewController.swift; sourceTree = "<group>"; };
 		3974C1B91BF125EA0020236F /* EditUserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditUserDetailsViewController.swift; path = ViewControllers/EditUserDetailsViewController.swift; sourceTree = "<group>"; };
 		39755D971BF288E500D1E134 /* ImageUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
+		3982119C1C0CE8C000899DD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3982119E1C0CE8C500899DD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		398211A01C0CE8D300899DD7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		398211A21C0CE8DA00899DD7 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		398211A41C0CE8DF00899DD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		398211A61C0CE8E500899DD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		398211A81C0CE8EC00899DD7 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCellWithButton.swift; path = TableViewCells/GroupCellWithButton.swift; sourceTree = "<group>"; };
 		399A27A51BFD38C500FBAE43 /* GroupContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupContract.swift; path = ParseSubclasses/GroupContract.swift; sourceTree = "<group>"; };
 		39AF89431BE80D8C00EBDDAE /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyGroupsTableViewController.swift; path = TableViewControllers/MyGroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +146,9 @@
 		39F0E9BF1BE9438500A27B21 /* GroupCheckboxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCheckboxTableViewDelegate.swift; path = Delegates/GroupCheckboxTableViewDelegate.swift; sourceTree = "<group>"; };
 		39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNewGroupViewController.swift; path = ViewControllers/CreateNewGroupViewController.swift; sourceTree = "<group>"; };
 		39FA112F1BD0F3B00065FE24 /* MessageUIViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageUIViewDelegate.swift; path = Delegates/MessageUIViewDelegate.swift; sourceTree = "<group>"; };
+		59FDB7B6F365C4C173DF3B8E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98EDBC237A5C48ED9005F986 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FC73C999D59B23775D88E4B8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +156,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				398211A91C0CE8EC00899DD7 /* libicucore.tbd in Frameworks */,
+				398211A71C0CE8E500899DD7 /* QuartzCore.framework in Frameworks */,
+				398211A51C0CE8DF00899DD7 /* CoreGraphics.framework in Frameworks */,
+				398211A31C0CE8DA00899DD7 /* Accelerate.framework in Frameworks */,
+				398211A11C0CE8D300899DD7 /* CoreTelephony.framework in Frameworks */,
+				394219181BCE2C9900F06ADF /* SystemConfiguration.framework in Frameworks */,
+				3982119F1C0CE8C500899DD7 /* Foundation.framework in Frameworks */,
+				3982119D1C0CE8C000899DD7 /* UIKit.framework in Frameworks */,
 				3942191E1BCE2D0500F06ADF /* libsqlite3.0.tbd in Frameworks */,
 				3942191C1BCE2CF600F06ADF /* AudioToolbox.framework in Frameworks */,
-				394219181BCE2C9900F06ADF /* SystemConfiguration.framework in Frameworks */,
 				394219161BCE2C5D00F06ADF /* Social.framework in Frameworks */,
 				394219011BCD4F7F00F06ADF /* Parse.framework in Frameworks */,
 				394219021BCD4F7F00F06ADF /* ParseCrashReporting.framework in Frameworks */,
@@ -147,6 +174,7 @@
 				394219061BCD4F7F00F06ADF /* ParseUI.framework in Frameworks */,
 				394219121BCE2B1200F06ADF /* ParseFacebookUtils.framework in Frameworks */,
 				394219001BCD4F7F00F06ADF /* Bolts.framework in Frameworks */,
+				FA2FBFDD646B4050063048E7 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +187,7 @@
 				394218B71BCC3ECD00F06ADF /* CookedApp */,
 				394218B61BCC3ECD00F06ADF /* Products */,
 				3942191F1BCE2D2300F06ADF /* Frameworks */,
+				689309450E670EF45636426C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +215,7 @@
 				394218C41BCC3ECD00F06ADF /* Info.plist */,
 				394218F01BCD4EA700F06ADF /* CookedApp-Bridging-Header.h */,
 				393672C91BD0E974006647C9 /* MessageUIView.swift */,
+				3922ECCA1C0CEEC300F6514F /* MixpanelAccountInfo.swift */,
 			);
 			path = CookedApp;
 			sourceTree = "<group>";
@@ -221,6 +251,13 @@
 		3942191F1BCE2D2300F06ADF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				398211A81C0CE8EC00899DD7 /* libicucore.tbd */,
+				398211A61C0CE8E500899DD7 /* QuartzCore.framework */,
+				398211A41C0CE8DF00899DD7 /* CoreGraphics.framework */,
+				398211A21C0CE8DA00899DD7 /* Accelerate.framework */,
+				398211A01C0CE8D300899DD7 /* CoreTelephony.framework */,
+				3982119E1C0CE8C500899DD7 /* Foundation.framework */,
+				3982119C1C0CE8C000899DD7 /* UIKit.framework */,
 				3950041F1BEAC97400CCC720 /* DrawerController */,
 				3942191B1BCE2CF600F06ADF /* AudioToolbox.framework */,
 				394219191BCE2CC900F06ADF /* AVFoundation.framework */,
@@ -234,6 +271,7 @@
 				394218FA1BCD4F7F00F06ADF /* Parse.framework */,
 				394218FB1BCD4F7F00F06ADF /* ParseCrashReporting.framework */,
 				394218FF1BCD4F7F00F06ADF /* ParseUI.framework */,
+				59FDB7B6F365C4C173DF3B8E /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +339,15 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
+		689309450E670EF45636426C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98EDBC237A5C48ED9005F986 /* Pods.debug.xcconfig */,
+				FC73C999D59B23775D88E4B8 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,9 +355,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 394218C71BCC3ECD00F06ADF /* Build configuration list for PBXNativeTarget "CookedApp" */;
 			buildPhases = (
+				821C36177B690A6B7508EAEF /* Check Pods Manifest.lock */,
 				394218B11BCC3ECD00F06ADF /* Sources */,
 				394218B21BCC3ECD00F06ADF /* Frameworks */,
 				394218B31BCC3ECD00F06ADF /* Resources */,
+				ED7AB6522E49C5F3FE2728D2 /* Embed Pods Frameworks */,
+				EFE9E433AA0951A070FC829F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -369,6 +419,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		821C36177B690A6B7508EAEF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED7AB6522E49C5F3FE2728D2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFE9E433AA0951A070FC829F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		394218B11BCC3ECD00F06ADF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -388,6 +486,7 @@
 				39F9600B1BF5241000908882 /* CreateNewGroupViewController.swift in Sources */,
 				394219271BCEF90F00F06ADF /* Group.swift in Sources */,
 				3942190A1BCDD6B900F06ADF /* GroupsTableViewController.swift in Sources */,
+				3922ECCB1C0CEEC300F6514F /* MixpanelAccountInfo.swift in Sources */,
 				3942193D1BD029CC00F06ADF /* GroupDetailsViewController.swift in Sources */,
 				394219321BCF159C00F06ADF /* Message.swift in Sources */,
 				39C729131BD70700003F451B /* AlertCategoriesTableViewController.swift in Sources */,
@@ -528,6 +627,7 @@
 		};
 		394218C81BCC3ECD00F06ADF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98EDBC237A5C48ED9005F986 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -548,6 +648,7 @@
 		};
 		394218C91BCC3ECD00F06ADF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC73C999D59B23775D88E4B8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

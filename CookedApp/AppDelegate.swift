@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
@@ -48,14 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func presentEditUserDetails() -> Void
     {
         
-//        let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("UserDetailsVC") as! UserDetailsViewController
-        
-//        let userDetailsVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditUserDetails") as! EditUserDetailsViewController
-
         let userDetailsVC = EditUserDetailsViewController()
         let user = PFUser.currentUser() as! User
-        
-//        userDetailsVC.user = user
         
         let nav = UINavigationController(rootViewController: userDetailsVC)
         
@@ -98,7 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
 
     func presentViewFAQ() -> Void
     {
-        
         let vc = UIViewController()
         
         let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
@@ -141,7 +135,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
 
     func presentAboutDeclareHome() -> Void
     {
-        
         let vc = UIViewController()
         
         let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
@@ -230,6 +223,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
+        
+        
+        //Mixpanel
+        Mixpanel.sharedInstanceWithToken(MixpanelAccountInfo.token)
+        
         
         // If we're already logged in, skip the login screen
         if let _ = PFUser.currentUser() {
