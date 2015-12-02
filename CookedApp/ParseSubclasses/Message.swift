@@ -51,13 +51,11 @@ class Message : PFObject, PFSubclassing {
                 // Error exists
                 print("Error while saving message")
                 NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_POST_MESSAGE_FAILED, object: nil)
-                //TODO: Make analytics call here
-                //    Analytics.with(App.getContext()).track("Message Creation Failed");
+                Stats.TrackMessageCreationFailed()
             } else {
                 print("Message created")
                 NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_POST_MESSAGE_SUCCEEDED, object: nil)
-                //TODO: Make analytics call here
-                //    Analytics.with(App.getContext()).track("Message Created");
+                Stats.TrackMessageCreated()
             }
         }
     }
