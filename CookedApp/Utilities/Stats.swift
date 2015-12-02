@@ -26,9 +26,9 @@ class Stats {
         SEGAnalytics.sharedAnalytics().track("Began Message Creation")
     }
     
-    static func TrackCancelledMessageCreation() -> Void
+    static func TrackEndedMessageCreation() -> Void
     {
-        SEGAnalytics.sharedAnalytics().track("Cancelled Message Creation")
+        SEGAnalytics.sharedAnalytics().track("Ended Message Creation")
     }
     
     static func TrackOpenedNewMessageMenu() -> Void
@@ -46,6 +46,11 @@ class Stats {
         SEGAnalytics.sharedAnalytics().track("Began Alert Creation")
     }
 
+    static func TrackBeganAlertComposition() -> Void
+    {
+        SEGAnalytics.sharedAnalytics().track("Began Alert Composition")
+    }
+    
     static func TrackAttemptingGroupCreation() -> Void
     {
         SEGAnalytics.sharedAnalytics().track("Attempting Group Creation")

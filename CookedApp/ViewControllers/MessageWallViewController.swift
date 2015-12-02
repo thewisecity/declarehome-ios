@@ -296,4 +296,11 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         }
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (self.isMovingFromParentViewController() || self.isBeingDismissed())
+        {
+            Stats.TrackEndedMessageCreation()
+        }
+    }
 }

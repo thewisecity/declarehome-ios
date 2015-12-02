@@ -54,6 +54,16 @@ class MessageUIView: UIView {
     {
         delegate?.plusButtonTouched()
         isExpanded = !isExpanded
+        
+        // We are now measuring the 'new' state of expansion
+        if isExpanded == true
+        {
+            Stats.TrackOpenedNewMessageMenu()
+        }
+        else
+        {
+            Stats.TrackClosedNewMessageMenu()
+        }
     }
     
     @IBAction func respondToPostAlertButtonTouched()
@@ -77,26 +87,19 @@ class MessageUIView: UIView {
             plusButton.hidden = true
             delegate?.messageTextField?.hidden = false
             delegate?.messageTextField?.becomeFirstResponder()
-            //  TODO: Analytics call here
+            Stats.TrackBeganMessageCreation()
             //  Analytics.with(App.getContext()).track("Began Message Creation");
         }
         else if type == MessageType.Alert
         {
             isExpanded = false
             showPickerAlertTypeForAlert()
-            // TODO: Analytics call here
+            Stats.TrackBeganAlertCreation()
             // Analytics.with(App.getContext()).track("Began Alert Creation");
         }
     }
     
     func endMessageCreation() -> Void {
-        //chosenAlertCategory = nil
-        //unselectAllCheckedGroups()
-        //selectedGroupsForAlert.clear()
-        //hidePickGroupsForAlert()
-        //hidePickAlertTypeForAlert()
-        //configureMessageCompositionAreaForAlertCategory()
-        //clearMessageText()
         delegate?.chosenCategory = nil
         delegate?.selectedGroups = nil
         configureMessageCompositionAreaForAlertCategory()
@@ -131,13 +134,11 @@ class MessageUIView: UIView {
     
     func showAlertComposition()
     {
-        let chosenCategory = delegate?.chosenCategory
         plusButton.hidden = true
         isExpanded = false;
         configureMessageCompositionAreaForAlertCategory()
         delegate?.messageTextField?.becomeFirstResponder()
-        //TODO: Do analytics call here
-        //    Analytics.with(App.getContext()).track("Began Message Creation");
+        Stats.TrackBeganAlertComposition()
     }
     
     func configureMessageCompositionAreaForAlertCategory()
