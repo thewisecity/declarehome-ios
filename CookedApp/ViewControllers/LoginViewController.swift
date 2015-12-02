@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func attemptLogin() -> Void {
-        
+        Stats.TrackLoginAttempt()
         let userEmail = emailField.text as String!
         let userPassword = passwordField.text as String!
 
@@ -39,9 +39,14 @@ class LoginViewController: UIViewController {
 
     func loginCallback(user:PFUser?, error:NSError?) -> Void {
         if (user != nil){
+            //Login Success
+            Stats.AliasAndIdentifyUser()
+            Stats.TrackLoginSuccess()
             Notifications.setSubscriptionForAllNotifs(true)
             segueToTabBarController()
         } else if(error != nil){
+            //Login Failure
+            Stats.TrackLoginFailed()
             print(error!.localizedDescription)
         }
         // Either way
@@ -124,6 +129,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Stats.ScreenLogin()
+    }
 
 }
 
