@@ -233,6 +233,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         //Segment
         SEGAnalytics.setupWithConfiguration(SEGAnalyticsConfiguration(writeKey: SegmentAccountInfo.writeKey))
         
+        //Track application started
+        Stats.TrackApplicationStarted();
+        
         // If we're already logged in, skip the login screen
         if let _ = PFUser.currentUser() {
             
@@ -241,6 +244,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
             
             segueToTabViewController()
         }
+        
+        
         return true
     }
     
