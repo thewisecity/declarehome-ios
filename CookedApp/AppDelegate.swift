@@ -86,10 +86,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         let nav = UINavigationController(rootViewController: createGroupVC)
         
-        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "dismissPresentedViewController")
+        let button = UIBarButtonItem(title: "Back", style: .Done, target: self, action: "userForceDismissCreateNewGroup")
         
         self.window?.rootViewController?.presentViewController(nav, animated: true, completion: closeDrawer)
-        
         
         createGroupVC.navigationItem.setLeftBarButtonItem(button, animated: true)
     }
@@ -185,8 +184,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         return true
     }
-
-    
     
     func closeDrawer() -> Void
     {
@@ -196,6 +193,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
     func dismissPresentedViewController() -> Void
     {
         self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func userForceDismissEditUserDetails() -> Void
+    {
+        dismissPresentedViewController()
+    }
+    
+    func userForceDismissViewAllGroups() -> Void
+    {
+        dismissPresentedViewController()
+    }
+    
+    func userForceDismissCreateNewGroup() -> Void
+    {
+        Stats.TrackGroupCreationCancelled()
+        dismissPresentedViewController()
+    }
+    
+    func userForceDismissViewFAQ() -> Void
+    {
+        dismissPresentedViewController()
+    }
+    
+    func userForceDismissAboutDeclareHome() -> Void
+    {
+        dismissPresentedViewController()
     }
     
     func dismissPresentedViewControllerAndReloadGroups() -> Void
@@ -231,7 +254,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         
         //Segment
+        SEGAnalytics.debug(true)
         SEGAnalytics.setupWithConfiguration(SEGAnalyticsConfiguration(writeKey: SegmentAccountInfo.writeKey))
+        
+
         
         //Track application started
         Stats.TrackApplicationStarted();
