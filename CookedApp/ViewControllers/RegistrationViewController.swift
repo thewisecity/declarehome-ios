@@ -32,6 +32,8 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         profilePicButton.clipsToBounds = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tapRecognizer)
+        Stats.ScreenRegistration()
+
     }
     
     func dismissKeyboard()
@@ -80,6 +82,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
                 (succeeded: Bool, error: NSError?) -> Void in
                 if let error = error {
                     self.loadingView.hidden = true
+                    Stats.TrackRegistrationPicUploadFailed()
                     print("Error while uploading file")
                     print(error.localizedDescription)
                 } else {
@@ -93,9 +96,14 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
                     user.signUpInBackgroundWithBlock {
                         (succeeded: Bool, error: NSError?) -> Void in
                         if let error = error {
+                            //Registration failed
+                            Stats.TrackRegistrationFailed()
                             let errorString = error.localizedDescription // Show the errorString somewhere and let the user try again.
                             print(errorString)
                         } else {
+                            //Registration success!
+                            Stats.AliasAndIdentifyUser()
+                            Stats.TrackRegistrationSuccess()
                             //We will not properly start up the app if we don't force fetch our user here, since their relations won't have been set up
                             do {
                                 try PFUser.currentUser()?.fetch()
@@ -111,6 +119,10 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
                     }
                 }
             }
+        }
+        else
+        {
+            Stats.TrackInvalidRegistrationInfo()
         }
         
     }

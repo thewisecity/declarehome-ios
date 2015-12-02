@@ -16,6 +16,7 @@ class Stats {
     static let GROUP_DETAILS_CATEGORY = "GroupDetailsCategory"
     static let GROUP_DETAILS_SCREEN = "GroupDetailsScreen"
     static let LOGIN_SCREEN = "LoginScreen"
+    static let REGISTRATION_SCREEN = "RegistrationScreen"
     static let MY_GROUPS_SCREEN = "My_Groups_Screen"
     static let ALL_GROUPS_SCREEN = "All_Groups_Screen"
     static let EVENTS_SCREEN = "EventsScreen"
@@ -89,6 +90,29 @@ class Stats {
     {
         SEGAnalytics.sharedAnalytics().screen(EVENTS_SCREEN)
     }
+    
+    static func TrackRegistrationSuccess()
+    {
+        SEGAnalytics.sharedAnalytics().track("Registration Success");
+    }
+    
+    static func TrackRegistrationFailed()
+    {
+        SEGAnalytics.sharedAnalytics().track("Registration Failed");
+    }
+    
+    static func TrackRegistrationPicUploadFailed()
+    {
+        SEGAnalytics.sharedAnalytics().track("Registration Pic Upload Failed");
+    }
+    
+    static func TrackRegistrationAttempt(){
+        SEGAnalytics.sharedAnalytics().track("Registration Attempt");
+    }
+    
+    static func TrackInvalidRegistrationInfo(){
+        SEGAnalytics.sharedAnalytics().track("Invalid Registration Info");
+    }
 
     static func TrackLoginSuccess() -> Void
     {
@@ -103,6 +127,11 @@ class Stats {
     static func ScreenLogin() -> Void
     {
         SEGAnalytics.sharedAnalytics().screen(LOGIN_SCREEN)
+    }
+    
+    static func ScreenRegistration() -> Void
+    {
+        SEGAnalytics.sharedAnalytics().screen(REGISTRATION_SCREEN)
     }
     
     static func AliasAndIdentifyUser()
