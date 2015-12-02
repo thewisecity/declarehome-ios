@@ -79,4 +79,9 @@ class MyGroupsTableViewController: GroupsTableViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Stats.ScreenMyGroups()
+    }
+    
 }
