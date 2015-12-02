@@ -37,6 +37,7 @@ class Group : PFObject, PFSubclassing {
     
     static func createGroup(name:String?, purpose:String?, neighberhoods:String?, address:String?, city:String?, state:String?, website:String?, facebook:String?, twitter:String?, callback: (Group, Bool, NSError?) -> Void) -> Void
     {
+        Stats.TrackAttemptingGroupCreation()
         let group = Group()
         group.name = name
         group.purpose = purpose

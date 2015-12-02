@@ -10,6 +10,20 @@ import UIKit
 
 class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     
+    static let _NAME = "name";
+    static private let _PURPOSE = "purpose";
+    static private let _NEIGHBERHOODS = "neighberhoods";
+    static private let _ADDRESS = "address";
+    static private let _STATE = "state";
+    static private let _CITY = "city";
+    static private let _WEBSITE = "website";
+    static private let _FACEBOOK = "facebook";
+    static private let _TWITTER = "twitter";
+    static private let _MEMBERS_ARRAY = "membersArray";
+    static private let _ADMINS_ARRAY = "adminsArray";
+    static private let _MEMBERS_ROLE = "membersRole";
+    static private let _ADMINS_ROLE = "adminsRole";
+    
     @IBOutlet weak var nameTextField : UITextField!
     @IBOutlet weak var purposeTextField : UITextField!
     @IBOutlet weak var neighberhoodsTextField : UITextField!
@@ -48,6 +62,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        Stats.ScreenCreateGroup()
     }
     
     override func viewWillDisappear(animated: Bool)
@@ -64,7 +79,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
             print("Error while saving group")
             //Error while saving
             //TODO: Alert user to this error
-            //TODO: Analytics callback for error
+            Stats.TrackGroupCreationFailed()
         }
         else
         {
@@ -75,6 +90,20 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
             appDelegate.dismissPresentedViewControllerAndReloadGroups()
             
             Notifications.subscribeToNotifsForNewGroup(group!)
+            
+            let props = [
+                CreateNewGroupViewController._NAME : (group?.name)!,
+                CreateNewGroupViewController._PURPOSE : (group?.purpose)!,
+                CreateNewGroupViewController._NEIGHBERHOODS : (group?.neighberhoods)!,
+                CreateNewGroupViewController._ADDRESS : (group?.address)!,
+                CreateNewGroupViewController._STATE : (group?.state)!,
+                CreateNewGroupViewController._CITY : (group?.city)!,
+                CreateNewGroupViewController._WEBSITE : (group?.website)!,
+                CreateNewGroupViewController._TWITTER : (group?.twitter)!,
+                CreateNewGroupViewController._FACEBOOK : (group?.facebook)!
+            ]
+            
+            Stats.TrackGroupCreated(props)
             
             // TODO: Analytics callback
             //    Analytics.with(App.getContext()).track("Group Created",
