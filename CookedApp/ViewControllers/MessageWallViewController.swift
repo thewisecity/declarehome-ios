@@ -10,6 +10,8 @@ import UIKit
 
 class MessageWallViewController: UIViewController, NavigationDelegate, MessageUIViewDelegate, AlertCategoriesTableViewDelegate, MessageTableDelegate {
     
+    static let GROUP_ID_EXTRA = "GroupId";
+    
     var group: Group!
     var selectedGroups: [Group]? {
         didSet {
@@ -268,6 +270,12 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         print("Finished choosing groups")
         self.navigationController?.popViewControllerAnimated(true)
         selectedGroups = groups
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        Stats.ScreenMessageWall([MessageWallViewController.GROUP_ID_EXTRA : (group.objectId)!])
     }
     
     func loadedObjects(objects:[AnyObject]?, error: NSError?) -> Void
