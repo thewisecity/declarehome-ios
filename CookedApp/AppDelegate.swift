@@ -41,9 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         drawerController!.closeDrawerGestureModeMask = .All
         
         self.window?.rootViewController? = drawerController!
-        
 
+    }
+    
+    func segueToLoginViewController() -> Void
+    {
+        let loginVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginViewController")
         
+        self.window?.rootViewController? = loginVC
     }
     
     func presentEditUserDetails() -> Void
@@ -273,6 +278,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         
         
         return true
+    }
+    
+    func attemptLogout()
+    {
+        if PFUser.currentUser() != nil
+        {
+            PFUser.logOutInBackgroundWithBlock({ (error: NSError?) -> Void in
+                if error == nil
+                {
+                    // Hooray! We've logged out
+                    Stats.TrackUserLoggedOut()
+                    self.segueToLoginViewController()
+                }
+                else
+                {
+                    // Logout didn't succeed
+                    print(error?.localizedDescription)
+                }
+            })
+        }
+        else
+        {
+            Stats.TrackUserLoggedOut()
+            segueToLoginViewController()
+        }
+
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

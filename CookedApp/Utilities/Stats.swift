@@ -190,4 +190,9 @@ class Stats {
         SEGAnalytics.sharedAnalytics().track("Alert Created")
     }
     
+    static func TrackUserLoggedOut()
+    {
+        SEGAnalytics.sharedAnalytics().track("User Logged Out")
+    }
+    
 }

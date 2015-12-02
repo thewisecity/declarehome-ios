@@ -14,13 +14,15 @@ class SideNavTableViewController: UITableViewController {
                     "View All Groups",
                     "Create A New Group",
                     "View FAQ",
-                    "About Declare Home"]
+                    "About Declare Home",
+                    "Logout"]
     
     let EDIT_MY_PROFILE = 0
     let VIEW_ALL_GROUPS = 1
     let CREATE_NEW_GROUP = 2
     let VIEW_FAQ = 3
     let ABOUT_DECLARE_HOME = 4
+    let LOGOUT = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +84,10 @@ class SideNavTableViewController: UITableViewController {
         else if selection == ABOUT_DECLARE_HOME
         {
             delegate.presentAboutDeclareHome()
+        }
+        else if selection == LOGOUT
+        {
+            delegate.attemptLogout()
         }
         
     }

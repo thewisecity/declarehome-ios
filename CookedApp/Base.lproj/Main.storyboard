@@ -1242,7 +1242,7 @@
         <!--Navigation Controller-->
         <scene sceneID="GpS-T4-4uu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AcM-x8-cCh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" id="AcM-x8-cCh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9GR-Ta-KIC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
