@@ -104,20 +104,6 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
             ]
             
             Stats.TrackGroupCreated(props)
-            
-            // TODO: Analytics callback
-            //    Analytics.with(App.getContext()).track("Group Created",
-            //    new Properties().
-            //    putValue(_NAME, name).
-            //    putValue(_PURPOSE, purpose).
-            //    putValue(_NEIGHBERHOODS, neighberhoods).
-            //    putValue(_ADDRESS, address).
-            //    putValue(_STATE, state).
-            //    putValue(_CITY, city).
-            //    putValue(_WEBSITE, website).
-            //    putValue(_TWITTER, twitter).
-            //    putValue(_FACEBOOK, facebook));
-            //    }
         }
     }
     
