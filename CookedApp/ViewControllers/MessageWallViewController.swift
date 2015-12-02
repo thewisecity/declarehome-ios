@@ -91,6 +91,12 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().removeObserver(messagesTableViewController)
+        
+        if (self.isMovingFromParentViewController() || self.isBeingDismissed())
+        {
+            Stats.TrackEndedMessageCreation()
+        }
+
     }
     
     //TODO: Move this to the MessageUI class
@@ -296,11 +302,4 @@ class MessageWallViewController: UIViewController, NavigationDelegate, MessageUI
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if (self.isMovingFromParentViewController() || self.isBeingDismissed())
-        {
-            Stats.TrackEndedMessageCreation()
-        }
-    }
 }
