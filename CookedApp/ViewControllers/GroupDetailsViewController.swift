@@ -10,6 +10,9 @@ import UIKit
 
 class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    static let GROUP_ID_EXTRA = "GroupId";
+    static let GROUP_NAME_EXTRA = "GroupName";
+    
     @IBOutlet weak var groupName : UILabel?
     @IBOutlet weak var groupPurpose : UILabel?
     @IBOutlet weak var areaOfFocus : UILabel?
@@ -68,6 +71,18 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let props = [
+            GroupDetailsViewController.GROUP_ID_EXTRA : (group?.objectId)!,
+            GroupDetailsViewController.GROUP_NAME_EXTRA : (group?.name)!
+        ]
+        Stats.ScreenGroupDetails(props)
+        
     }
     
     func refreshInfo()
