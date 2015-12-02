@@ -12,6 +12,8 @@ import ParseUI
 
 class MyGroupsTableViewController: GroupsTableViewController {
     
+    var statusLabel: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -19,6 +21,14 @@ class MyGroupsTableViewController: GroupsTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Groups"
+        statusLabel = UILabel()
+        statusLabel.text = "Loading..."
+        view.addSubview(statusLabel)
+        statusLabel.sizeToFit()
+        statusLabel.center = CGPointMake(view.frame.size.width  / 2,
+            view.frame.size.height / 2);
+        statusLabel.hidden = true
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +62,41 @@ class MyGroupsTableViewController: GroupsTableViewController {
             cell?.group = group
         }
         return cell
+    }
+    
+    override func objectsDidLoad(error: NSError?) {
+        super.objectsDidLoad(error)
+        if error != nil
+        {
+            statusLabel.lineBreakMode = .ByWordWrapping
+            statusLabel.numberOfLines = 0
+            statusLabel.text = "Error while loading. Please try again."
+            statusLabel.sizeToFit()
+            let f = statusLabel.frame
+            statusLabel.frame = CGRectMake(f.origin.x, f.origin.y, view.frame.size.width - 40, f.size.height * 2)
+            statusLabel.center = CGPointMake(view.frame.size.width  / 2,
+                view.frame.size.height / 2);
+            
+            statusLabel.hidden = false
+        }
+        else if objects?.count == 0
+        {
+            statusLabel.lineBreakMode = .ByWordWrapping
+            statusLabel.numberOfLines = 0
+            statusLabel.text = "Here is where you will see all groups you have joined or created"
+            statusLabel.sizeToFit()
+            let f = statusLabel.frame
+            statusLabel.frame = CGRectMake(f.origin.x, f.origin.y, view.frame.size.width - 40, f.size.height * 2)
+            statusLabel.center = CGPointMake(view.frame.size.width  / 2,
+                view.frame.size.height / 2);
+            
+            
+            statusLabel.hidden = false
+        }
+        else
+        {
+            statusLabel.hidden = true
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

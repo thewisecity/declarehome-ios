@@ -52,21 +52,32 @@ class AlertsTableViewController: PFQueryTableViewController {
         
         if error != nil
         {
+            statusLabel.lineBreakMode = .ByWordWrapping
+            statusLabel.numberOfLines = 0
             statusLabel.text = "Error while loading. Please try again."
             statusLabel.sizeToFit()
+            let f = statusLabel.frame
+            statusLabel.frame = CGRectMake(f.origin.x, f.origin.y, view.frame.size.width - 40, f.size.height * 2)
             statusLabel.center = CGPointMake(view.frame.size.width  / 2,
                 view.frame.size.height / 2);
-
+            
             statusLabel.hidden = false
+
         }
         else if objects?.count == 0
         {
+            statusLabel.lineBreakMode = .ByWordWrapping
+            statusLabel.numberOfLines = 0
             statusLabel.text = "No alerts have been posted from your groups"
             statusLabel.sizeToFit()
+            let f = statusLabel.frame
+            statusLabel.frame = CGRectMake(f.origin.x, f.origin.y, view.frame.size.width - 40, f.size.height * 2)
             statusLabel.center = CGPointMake(view.frame.size.width  / 2,
                 view.frame.size.height / 2);
-
+            
+            
             statusLabel.hidden = false
+
         }
         else
         {
