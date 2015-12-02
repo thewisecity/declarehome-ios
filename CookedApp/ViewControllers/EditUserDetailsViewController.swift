@@ -165,15 +165,6 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
         contentContainer.addSubview(loadingView)
         
         let user = PFUser.currentUser()
-//        profilePicture.file = user?.profilePic
-//        profilePicture.loadInBackground()
-//        nameTextField.text = user?.displayName
-//        emailTextField.text = user?.email
-//        mobileTextField.text = user?.phoneNumber
-//        link1TextField.text = user?.linkOne
-//        link2TextField.text = user?.linkTwo
-//        link3TextField.text = user?.linkThree
-//        descriptionTextView.text = user?.userDescription
         
         profilePicture.file = user?.objectForKey("profilePic") as? PFFile
         profilePicture.loadInBackground()
@@ -285,17 +276,6 @@ class EditUserDetailsViewController: UIViewController, UIImagePickerControllerDe
         if (validateDisplayName(nameTextField.text) && validateEmail(emailTextField.text) && validatePhoneNumber(mobileTextField.text))
         {
             loadingView.hidden = false
-            
-//            profilePicture.file = user?.objectForKey("profilePic") as? PFFile
-//            profilePicture.loadInBackground()
-//            nameTextField.text = user?.objectForKey("displayName") as? String
-//            emailTextField.text = user?.email
-//            mobileTextField.text = user?.objectForKey("phoneNumber") as? String
-//            link1TextField.text = user?.objectForKey("linkOne") as? String
-//            link2TextField.text = user?.objectForKey("linkTwo") as? String
-//            link3TextField.text = user?.objectForKey("linkThree") as? String
-//            descriptionTextView.text = user?.objectForKey("userDescription") as? String
-
             
             let user = PFUser.currentUser()
             user?.setObject((nameTextField.text)!, forKey: "displayName")
