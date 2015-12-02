@@ -59,6 +59,11 @@ class AllGroupsTableViewController: GroupsTableViewController, GroupCellDelegate
        
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Stats.ScreenAllGroups()
+    }
+    
     func detailsButtonPressed(cell:GroupCell) -> Void
     {
         performSegueWithIdentifier("ViewGroupDetails", sender: cell.group)
