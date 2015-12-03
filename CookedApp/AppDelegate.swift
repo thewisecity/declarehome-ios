@@ -290,6 +290,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
                     // Hooray! We've logged out
                     Stats.TrackUserLoggedOut()
                     self.segueToLoginViewController()
+                    Notifications.setSubscriptionForAllNotifs(false)
                 }
                 else
                 {
@@ -302,6 +303,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate{
         {
             Stats.TrackUserLoggedOut()
             segueToLoginViewController()
+            Notifications.setSubscriptionForAllNotifs(false)
         }
 
     }

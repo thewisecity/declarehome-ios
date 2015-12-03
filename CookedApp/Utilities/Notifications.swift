@@ -19,12 +19,28 @@ class Notifications
     
     static func setSubscriptionForAllNotifs(subscribed: Bool) -> Void
     {
-        setSubscriptionForNewEvents(subscribed)
-        setSubscriptionForNewMessages(subscribed)
-        setSubscriptionForAlerts(subscribed)
-        setSubscriptionForInvitationAcceptedChannel(subscribed)
-        setSubscriptionForMembershipRequested(subscribed)
-        setSubscriptionForInvitedToGroup(subscribed)
+        if(subscribed == true)
+        {
+            if(PFUser.currentUser() != nil){
+                let i = PFInstallation.currentInstallation()
+                i.setObject(PFUser.currentUser()!, forKey: "user")
+                i.saveInBackground()
+            }
+            setSubscriptionForNewEvents(subscribed)
+            setSubscriptionForNewMessages(subscribed)
+            setSubscriptionForAlerts(subscribed)
+            setSubscriptionForInvitationAcceptedChannel(subscribed)
+            setSubscriptionForMembershipRequested(subscribed)
+            setSubscriptionForInvitedToGroup(subscribed)
+        }
+        else
+        {
+            let i = PFInstallation.currentInstallation()
+            i.channels = []
+            i.saveInBackground()
+            
+        }
+        
     }
     
     static func setSubscriptionForMembershipRequested(subscribed: Bool) -> Void
