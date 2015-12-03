@@ -247,7 +247,7 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func requestMembership()
     {
         setIsLoadingMemberStatus();
-        PFCloud.callFunctionInBackground("requestMembershipToGroup", withParameters: ["group" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
+        PFCloud.callFunctionInBackground("requestMembershipToGroup", withParameters: ["groupId" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
             
             if error != nil
             {
@@ -269,7 +269,7 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func acceptInvitation()
     {
         setIsLoadingMemberStatus();
-        PFCloud.callFunctionInBackground("acceptMembershipToGroup", withParameters: ["group" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
+        PFCloud.callFunctionInBackground("acceptMembershipToGroup", withParameters: ["groupId" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
             
             if error != nil
             {
@@ -315,9 +315,6 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         }
 
     }
-    
-    
-    
 
 }
 
