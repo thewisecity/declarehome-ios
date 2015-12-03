@@ -13,6 +13,12 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
     static let GROUP_ID_EXTRA = "GroupId";
     static let GROUP_NAME_EXTRA = "GroupName";
     
+    let USER_IS_ADMIN = 1;
+    let USER_IS_MEMBER = 2;
+    let USER_HAS_BEEN_INVITED = 3;
+    let USER_HAS_ALREADY_REQUESTED_TO_JOIN = 4;
+    let USER_HAS_NO_ASSOCIATION = 5;
+    
     @IBOutlet weak var groupName : UILabel?
     @IBOutlet weak var groupPurpose : UILabel?
     @IBOutlet weak var areaOfFocus : UILabel?
@@ -69,6 +75,7 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         refreshInfo()
         let current = PFUser.currentUser() as! User
         
+        setIsLoadingMemberStatus()
         
         // Do any additional setup after loading the view.
     }
@@ -164,6 +171,140 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    private func updateUIForUserStatusResponse(response: Int)
+    {
+        // Remove loading indicator from right bar button
+        self.navigationItem.setRightBarButtonItem(nil, animated: true)
+        
+        if response == USER_IS_MEMBER
+        {
+            //Do nothing
+        }
+        else if response == USER_IS_ADMIN
+        {
+            let item = UIBarButtonItem(title: "Invite Members", style: UIBarButtonItemStyle.Plain, target: self, action: "segueToInviteMembersVC")
+            self.navigationItem.setRightBarButtonItem(item, animated: true)
+        }
+        else if response == USER_HAS_BEEN_INVITED
+        {
+            let item = UIBarButtonItem(title: "Accept Invitation", style: UIBarButtonItemStyle.Plain, target: self, action: "acceptInvitation")
+            self.navigationItem.setRightBarButtonItem(item, animated: true)
+        }
+        else if response == USER_HAS_NO_ASSOCIATION
+        {
+            let item = UIBarButtonItem(title: "Request Membership", style: UIBarButtonItemStyle.Plain, target: self, action: "requestMembership")
+            self.navigationItem.setRightBarButtonItem(item, animated: true)
+        }
+        else if response == USER_HAS_ALREADY_REQUESTED_TO_JOIN
+        {
+            let item = UIBarButtonItem(title: "Membership Requested", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+            item.enabled = false
+            self.navigationItem.setRightBarButtonItem(item, animated: true)
+        }
+        else
+        {
+            let item = UIBarButtonItem(title: "Error", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+            item.enabled = false
+            self.navigationItem.setRightBarButtonItem(item, animated: true)
+        }
+    }
+    
+    private func setIsLoadingMemberStatus()
+    {
+        let ai = UIActivityIndicatorView(frame: CGRectMake(0, 0, 25, 25))
+        ai.activityIndicatorViewStyle = .Gray
+        ai.startAnimating()
+        ai.sizeToFit()
+        ai.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleBottomMargin]
+        let item = UIBarButtonItem(customView: ai)
+        self.navigationItem.setRightBarButtonItem(item, animated: true)
+        
+    }
+    
+    private func requestMembership()
+    {
+        
+    }
+    
+    private func acceptInvitation()
+    {
+        
+    }
+    
+    private func segueToInviteMembersVC()
+    {
+        
+    }
+    
+    
+//    private void updateUIForUserStatusResponse(final int response){
+//    ProgressBar loadingIndicator = (ProgressBar) findViewById(R.id.group_details_activity_loading_indicator);
+//    loadingIndicator.setVisibility(View.GONE);
+//    if(response==USER_IS_MEMBER)
+//    
+//    {
+//    mButton.setVisibility(View.GONE);
+//    //TODO: Find out what we want to do when user is member
+//    //                                                        mButton.setText(getString(R.string.invite_members));
+//    }
+//    
+//    else if(response==USER_IS_ADMIN)
+//    
+//    {
+//    mButton.setVisibility(View.VISIBLE);
+//    mButton.setText(getString(R.string.invite_members));
+//    mButton.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View v) {
+//    openInviteMembersActivity();
+//    }
+//    });
+//    }
+//    
+//    else if(response==USER_HAS_BEEN_INVITED)
+//    
+//    {
+//    mButton.setVisibility(View.VISIBLE);
+//    mButton.setText("Accept Invitation");
+//    mButton.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View v) {
+//    acceptInvitation();
+//    //Update our button
+//    }
+//    });
+//    }
+//    
+//    else if(response==USER_HAS_NO_ASSOCIATION)
+//    
+//    {
+//    mButton.setVisibility(View.VISIBLE);
+//    mButton.setText("Request To Join");
+//    mButton.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View v) {
+//    requestMembership();
+//    //Update our button
+//    }
+//    });
+//    }
+//    
+//    else if(response==USER_HAS_ALREADY_REQUESTED_TO_JOIN)
+//    
+//    {
+//    mButton.setVisibility(View.VISIBLE);
+//    mButton.setEnabled(false);
+//    mButton.setText("Membership requested");
+//    }
+//    
+//    else
+//    
+//    {
+//    mButton.setVisibility(View.VISIBLE);
+//    mButton.setText("Error");
+//    }
+//    }
+    
 
     // MARK: - Navigation
     
@@ -181,6 +322,8 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         }
 
     }
+    
+    
     
 
 }
