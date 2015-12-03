@@ -39,6 +39,10 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     var frameIsRaisedForKeyboard : Bool = false
     var selectedTextField : UITextField?
     
+    var positionForActiveTextView : CGPoint = CGPointMake(0, 0)
+    
+    var barButton = UIBarButtonItem(title: "Create", style: UIBarButtonItemStyle.Plain, target: nil, action: "clickedDone:")
+    
     
     @IBOutlet weak var doneButton : UIButton!
     
@@ -57,11 +61,30 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func configureDoneButton() {
+        if (validateGroupName(nameTextField.text) && validateGroupPurpose(purposeTextField.text))
+        {
+            barButton.enabled = true
+        }
+        else
+        {
+            barButton.enabled = false
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "configureDoneButton", name: UITextFieldTextDidChangeNotification, object: nameTextField)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "configureDoneButton", name: UITextFieldTextDidChangeNotification, object: purposeTextField)
+        
+        
+        
+        
         Stats.ScreenCreateGroup()
     }
     
@@ -120,65 +143,39 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         
         let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
         
-        let keyboardCoversField = (((selectedTextField?.frame.origin.y )! + (selectedTextField?.frame.height)!) > keyboardFrame!.height)
         
-        let raisingKeyboardWouldForceSelectedTextfieldOffScreen = ((selectedTextField?.frame.origin.y )! <  keyboardFrame!.height)
+        // If were moving 'down' the list, only change view position if bottom view isn't visible
+        // If we're moving 'up' the list, always change position
         
-        let doneButtonFrame = doneButton.convertRect(doneButton.bounds, toView: view)
+        var frame = self.view.frame
         
+        var first = findFirstResponder()
         
-        let keyboardCoversDoneButton = ((doneButtonFrame.origin.y  + doneButtonFrame.height) > keyboardFrame!.height)
-        
-        // First check if we should raise the keyboard now if it's not raised
-        if (frameIsRaisedForKeyboard == false && keyboardCoversField) ||
-            (frameIsRaisedForKeyboard == false && raisingKeyboardWouldForceSelectedTextfieldOffScreen == false && keyboardCoversDoneButton == true)
+        if(first != nil && first!.isKindOfClass(UITextField))
         {
-            print("Keyboard will show")
             
-            let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+            let topBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
+
             
-            var frame = self.view.frame
+            var diff = first!.frame.origin.y - positionForActiveTextView.y - topBarHeight
             
-            
-            
-            var     amountToRaiseKeyboard = (doneButtonFrame.origin.y - (view.frame.height - (keyboardFrame?.height)! ))
-            
-            if amountToRaiseKeyboard > 1
+            if diff < 0
             {
-                amountToRaiseKeyboard += 45
+                diff = 0
             }
             
-            frame = CGRect(x: frame.origin.x, y: frame.origin.y - amountToRaiseKeyboard, width: frame.size.width, height: frame.size.height)
+            frame = CGRect(x: frame.origin.x, y: -diff, width: frame.size.width, height: frame.size.height)
             
             UIView.beginAnimations(nil, context: nil)
             
             UIView.setAnimationDuration(0.32)
             UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
             self.view.frame = frame
-//            self.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - keyboardFrame!.height)
             
             UIView.commitAnimations()
             
             frameIsRaisedForKeyboard = true
         }
-        else if frameIsRaisedForKeyboard == true && keyboardCoversField == false
-        {
-            var frame = self.view.frame
-            frame = CGRect(x: 0, y: 0, width: frame.size.width, height: UIScreen.mainScreen().bounds.size.height)
-            
-            UIView.beginAnimations(nil, context: nil)
-            
-            UIView.setAnimationDuration(0.32)
-            UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
-            
-            self.view.frame = frame
-            //            self.scrollView.frame = frame
-            
-            UIView.commitAnimations()
-            
-            frameIsRaisedForKeyboard = false
-        }
-
         
     }
     
@@ -205,17 +202,44 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        positionForActiveTextView = nameTextField.frame.origin
+        
+        barButton.target = self
+        barButton.enabled = false
+        
+        self.navigationItem.setRightBarButtonItem(barButton, animated: true)
+        
+        let f = view.frame
+        
+        view.frame = CGRectMake(f.origin.x, f.origin.y, f.size.width, f.size.height + 150)
+        
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        view.sizeToFit()
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func findFirstResponder() -> UIView?
+    {
+        if (self.view.isFirstResponder()) {
+            return self.view;
+        }
+        for subView : UIView in self.view.subviews {
+            if (subView.isFirstResponder()) {
+                return subView;
+            }
+        }
+        return nil;
+    }
+    
     
 
     /*

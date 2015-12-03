@@ -16,7 +16,11 @@ func validateGroupName(name : String?) -> Bool
     var isValid = false
     // TODO: Stuff here
     
-    isValid = true
+    if(name?.characters.count > 0){
+        isValid = true
+    }
+    
+    
     return isValid
 }
 
@@ -25,7 +29,10 @@ func validateGroupPurpose(purpose : String?) -> Bool
     var isValid = false
     // TODO: Stuff here
     
-    isValid = true
+    if(purpose?.characters.count > 0){
+        isValid = true
+    }
+    
     return isValid
 }
 
