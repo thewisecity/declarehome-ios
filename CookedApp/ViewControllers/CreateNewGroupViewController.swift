@@ -43,6 +43,8 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     
     var barButton = UIBarButtonItem(title: "Create", style: UIBarButtonItemStyle.Plain, target: nil, action: "clickedDone:")
     
+    var screenTooSmall = false
+    
     
     @IBOutlet weak var doneButton : UIButton!
     
@@ -142,41 +144,65 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         print ("Keyboard will show check")
         
         let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
-        
-        
-        // If were moving 'down' the list, only change view position if bottom view isn't visible
-        // If we're moving 'up' the list, always change position
-        
-        var frame = self.view.frame
-        
-        var first = findFirstResponder()
-        
-        if(first != nil && first!.isKindOfClass(UITextField))
-        {
-            
-            let topBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
 
-            
-            var diff = first!.frame.origin.y - positionForActiveTextView.y - topBarHeight
-            
-            if diff < 0
-            {
-                diff = 0
-            }
-            
-            frame = CGRect(x: frame.origin.x, y: -diff, width: frame.size.width, height: frame.size.height)
-            
-            UIView.beginAnimations(nil, context: nil)
-            
-            UIView.setAnimationDuration(0.32)
-            UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
-            self.view.frame = frame
-            
-            UIView.commitAnimations()
-            
-            frameIsRaisedForKeyboard = true
+        if(twitterTextField.frame.origin.y + (keyboardFrame?.height)! > (view.frame.size.height ))
+        {
+            screenTooSmall = true
         }
         
+        if(screenTooSmall)
+        {
+            
+            // If were moving 'down' the list, only change view position if bottom view isn't visible
+            // If we're moving 'up' the list, only change view position if top view isn't visible
+            
+            let topFrame =  nameTextField.frame
+            let botFrame = twitterTextField.frame
+            
+            var frame = self.view.frame
+            
+            var first = findFirstResponder()
+            
+            if(first != nil && first!.isKindOfClass(UITextField))
+            {
+                
+                let topBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
+                
+                
+                var diff = first!.frame.origin.y - positionForActiveTextView.y - topBarHeight
+                
+                if diff < 0
+                {
+                    diff = 0
+                }
+                
+                //Check if we're moving down
+                if (diff > abs(frame.origin.y))
+                {
+                    //We're moving down the page
+                    //Now check if the last edit text field shouldn't already be visible
+                    let positionInFrameFromBottom = (view.frame.height - twitterTextField.frame.origin.y)
+                    //Need to see if the keyboardHeight is greater than the original position of the field plus any work already done to make it visible
+                    if (positionInFrameFromBottom + twitterTextField.frame.height + abs(view.frame.origin.y) > keyboardFrame?.height )
+                    {
+                        // Should already be visible, so zero out our difference
+                        diff = abs(view.frame.origin.y)
+                    }
+                }
+                
+                frame = CGRect(x: frame.origin.x, y: -diff, width: frame.size.width, height: frame.size.height)
+                
+                UIView.beginAnimations(nil, context: nil)
+                
+                UIView.setAnimationDuration(0.32)
+                UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
+                self.view.frame = frame
+                
+                UIView.commitAnimations()
+                
+                frameIsRaisedForKeyboard = true
+            }
+        }
     }
     
     func keyboardWillHide(notification: NSNotification)
@@ -219,6 +245,11 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         
         view.sizeToFit()
+        
+        if(twitterTextField.frame.origin.y > view.frame.size.height)
+        {
+            screenTooSmall = true
+        }
     
     }
 
