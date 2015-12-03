@@ -75,7 +75,7 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         refreshInfo()
         let current = PFUser.currentUser() as! User
         
-        setIsLoadingMemberStatus()
+        setupUIForCurrentUserStatusWithinGroup()
         
         // Do any additional setup after loading the view.
     }
@@ -209,6 +209,29 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    private func setupUIForCurrentUserStatusWithinGroup()
+    {
+        setIsLoadingMemberStatus()
+        
+        PFCloud.callFunctionInBackground("getUserStatusForGroup", withParameters: ["group" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                print("Error: " + (error?.localizedDescription)!)
+            }
+            else
+            {
+                var response = 9999
+                if result != nil
+                {
+                    response = result as! Int
+                    
+                    self.updateUIForUserStatusResponse(response)
+                }
+            }
+        }
+    }
+    
     private func setIsLoadingMemberStatus()
     {
         let ai = UIActivityIndicatorView(frame: CGRectMake(0, 0, 25, 25))
@@ -221,91 +244,61 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    private func requestMembership()
+    func requestMembership()
+    {
+        setIsLoadingMemberStatus();
+        PFCloud.callFunctionInBackground("requestMembershipToGroup", withParameters: ["group" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                print("Error: " + (error?.localizedDescription)!)
+            }
+            else
+            {
+                var response = 9999
+                if result != nil
+                {
+                    response = result as! Int
+                    
+                    self.updateUIForUserStatusResponse(response)
+                }
+            }
+        }
+    }
+    
+    func acceptInvitation()
+    {
+        setIsLoadingMemberStatus();
+        PFCloud.callFunctionInBackground("acceptMembershipToGroup", withParameters: ["group" : (group?.objectId)!]) { (result, error: NSError?) -> Void in
+            
+            if error != nil
+            {
+                print("Error: " + (error?.localizedDescription)!)
+            }
+            else
+            {
+                var response = 9999
+                if result != nil
+                {
+                    response = result as! Int
+                    
+                    //Update our user
+                    PFUser.currentUser()?.fetchInBackground()
+                    
+                    self.updateUIForUserStatusResponse(response)
+                }
+            }
+        }
+        //TODO: Tell app delegate that it should refresh our list of groups of which our user is a member
+    }
+    
+    
+    func segueToInviteMembersVC()
     {
         
     }
     
-    private func acceptInvitation()
-    {
-        
-    }
     
-    private func segueToInviteMembersVC()
-    {
-        
-    }
-    
-    
-//    private void updateUIForUserStatusResponse(final int response){
-//    ProgressBar loadingIndicator = (ProgressBar) findViewById(R.id.group_details_activity_loading_indicator);
-//    loadingIndicator.setVisibility(View.GONE);
-//    if(response==USER_IS_MEMBER)
-//    
-//    {
-//    mButton.setVisibility(View.GONE);
-//    //TODO: Find out what we want to do when user is member
-//    //                                                        mButton.setText(getString(R.string.invite_members));
-//    }
-//    
-//    else if(response==USER_IS_ADMIN)
-//    
-//    {
-//    mButton.setVisibility(View.VISIBLE);
-//    mButton.setText(getString(R.string.invite_members));
-//    mButton.setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View v) {
-//    openInviteMembersActivity();
-//    }
-//    });
-//    }
-//    
-//    else if(response==USER_HAS_BEEN_INVITED)
-//    
-//    {
-//    mButton.setVisibility(View.VISIBLE);
-//    mButton.setText("Accept Invitation");
-//    mButton.setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View v) {
-//    acceptInvitation();
-//    //Update our button
-//    }
-//    });
-//    }
-//    
-//    else if(response==USER_HAS_NO_ASSOCIATION)
-//    
-//    {
-//    mButton.setVisibility(View.VISIBLE);
-//    mButton.setText("Request To Join");
-//    mButton.setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View v) {
-//    requestMembership();
-//    //Update our button
-//    }
-//    });
-//    }
-//    
-//    else if(response==USER_HAS_ALREADY_REQUESTED_TO_JOIN)
-//    
-//    {
-//    mButton.setVisibility(View.VISIBLE);
-//    mButton.setEnabled(false);
-//    mButton.setText("Membership requested");
-//    }
-//    
-//    else
-//    
-//    {
-//    mButton.setVisibility(View.VISIBLE);
-//    mButton.setText("Error");
-//    }
-//    }
-    
-
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
