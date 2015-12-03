@@ -53,6 +53,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         if (validateGroupName(nameTextField.text) && validateGroupPurpose(purposeTextField.text))
         {
             loadingView.hidden = false
+            self.view.endEditing(true)
             Group.createGroup(nameTextField.text, purpose: purposeTextField.text, neighberhoods: neighberhoodsTextField.text, address: addressTextField.text, city: cityTextField.text, state: stateOrProvinceTextField.text, website: websiteTextField.text, facebook: facebookTextField.text, twitter: twitterTextField.text, callback: onGroupCreationFinished)
         }
         else
@@ -183,7 +184,8 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
                     //Now check if the last edit text field shouldn't already be visible
                     let positionInFrameFromBottom = (view.frame.height - twitterTextField.frame.origin.y)
                     //Need to see if the keyboardHeight is greater than the original position of the field plus any work already done to make it visible
-                    if (positionInFrameFromBottom + twitterTextField.frame.height + abs(view.frame.origin.y) > keyboardFrame?.height )
+                    
+                    if (positionInFrameFromBottom - twitterTextField.frame.height + abs(view.frame.origin.y) > keyboardFrame?.height )
                     {
                         // Should already be visible, so zero out our difference
                         diff = abs(view.frame.origin.y)
