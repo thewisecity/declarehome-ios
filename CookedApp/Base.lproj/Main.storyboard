@@ -757,8 +757,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-EA-jTr">
-                                                    <rect key="frame" x="66" y="19" width="198" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-EA-jTr">
+                                                    <rect key="frame" x="66" y="19" width="420" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -785,6 +785,7 @@
                                             <constraints>
                                                 <constraint firstItem="5Ft-Qb-jd4" firstAttribute="centerY" secondItem="Xci-KI-avQ" secondAttribute="centerY" id="2bf-B1-68b"/>
                                                 <constraint firstItem="min-Ce-4Fa" firstAttribute="leading" secondItem="Xci-KI-avQ" secondAttribute="leading" constant="8" id="6v2-nf-u1R"/>
+                                                <constraint firstItem="riV-vc-qln" firstAttribute="leading" secondItem="VxF-EA-jTr" secondAttribute="trailing" constant="8" id="924-R6-iCT"/>
                                                 <constraint firstItem="riV-vc-qln" firstAttribute="top" secondItem="Xci-KI-avQ" secondAttribute="top" constant="15" id="BmT-VI-Iut"/>
                                                 <constraint firstItem="5Ft-Qb-jd4" firstAttribute="centerX" secondItem="Xci-KI-avQ" secondAttribute="centerX" id="b7A-Bp-kQI"/>
                                                 <constraint firstItem="min-Ce-4Fa" firstAttribute="top" secondItem="Xci-KI-avQ" secondAttribute="top" constant="5" id="bIW-bC-C16"/>
