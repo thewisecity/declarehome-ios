@@ -15,6 +15,14 @@ class GroupMemberCell: PFTableViewCell {
     @IBOutlet weak var approveButton : UIButton!
     @IBOutlet weak var loadingIndicator : UIActivityIndicatorView!
     
+    var group : Group!
+        {
+        didSet
+        {
+            configureForInvitationStatus()
+        }
+    }
+    
     var user : User!
         {
         didSet
@@ -35,10 +43,7 @@ class GroupMemberCell: PFTableViewCell {
                 approveButton.hidden = true
                 loadingIndicator.hidden = true
                 
-                //TODO: IF user is awaiting approval and current user is admin
-                //  approveButton.hidden = false
-                //else
-                //  approveButton.hidden = true
+                configureForInvitationStatus()
             }
             else
             {
@@ -48,6 +53,54 @@ class GroupMemberCell: PFTableViewCell {
                 username.text = "Loading..."
             }
         }
+    }
+    
+    func configureForInvitationStatus()
+    {
+        if(group != nil && user != nil){
+            let currentUserIsAdmin = group?.isCurrentUserAdmin()
+            let userIsInvitee = (group?.isUserMember(user, forceServerContact: false) == false && group?.isUserAdmin(user, forceServerContact: false) == false)
+            
+            //If the current user is an admin of this group and the user for this view is an invitee, show the 'Approve' button, else hide it
+            if (!(userIsInvitee == true && currentUserIsAdmin == true))
+            {
+                approveButton.hidden = true
+                approveButton.removeTarget(self, action: "approveNewMember", forControlEvents: UIControlEvents.TouchUpInside)
+            }
+            else
+            {
+                approveButton.hidden = false
+                approveButton.addTarget(self, action: "approveNewMember", forControlEvents: UIControlEvents.TouchUpInside)
+            }
+            
+            if userIsInvitee // user is invitee
+            {
+                username.text?.appendContentsOf(" (pending)")
+            }
+
+        }
+    }
+    
+    func approveNewMember()
+    {
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
+        approveButton.hidden = true
+        PFCloud.callFunctionInBackground("approveMembershipForGroup", withParameters: ["groupId" : (group.objectId)!, "inviteeId" : user.objectId!]) { (response: AnyObject?, error : NSError?) -> Void in
+            
+            self.loadingIndicator.stopAnimating()
+
+            if (error != nil) //Error
+            {
+                //TODO: Alert error here?
+                self.approveButton.hidden = false
+            }
+            else //Success!
+            {
+                self.group.addMember(self.user)
+            }
+        }
+        loadingIndicator.startAnimating()
     }
     
     override func awakeFromNib() {

@@ -47,18 +47,8 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
             }
             // Configure the cell to show todo item with a priority at the bottom
             if let user = members[indexPath.row] as? User {
+                cell?.group = group
                 cell?.user = user
-                
-                let currentUserIsAdmin = group?.isCurrentUserAdmin()
-                let userIsInvitee = (group?.isUserMember(user, forceServerContact: false) == false && group?.isUserAdmin(user, forceServerContact: false) == false)
-                
-                //If the current user is an admin of this group and the user for this view is an invitee, show the 'Approve' button, else hide it
-                cell?.approveButton.hidden = !(userIsInvitee == true && currentUserIsAdmin == true)
-                
-                if userIsInvitee
-                {
-                    cell?.username.text?.appendContentsOf(" (pending")
-                }
             }
         return cell!
     }
@@ -289,7 +279,6 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 }
             }
         }
-        //TODO: Tell app delegate that it should refresh our list of groups of which our user is a member
     }
     
     
