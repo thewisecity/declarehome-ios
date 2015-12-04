@@ -135,4 +135,10 @@ class Group : PFObject, PFSubclassing {
         return userIsMember
     }
     
+    func addMember(user: User)
+    {
+        membersArray?.append(user)
+        saveInBackground()
+    }
+    
 }
