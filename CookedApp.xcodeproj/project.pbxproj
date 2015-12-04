@@ -58,6 +58,7 @@
 		398211A51C0CE8DF00899DD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A41C0CE8DF00899DD7 /* CoreGraphics.framework */; };
 		398211A71C0CE8E500899DD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A61C0CE8E500899DD7 /* QuartzCore.framework */; };
 		398211A91C0CE8EC00899DD7 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 398211A81C0CE8EC00899DD7 /* libicucore.tbd */; };
+		3986590B1C123A5100E6FAFA /* InviteMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3986590A1C123A5100E6FAFA /* InviteMembersViewController.swift */; };
 		398B02E01BFA698C00D43054 /* GroupCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */; };
 		399A27A61BFD38C500FBAE43 /* GroupContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A27A51BFD38C500FBAE43 /* GroupContract.swift */; };
 		39AEFF561C0D699A0015CE27 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 39AEFF351C0D699A0015CE27 /* .gitkeep */; };
@@ -150,6 +151,7 @@
 		398211A41C0CE8DF00899DD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		398211A61C0CE8E500899DD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		398211A81C0CE8EC00899DD7 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		3986590A1C123A5100E6FAFA /* InviteMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteMembersViewController.swift; path = ViewControllers/InviteMembersViewController.swift; sourceTree = "<group>"; };
 		398B02DF1BFA698C00D43054 /* GroupCellWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCellWithButton.swift; path = TableViewCells/GroupCellWithButton.swift; sourceTree = "<group>"; };
 		399A27A51BFD38C500FBAE43 /* GroupContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupContract.swift; path = ParseSubclasses/GroupContract.swift; sourceTree = "<group>"; };
 		39AEFF351C0D699A0015CE27 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				39B1BE801BD0388800E30EFF /* UserDetailsViewController.swift */,
 				3974C1B91BF125EA0020236F /* EditUserDetailsViewController.swift */,
 				39F9600A1BF5241000908882 /* CreateNewGroupViewController.swift */,
+				3986590A1C123A5100E6FAFA /* InviteMembersViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				39AF894A1BE8229D00EBDDAE /* GroupCheckboxCell.swift in Sources */,
 				390C1B501BF67FEE00C4492C /* AllGroupsTableViewController.swift in Sources */,
 				39AEFF5B1C0D699A0015CE27 /* SEGScreenPayload.m in Sources */,
+				3986590B1C123A5100E6FAFA /* InviteMembersViewController.swift in Sources */,
 				39AEFF591C0D699A0015CE27 /* SEGIdentifyPayload.m in Sources */,
 				394219361BCF174400F06ADF /* MessageCell.swift in Sources */,
 				3974C1BA1BF125EA0020236F /* EditUserDetailsViewController.swift in Sources */,
