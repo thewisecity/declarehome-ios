@@ -284,7 +284,7 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     func segueToInviteMembersVC()
     {
-        
+        performSegueWithIdentifier("ViewInviteMembersViewController", sender: group)
     }
     
     
@@ -301,6 +301,11 @@ class GroupDetailsViewController: UIViewController, UITableViewDataSource, UITab
             {
                 destinationController.user = authorOfSelectedMessage
             }
+        }
+        
+        if let destinationController = segue.destinationViewController as? InviteMembersViewController
+        {
+            destinationController.group = group
         }
 
     }

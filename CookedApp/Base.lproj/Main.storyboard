@@ -479,7 +479,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KmH-BH-0of"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DMt-QT-mZ7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBh-6T-q0w">
@@ -488,15 +488,48 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jB3-Dg-Gvl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jB3-Dg-Gvl">
                                 <rect key="frame" x="20" y="48" width="560" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="fo6-Ei-iMm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter an address and hit 'Send' to invite new members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz7-80-xXB">
-                                <rect key="frame" x="20" y="74" width="415" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-x1-jM8">
+                                <rect key="frame" x="20" y="103" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIz-BM-kLO">
+                                <rect key="frame" x="273" y="165" width="54" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="165-qY-lTE"/>
+                                    <constraint firstAttribute="width" constant="54" id="yq0-qo-NtE"/>
+                                </constraints>
+                                <state key="normal" title="Invite"/>
+                                <connections>
+                                    <action selector="sendInvite:" destination="HeB-jc-j9c" eventType="touchUpInside" id="sk1-D6-woa"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1F-zN-O5O">
+                                <rect key="frame" x="180" y="285" width="240" height="128"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="G8X-ay-Mzv">
+                                        <rect key="frame" x="103" y="44" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="1id-DY-jMn"/>
+                                            <constraint firstAttribute="height" constant="37" id="Kgw-eZ-mDe"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="G8X-ay-Mzv" firstAttribute="centerY" secondItem="W1F-zN-O5O" secondAttribute="centerY" id="2nM-gD-Als"/>
+                                    <constraint firstItem="G8X-ay-Mzv" firstAttribute="centerX" secondItem="W1F-zN-O5O" secondAttribute="centerX" id="pWi-TO-QOo"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter email for invite below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz7-80-xXB">
+                                <rect key="frame" x="20" y="74" width="206" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="415" id="2Q9-RJ-cRy"/>
                                     <constraint firstAttribute="height" constant="21" id="G9M-Z8-Ct4"/>
@@ -505,46 +538,58 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-x1-jM8">
-                                <rect key="frame" x="20" y="103" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIz-BM-kLO">
-                                <rect key="frame" x="273" y="165" width="54" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="165-qY-lTE"/>
-                                    <constraint firstAttribute="width" constant="54" id="yq0-qo-NtE"/>
-                                </constraints>
-                                <state key="normal" title="Invite"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jB3-Dg-Gvl" firstAttribute="leading" secondItem="DMt-QT-mZ7" secondAttribute="leading" constant="20" id="1zd-zs-VgC"/>
                             <constraint firstItem="RBh-6T-q0w" firstAttribute="top" secondItem="DMt-QT-mZ7" secondAttribute="topMargin" constant="8" id="6N6-8X-LM2"/>
                             <constraint firstAttribute="trailing" secondItem="4wj-x1-jM8" secondAttribute="trailing" constant="20" id="7Rg-Cq-UuC"/>
+                            <constraint firstItem="KmH-BH-0of" firstAttribute="top" secondItem="W1F-zN-O5O" secondAttribute="bottom" id="B24-eM-hmq"/>
+                            <constraint firstItem="4wj-x1-jM8" firstAttribute="top" secondItem="miY-yB-fbn" secondAttribute="bottom" constant="83" id="Bmn-4Z-2I1"/>
                             <constraint firstAttribute="trailing" secondItem="jB3-Dg-Gvl" secondAttribute="trailing" constant="20" id="Dsp-EB-KoK"/>
                             <constraint firstItem="gIz-BM-kLO" firstAttribute="top" secondItem="DMt-QT-mZ7" secondAttribute="topMargin" constant="165" id="MPG-be-O5L"/>
+                            <constraint firstAttribute="trailing" secondItem="W1F-zN-O5O" secondAttribute="trailing" id="MWc-Tr-oYw"/>
                             <constraint firstItem="Kz7-80-xXB" firstAttribute="leading" secondItem="DMt-QT-mZ7" secondAttribute="leading" constant="20" id="NyO-o7-VaI"/>
                             <constraint firstItem="4wj-x1-jM8" firstAttribute="leading" secondItem="DMt-QT-mZ7" secondAttribute="leading" constant="20" id="OPb-xz-B2h"/>
                             <constraint firstAttribute="trailing" secondItem="RBh-6T-q0w" secondAttribute="trailing" constant="20" id="QbK-gv-9rH"/>
                             <constraint firstItem="4wj-x1-jM8" firstAttribute="top" secondItem="DMt-QT-mZ7" secondAttribute="topMargin" constant="103" id="R8X-gp-WRx"/>
+                            <constraint firstItem="W1F-zN-O5O" firstAttribute="leading" secondItem="DMt-QT-mZ7" secondAttribute="leading" id="VmM-Iw-L62"/>
                             <constraint firstItem="Kz7-80-xXB" firstAttribute="top" secondItem="DMt-QT-mZ7" secondAttribute="topMargin" constant="74" id="ZN3-C3-a8n"/>
+                            <constraint firstItem="Kz7-80-xXB" firstAttribute="top" secondItem="miY-yB-fbn" secondAttribute="bottom" constant="54" id="ct0-Sn-YVv"/>
                             <constraint firstItem="RBh-6T-q0w" firstAttribute="leading" secondItem="DMt-QT-mZ7" secondAttribute="leading" constant="20" id="i2U-KF-BUr"/>
+                            <constraint firstItem="RBh-6T-q0w" firstAttribute="top" secondItem="miY-yB-fbn" secondAttribute="bottom" constant="-12" id="lN3-aR-qg2"/>
+                            <constraint firstItem="W1F-zN-O5O" firstAttribute="top" secondItem="gIz-BM-kLO" secondAttribute="bottom" id="ny8-rs-t4H"/>
                             <constraint firstItem="jB3-Dg-Gvl" firstAttribute="top" secondItem="RBh-6T-q0w" secondAttribute="bottom" constant="-1" id="p6K-gp-Slx"/>
+                            <constraint firstItem="W1F-zN-O5O" firstAttribute="top" secondItem="DMt-QT-mZ7" secondAttribute="topMargin" id="rh5-ZL-FcN"/>
                             <constraint firstItem="gIz-BM-kLO" firstAttribute="centerX" secondItem="DMt-QT-mZ7" secondAttribute="centerX" id="smO-hx-zEV"/>
+                            <constraint firstItem="gIz-BM-kLO" firstAttribute="top" secondItem="miY-yB-fbn" secondAttribute="bottom" constant="145" id="uJi-en-cYQ"/>
+                            <constraint firstItem="RBh-6T-q0w" firstAttribute="top" secondItem="miY-yB-fbn" secondAttribute="bottom" constant="8" id="wr1-bP-70G"/>
+                            <constraint firstItem="jB3-Dg-Gvl" firstAttribute="top" secondItem="miY-yB-fbn" secondAttribute="bottom" constant="48" id="xcj-Jc-vYe"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6N6-8X-LM2"/>
+                                <exclude reference="lN3-aR-qg2"/>
+                                <exclude reference="p6K-gp-Slx"/>
+                                <exclude reference="ZN3-C3-a8n"/>
+                                <exclude reference="R8X-gp-WRx"/>
+                                <exclude reference="MPG-be-O5L"/>
+                                <exclude reference="ny8-rs-t4H"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="groupName" destination="RBh-6T-q0w" id="yD9-8n-d5W"/>
                         <outlet property="inviteeEmailAddress" destination="4wj-x1-jM8" id="jWj-Gc-RpH"/>
+                        <outlet property="loadingView" destination="W1F-zN-O5O" id="ap4-5M-wbe"/>
                         <outlet property="sendButton" destination="gIz-BM-kLO" id="605-LU-3H9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxZ-B4-deD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4298" y="1639"/>
+            <point key="canvasLocation" x="3937" y="-701"/>
         </scene>
         <!--User Details View Controller-->
         <scene sceneID="BIe-mK-YfR">
@@ -936,11 +981,12 @@
                         <outlet property="groupPurpose" destination="jub-Zx-eUC" id="9Yq-Hy-Art"/>
                         <outlet property="membersList" destination="m1b-pE-3Ap" id="2uj-tQ-HOm"/>
                         <segue destination="iIA-Da-9Sr" kind="show" identifier="ViewUserDetails" id="pGx-g2-p9J"/>
+                        <segue destination="HeB-jc-j9c" kind="show" identifier="ViewInviteMembersViewController" id="RfB-WN-9He"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57A-Mc-Mu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3178" y="-82"/>
+            <point key="canvasLocation" x="3255" y="-124"/>
         </scene>
         <!--Edit User Details View Controller-->
         <scene sceneID="LSW-dj-RK2">
