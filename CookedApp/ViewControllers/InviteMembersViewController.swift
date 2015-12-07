@@ -13,6 +13,7 @@ class InviteMembersViewController: UIViewController {
     @IBOutlet weak var groupName : UILabel?
     @IBOutlet weak var inviteeEmailAddress : UITextField?
     @IBOutlet weak var sendButton : UIButton?
+    @IBOutlet weak var loadingView : UIView!
     
     var group : Group? {
         didSet {
@@ -22,7 +23,8 @@ class InviteMembersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadingView.hidden = true
+        self.navigationController?.navigationBar.translucent = false
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +36,28 @@ class InviteMembersViewController: UIViewController {
     func refreshInfo()
     {
         groupName?.text = group?.name
+    }
+    
+    @IBAction func sendInvite(sender: UIButton)
+    {
+        loadingView.hidden = false
+        PFCloud.callFunctionInBackground("inviteToGroup", withParameters: ["groupId" : (group?.objectId)!, "inviteeEmail" : (inviteeEmailAddress?.text)!]) { (result: AnyObject?, e : NSError?) -> Void in
+            
+            self.loadingView.hidden = true
+            if (e != nil)
+            {
+                // Error
+                print("Error while sending invite")
+                //TODO: Alert popup?
+            }
+            else
+            {
+                self.inviteeEmailAddress?.text = nil
+                //SUCCESS!
+                //TODO: Alert popup?
+                
+            }
+        }
     }
 
     /*
