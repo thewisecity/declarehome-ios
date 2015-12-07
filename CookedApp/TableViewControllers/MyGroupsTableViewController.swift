@@ -39,7 +39,7 @@ class MyGroupsTableViewController: GroupsTableViewController {
     override func queryForTable() -> PFQuery {
         
         var adminRel:PFRelation?  = PFUser.currentUser()?.relationForKey("adminOf");
-        var memberRel:PFRelation? = PFUser.currentUser()?.relationForKey("adminOf");
+        var memberRel:PFRelation? = PFUser.currentUser()?.relationForKey("memberOf");
         
         var adminOfQuery:PFQuery = (adminRel?.query())!
         var memberOfQuery:PFQuery = (memberRel?.query())!
